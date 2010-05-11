@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header title="MidiDuino Library"/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+			<div class="contenttext">
+<div style="clear:both">
+  </div>
+
+				<div class="product">
+					<div class="producttitle">MIDIDUINO LIBRARY</div><span class="priceright">Advanced MIDI for the Arduino</span>
+					
+					<div class="banner2" align="center"><img src="/images/mididuino-banner-slim.png" alt="Banner"/></div>
+					
+					<p>The MidiDuino library for the Arduino is a port of the MiniCommand functionality. Send, receive and synchronize to MIDI streams, and access the power of the Ruin &amp; Wesen MiniCommand on your Arduino.
+					<br/><br/>
+					Attach your own sensors, build crazy sequencers, and control your physical computing applications using MIDI.<br/><br/>
+					The library is available for all ATmega328 and ATmega168 based Arduinos, support for Arduino Mega is in the works. The additional core allows supertight MIDI synchronization.
+					</p>
+					
+
+					<div style="clear: both">
+  <h5 class="supportlead">DOWNLOADS</h5>
+
+<div class="supportcol1" style="height: 54px">
+  <ul>
+    <li><a href="http://ruinwesen.com/support-files/mididuino/MidiDuino-arduino.zip" title="MidiDuino Library">MidiDuino Library</a></li>
+    <li><a href="http://ruinwesen.com/support-files/mididuino/MidiDuino-arduinomidi-core.zip" title="MidiDuino Arduinomidi Core">MidiDuino ArduinoMidi Core</a></li>
+    <li><a href="http://ruinwesen.com/support-files/mididuino/MidiDuino-examples.zip" title="MidiDuino Examples">MidiDuino Examples</a></li>
+  </ul>
+</div>
+<div class="supportcol2" style="height: 54px">
+  <ul>
+    <li><a href="http://ruinwesen.com/support-files/mididuino/mididuino-documentation.pdf" title="MidiDuino Documentation">MidiDuino Documentation</a></li>
+    <li><a href="http://ruinwesen.com/mididuinofaq" title="MidiDuino FAQ">MidiDuino FAQ</a></li>
+  </ul>					
+</div>
+</div>
+
+
+
+</div>
+		
+			</div>
+			
+<ruinwesen:footer/>
+</div>	
+
+</div>
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+			<div class="contenttext">
+				<h3>Ruin &amp; Wesen Order</h3>
+				<p>Fill out this form to inform us of your interest in a Minicommand or a Monojoystick. The Minicommand is currently shipping, and we will get back to you with more information and exact pricing (with VAT) depending on your location. The Monojoystick prototypes are ready, and we will inform you of the availability of the first batch. </p>
+<p><b>This form is not abinding order for the devices, we will get back to your per email!</b></p>
+			  <ruinwesen:preorder/>
+			</div>
+
+<ruinwesen:footer/>
+</div>	
+
+</div>
+
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

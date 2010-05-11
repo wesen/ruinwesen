@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+			<div class="contenttext">
+				<!-- <h3>Digital</h3> -->
+				<!-- <p>Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna.</p> -->
+				<div class="product">
+					<div class="producttitle">MIDIDUINO ENVIRONMENT</div><span class="priceright">IDE for the MiniCommand</span>
+					
+					<div class="banner2" align="center"><img src="/images/mini-command-banner-slim.png" alt="Banner"/></div>
+					
+					
+					<p>The Minicommand is a very special MIDI controller that can completely be programmed by its user. To do this, download the MidiDuino programming environment. The MidiDuino environment allows you to write your own firmwares by providing some very easy to use and powerful functionality.<br/><br/>
+					You can easily interface with the display and the encoders of the MiniCommand, and use the advanced features of the MidiDuino MIDI library to receive, send and synchronize with MIDI data. Also included is a big library to interface with the Elektron Machinedrum.<br/><br/> Included are an in-depth hands-on tutorial to show you the different features of the MidiDuino environment, as well as a lot of example sketches, and the sourcecode of all the Ruin &amp; Wesen MachineDrum firmwares for the MiniCommand.</p>
+<div style="clear: both">
+  <h5 class="supportlead">DOWNLOADS</h5>
+
+<div class="supportcol1" style="height: 85px">
+  <ul>
+    <li><a href="http://ruinwesen.com/blog?id=396" title="Drummm Blog">Drummm Blog</a></li>
+    <li><a href="http://ruinwesen.com/support-files/Drummm.zip" title="Drummm">Download Drummm!</a></li>
+    <li><a href="http://ruinwesen.com/blog?id=526" title="Synevo Blog">Synevo Blog</a></li>
+    <li><a href="http://ruinwesen.com/support-files/synevo.zip" title="Synevo">Download Synevo!</a></li>
+  </ul>
+</div>
+<div class="supportcol2" style="height: 85px">
+  <ul>
+    <li>Nothing yet!</li>
+
+  </ul>					
+</div>
+</div>
+
+<div style="clear:both">
+  </div>
+
+					</div>
+				<div class="product">
+					<div class="producttitle">MIDIDUINO FAQ</div>
+					<div class="banner2" align="center"><img src="/images/mini-command-banner-slim.png" alt="Banner"/></div>
+
+<h3 class="title">What's the MiniCommand and the MidiDuino software environment?</h3>
+<p>All the software included in the MidiDuino library was originally
+written for the Ruin &amp; Wesen MIDI controllers, the first one available
+being the MiniCommand. These controllers offer a complete hardware
+MIDI Controller development environment, and use a custom version of
+the Arduino environment for programming. The MIDI code written for
+these devices was then ported over to the standard Arduino.<br/><br/>
+
+The development environment used to program the MiniCommand is also
+called MidiDuino, in contrast to the MidiDuino library, which is what
+you have just downloaded. Check out the MiniCommand on
+<a href="http://ruinwesen.com/digital">our digital page</a> .</p>
+
+<h3 class="title">Can I send MIDI directly over the USB serial cable?</h3>
+
+<p>Yes, but you have to use a program to convert the serial data to
+MIDI data. On linux, you have MidiBang
+(http://code.google.com/p/midibang/). Under MacOSX, you can use the
+ardrumo software (http://code.google.com/p/ardrumo/) or Serial MIDI
+Converter
+(http://www.spikenzielabs.com/SpikenzieLabs/Serial_MIDI.html).  Under
+Windows, you can use s2midi (http://www.memeteam.net/2007/s2midi/).
+Be sure to disconnect these programs before uploading a new sketch to
+the Arduino, as they will interfere.</p>
+
+
+<h3 class="title">Why does my Arduino time out when programming?</h3>
+
+<p>Check if the RX wire is connected to the input MIDI
+circuit. Disconnect it before programming.</p>
+
+
+<h3 class="title">Why is setTempo() not doing the right thing?</h3>
+
+<p>We are aware of that and will fix the correct tempo settings in a
+future version.</p>
+
+
+<h3 class="title">Why does my sketch not seem to work when I use the MD library?</h3>
+
+<p>That's because MD uses too much RAM for the 1kB of the Arduino
+Atmega328. Wait for a future release to be able to use the MD
+functionality.</p>
+
+
+<h3 class="title">Why can't I send MIDI in the setup() function?</h3>
+
+<p>You have to enable interrupts before sending data on the serial
+interface, as it uses a buffered output. If you want to
+send MIDI from the setup(), call sei() before sending the MIDI
+data. Be sure to do this at the end of the setup() routine. </p>
+
+				</div>
+
+		
+			</div>
+			
+<ruinwesen:footer/>
+</div>	
+
+</div>
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

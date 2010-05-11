@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header title="About Ruin &amp; Wesen"/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+
+			<div class="contenttext">
+			<h3>About</h3>
+  <p class="info"> Ruin &amp; Wesen produce fine handbuilt musical electronic gear, both
+  analog and digital. They build modular synthesizers, desktop sound
+  effects, stompboxes and MIDI instruments. The marriage of
+  analog sound production and sound shaping with digital
+  microprocessor control makes for amazing instruments. Simple analog
+  effects are turned into a mind-blowingly complex sound generators and processors
+  by allowing parameters to be automated. Combining the best of both worlds,
+  Ruin &amp; Wesen create hands-on audio devices that challenge your brain and your ears.</p>
+
+			<h3>Delivery Address</h3>
+			<p class="address">
+			Ruin &amp; Wesen<br/>
+			c/o Odendahl Systemprogrammierung<br/>
+			Schwanseestrasse 92<br/>
+			99425 Weimar<br/>
+			Germany<br/><br/>
+			Phone: +49 160 966 49792<br/><br/>
+			<b>Please contact us on the phone only in case of emergencies. Email is much easier for us to handle. Thanks!</b><br/>
+			</p>
+
+			<h3>Email contact</h3>
+			<p class="info"><a href="mailto:info@ruinwesen.com">info@ruinwesen.com</a></p>
+			</div>
+
+<ruinwesen:footer/>
+</div>	
+
+</div>
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

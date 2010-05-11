@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+
+  <h2>Wesen Live - 27 September 2008</h2>
+
+<p align="center">
+
+  <!--
+  <embed src="http://player.stickam.com/stickamPlayer/175063480-3816607" type="application/x-shockwave-flash" width="340" height="290" scale="noscale" allowScriptAccess="always"></embed>
+  -->
+  </p>
+  <p>Thanks to everybody who was there, it was super fun! Sadly the video recording option on stickam broke down and didn't save the recording, but here is an mp3 of the liveset: <a href="/support-files/stickam-liveset.mp3">Stickam Liveset</a>. I was not very concentrated so it is quite raw, and when I was chatting I was not changing much, but it was super fun to play. I presented the new feature for the MIDI Command: tweak recording, turn a knob and record it, and it will play back tempo synced to the controlled device. It's a very useful feature, very easy to use, and allows for a host of new possibilities.</p>
+  
+<ruinwesen:footer/>
+</div>	
+
+</div>
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

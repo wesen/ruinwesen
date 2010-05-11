@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+
+<div class="contenttext">
+  <h3>Support</h3>
+  <p>Looking for documentation, firmwares, software? They are all here. Furthermore, for your hacking pleasure, extensive hacking documentation, source code and schematics are provided as well.</p>
+
+<div style="clear: both">
+  <h5 class="supportlead">Digital</h5>
+
+<div class="supportcol1" style="height: 101px">
+  <b class="title">MIDI COMMAND:</b>
+  <ul>
+    <li><a href="/support-files/midi-command.pdf" title="PDF Manual">User Manual</a></li>
+    <li><a href="/support-files/midi-command-firmware.zip" title="Firmware">Latest firmware (0.1)</a></li>
+    <li><a href="/support-files/midi-kontrol-raw.zip" title="Opensource">Simple opensource firmware</a></li>
+    <li><a href="/support-files/midi-command-mappings.zip" title="Ableton Mappings">Ableton Live Mappings</a></li>
+    <li><a href="http://www.youtube.com/watch?v=EQpdwD_oxI8" title="MachineDrum Notes">MachineDrum Notes Video</a></li>    
+  </ul>
+</div>
+<div class="supportcol2" style="height: 101px">
+  <b class="title">MONOJOYSTICK:</b>
+  <ul>
+    <li><a href="/support-files/mono-joystick.pdf" title="PDF Manual">User Manual</a></li>
+    <li><a href="/support-files/mono-joystick-deutsch.pdf" title="PDF Manual">Benutzerhandbuch (German Manual)</a></li>
+    <li><a href="/support-files/mono-joystick-firmware.zip" title="Firmware">Latest firmware (0.1)</a></li>
+    <li><a href="http://www.youtube.com/watch?v=JP5x7jDg73c" title="MonoJoystick Video">MonoJoystick Video</a></li>
+  </ul>					
+</div>
+</div>
+
+<div style="clear: both">
+  <h5 class="supportlead">Software</h5>
+
+<div class="supportcol1" style="height: 83px">
+  <b class="title">JAVA:</b>
+  <ul>
+    <li><a href="/support-files/rwmidi-0.1a.zip" title="rwmidi">RWMidi Processing (zip)</a></li>
+    <li><a href="/support-files/rwmidi/documentation/RWMidi.html" title="rwmidi doc">RWMidi Processing Documentation</a></li>
+    <li><a href="/support-files/MachineDrumNotes-0.1.zip" title="MD Notes Java">MachineDrum Notes Java</a></li>
+        <li><a href="/support-files/MachineDrumNotes.pdf" title="MD Notes doc">MachineDrum Notes Documentation</a></li>
+  </ul>
+</div>
+<div class="supportcol2" style="height: 83px">
+  <b class="TITLE">&nbsp;</b>
+  <ul>
+    <li><a href="/support-files/osxmidispi-0.1a.zip" title="osxmidispi">OSXMidiSPI for OSX (zip)</a></li>
+    </ul>
+</div>
+</div>
+
+<div style="clear: both">
+  <h5 class="supportlead">Music</h5>
+
+<div class="supportcol1" style="height: 70px">
+  <b class="title">RUIN:</b>
+  <ul>
+    <li><a href="http://myspace.com/ruinsite" title="ruin myspace">Myspace</a></li>
+    <li><a href="http://www.archive.org/details/ahlsowend" title="ahlsowend netlabel">Ahlsowend Netlabel</a></li>
+    <li><a href="http://ruinblog.wordpress.com/" title="ruin blog">Ruin Blog</a></li>
+  </ul>
+</div>
+<div class="supportcol2" style="height: 70px">
+  <b class="title">WESEN:</b>
+  <ul>
+    <li><a href="http://myspace.com/daswesen" title="wesen myspace">Myspace</a></li>
+    <li><a href="http://www.youtube.com/watch?v=Q7Zz68LVScQ" title="md mnm liveset">Liveset Video (with MidiCommand)</a></li>
+
+  </ul>					
+</div>
+</div>
+
+  <h5 class="supportlead">Support us!</h5>
+
+<p>Support our free software development with a small donation!
+<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick"/>
+<input type="hidden" name="business" value="manuel@bl0rg.net"/>
+<input type="hidden" name="item_name" value="Ruin and Wesen Development"/>
+<input type="hidden" name="currency_code" value="USD"/>
+<input type="hidden" name="amount" value="5.00"/>
+<input type="image" src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!"/>
+</form>
+</p>
+
+
+</div>
+  
+
+<div class="spacer">  </div>
+<ruinwesen:footer/>
+</div>	
+</div>
+
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

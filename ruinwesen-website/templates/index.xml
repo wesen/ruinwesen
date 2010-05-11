@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+
+<div class="contenttext">
+  <h3>Ruin &amp; Wesen</h3>
+  <p>Welcome to Ruin &amp; Wesen! We are a small but growing company creating digital and analog musical instruments. We build high-quality handmade MIDI controllers, sequencers, analog and digital synthesizers, drum machines and custom creations. We believe that creativity is best served by mixing the analog and the digital worlds. Analog for its humanity, its vivid sonic richness, its hands-on approach. Digital for the ease of use, the reproducibility, its beautiful algorithmic depth and its ease of programming. For us, customization and flexibility is key. This is why our products are DIY compatible, and come with extensible source code, software, schematics and documentation. Because it is YOUR instrument and YOUR music.
+  </p>
+  <h3>Latest Blog Articles:</h3>
+  <ruinwesen:blog-mainpage/>
+</div>
+
+<ruinwesen:footer/>
+</div>	
+
+</div>
+
+<ruinwesen:google-analytics/>
+</body>
+</html>

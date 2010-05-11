@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header title="Ruin &amp; Wesen Digital"/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+			<div class="contenttext">
+				<!-- <h3>Digital</h3> -->
+				<!-- <p>Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna.</p> -->
+				<div class="product">
+					<div class="producttitle">MINICOMMAND</div><span class="priceright"><a href="/preorder">Now shipping! 220 EUR + VAT</a></span>
+					
+					<div class="banner2" align="center"><img src="/images/mini-command-banner.png" alt="Banner"/></div>
+					
+					
+					<p>The Minicommand is a flexible MIDI controller designed to be small and easy to use. In fact, it is a very special MIDI controller, because you can completely change the way it functions: you can use it as a sequencer, as a controller, as a backup tool, as a MIDI merger, as a MIDI clock, etc… The principle behind this is very simple: a MIDI controller contains a small CPU (like the processor in your desktop computer) that runs a single program. This program controls everything the device does: it recognises button presses and knob turns, it displays data on the screen, it receives and sends MIDI messages, and it can read and store files on the internal SD-card. Normally, a MIDI controller has a single firmware that can’t be easily changed (either the manufacturer has to upgrade it, or you have to use a complicated flashing tool), and you are limited to what the manufacturer has programmed into this firmware. <br/>
+
+					<div style="clear: both">
+						<div class="supportcol1" style="height: 104px">
+							<b class="title">MORE LINKS:</b>
+
+							<ul>
+								<li><a href="minicommand" title="Mididuino Environment">Mididuino Environment</a></li>
+								<li><a href="minicommandfaq" title="Minicommand FAQ">Minicommand FAQ</a></li>
+								<li><a href="http://forum.ruinwesen.com" title="Support forum">Support forum</a></li>
+								<li><a href="mailto:info@ruinwesen.com" title="Email contact">Email contact</a></li>
+							</ul>
+						</div>
+
+						<div class="supportcol2" style="height: 104px">
+							<b class="title">VIDEOS:</b>
+							<ul>
+<li><a href="http://ruinwesen.blip.tv/file/3196290/" title="MC Live Setup">Live Setup</a></li>
+<li><a href="http://ruinwesen.blip.tv/file/3195600/" title="Monomachine Live Patch">Monomachine Patch</a></li>
+<li><a href="http://ruinwesen.blip.tv/file/3166970/" title="Pattern Euclid">Pattern Euclid</a></li>
+<li><a href="http://ruinwesen.blip.tv/file/3165224/" title="Patch Manager">Patch Manager</a></li>
+<li><a href="http://ruinwesen.blip.tv/file/3165126/" title="Device and Wesen Live Patch">Wesen Live Patch</a></li>
+</ul>
+</div>
+</div>
+
+					The approach of the Minicommand is the exact opposite of this. You can very easily upload a new firmware over the MIDI connection to the device. Thus, you can easily browse the Ruin &amp; Wesen Firmware repository, choose a firmware you like and want to try, upload it to the device, and get down to business. The Minicommand needs to be connected to a computer just the time it takes to upload the new firmware. After that, you can use it as a standalone MIDI controller.<br/><br/>
+
+<div align="center"><embed src="http://blip.tv/play/hZIngcKwcQA" type="application/x-shockwave-flash" width="500" height="304" allowscriptaccess="always" allowfullscreen="true"></embed><br/><br/>Machinedrum Wesen Live Patch</div><br/>
+
+					
+The firmware possibilities are endless. At the time this document is being written, most firmwares provided by Ruin &amp; Wesen are oriented towards Elektron Machinedrum users, although we provide a simple MIDI Controller firmware as well. We provide a controller that allows for controlling the effect sections of the Machinedrum, that has a very easy MIDI learn functionality displaying parameter names, we have a polyrhythmic sequencer, we have a firmware providing backup snapshots every 30 seconds of the current pattern on the Machinedrum, etc… <br/><br/>
+
+<div align="center"><embed src="http://blip.tv/play/hZIngcK_IwA" type="application/x-shockwave-flash" width="500" height="304" allowscriptaccess="always" allowfullscreen="true"></embed><br/><br/>Machinedrum Pattern Euclid Generator</div><br/>
+
+We also provide a <a href="http://ruinwesen.com/minicommand">complete development environment</a> for the Minicommand, allowing users who want to program their own firmwares to very easily do so. The development environment is based on the Arduino environment, but comes with a full set of Ruin &amp; Wesen libraries designed specifically for the Minicommand. We provide a full featured MIDI stack, allowing you to use the following features:<br/>
+<ul>
+<li>Sending and receiving all kind of MIDI messages (notes, CCs, aftertouch, pitchwheel, NRPN, sysex, etc…)</li>
+<li>Generating and synchronising to MIDI clock streams</li>
+<li>Sequencing events</li>
+<li>Sending and receiving samples over SDS</li>
+</ul>
+<br/>
+
+<div align="center"><embed src="http://blip.tv/play/hZIngcKxUwA" type="application/x-shockwave-flash" width="500" height="304" allowscriptaccess="always" allowfullscreen="true"></embed><br/><br/>Minicommand Patch Manager</div><br/>
+
+Firmwares written by users can very easily be uploaded to the online Ruin &amp; Wesen firmware repository, where they can be accessed and modified by more users. We hope to launch a thriving firmware community for the Minicommands, allowing programmers to share their creations and get feedback, and users who are not programmers to access a huge amount of custom firmwares and help with their development as well.<br/><br/>
+</p>
+					<div class="specs">
+						<div class="col1">
+							<b class="title">SPECIFICATIONS:</b>
+							<ul>
+								<li>4 endless encoders</li>
+								<li>Alphanumerical display</li>	
+								<li>MachineDrum support</li>	
+								<li>microSD storage</li>	
+								<li>2 x MIDI IN, 1 x MIDI OUT</li>	
+								<li>Handmade in Germany</li>	
+								
+							</ul>
+						</div>
+						<div class="col2">
+							<ul>
+								<li>Multiple Firmwares</li>
+								<li>Opensource Development</li>	
+								<li>Mididuino software editor</li>	
+								<li>Extensive MIDI functionality</li>	
+								<li>Midi I/O</li>	
+								<li>Illuminated on/off LCD</li>	
+								 	
+							</ul>
+						</div>
+						<div class="col3">
+							<b class="title">MEDIA</b>
+							<ul>
+								<li><a href="http://www.youtube.com/ruinwesen" title="R &amp; W Youtube Channel">R&amp;W Youtube Channel</a></li>	
+								<li><a href="http://ruinwesen.blip.tv/" title="R &amp; W Blip.tv Channel">R&amp;W Blip.tv Channel</a></li>	
+								<li><a href="http://www.youtube.com/watch?v=Q7Zz68LVScQ" title="Liveset Video">Liveset ft. MidiCommand</a></li>
+								<li><a href="http://ruinwesen.com/minicommand" title="MidiDuino Environment">MidiDuino Environment</a></li>
+								<!-- <div id="purchasebar"><a href="" title="Paypal">CLICK TO PURCHASE</a></div> -->
+								<!-- <a href="" title=""><li>Link/Audio/Video</li></a> -->	
+								<!-- <a href="" title=""><li>Link/Audio/Video</li></a> -->	
+								<!-- <a href="" title=""><li>Link/Audio/Video</li></a> -->	
+							</ul>
+						</div>
+					</div>
+<div class="purchasebar"><a href="/preorder" title="Preorder Button">Click Here to Order</a></div>
+				</div>
+				
+				<div class="product">
+					<div class="producttitle">MONOJOYSTICK</div><span class="priceright">Coming soon...</span>
+					
+					<div class="banner2" align="center"><img src="/images/joystick.png" alt="Banner"/></div>
+					
+					<p>The Monojoystick is a small joystick controller designed as the ideal companion to the Elektron Monomachine SFX-60. Featuring 6 buttons, it allows to intuitively select the controlled track. The controlled parameters are setup in the Monomachine settings panel, just as on the SFX-6 model.<br /><br />
+
+More than just an emulation, the Monojoystick has a few tricks up its sleeve: when pressing multiple track buttons, you can control up to all tracks at once with a single sweet of the joystick, allowing for some sonic madness! To clean up, just revert to the saved kit at the press of a button. Alternatively, you can also revert a single track back to its saved settings. Furthermore, the MonoJoystick finally allows you to have access to CTR-AL tweaking on the MonoMachine. Press a button on the MonoJoystick, turn a knob on the MonoMachine, and all tracks are affected!<br /><br />
+
+To make for an easy live-setup, the Monojoystick features a MIDI merger to allow you to chain additional devices in your controller setup.<br/><br/>
+
+The Monojoystick can also be used for advanced sound design with its organic machine randomization. Select a machine type, tweak a few buttons, and then wiggle the joystick around to incrementally mutate the machine settings.</p>
+					<div class="specs">
+						<div class="col1">
+							<b class="title">SPECIFICATIONS:</b>
+							<ul>
+								<li>Joystick with lever return</li>
+								<li>6 tracks</li>	
+								<li>Revert to Kit</li>	
+								<li>CTR-AL functionality</li>	
+								<li>Genetic machine mutator</li>	
+								<li>Handmade in Germany</li>	
+								
+							</ul>
+						</div>
+						<div class="col2">
+							<ul>
+							        <li>MIDI Merge</li>
+								<li>Opensource Development</li>	
+								<li>Software editor</li>	
+								<li>Power Cable</li>	
+								<li>Midi I/O</li>	
+								 	
+							</ul>
+						</div>
+						<div class="col3">
+							<b class="title">MEDIA</b>
+							<ul>
+								<!-- <li><a href="/support-files/mono-joystick.pdf" title="PDF Manual">User Manual</a></li> -->
+								<li><a href="http://www.youtube.com/watch?v=JP5x7jDg73c" title="MonoJoystick Prototype Video">MonoJoystick Video</a></li>
+								<!-- <div id="purchasebar"><a href="" title="Paypal">CLICK TO PURCHASE</a></div> -->
+								<!-- <a href="" title=""><li>Link/Audio/Video</li></a> -->	
+								<!-- <a href="" title=""><li>Link/Audio/Video</li></a> -->	
+								<!-- <a href="" title=""><li>Link/Audio/Video</li></a> -->	
+							</ul>
+						</div>
+					</div>
+<div class="purchasebar"><a href="/preorder" title="Preorder Button">Click Here to Preorder</a></div>
+				</div>
+		
+			</div>
+			
+<ruinwesen:footer/>
+</div>	
+
+</div>
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

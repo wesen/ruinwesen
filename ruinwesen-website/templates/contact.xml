@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+			<div class="contenttext">
+				<h3>Contact Form</h3>
+				<p>Have a question, suggestion, problem, want to sing praise, or even need some custom work? We welcome all! Please contact us via our contact form. </p>
+			  <ruinwesen:contact/>
+			</div>
+
+<ruinwesen:footer/>
+</div>	
+
+</div>
+
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

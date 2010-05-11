@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header title="Ruin &amp; Wesen Analog"/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+    <ruinwesen:banner/>
+
+			<div class="contenttext">
+			<p>Secret analog generators are being developed in our underground laboratory. Stay tuned for more sonic extravaganza!</p>
+			</div>
+				<div class="product">
+					<div class="producttitle">MIDI SYNTH</div><span class="priceright">UNDER DEVELOPMENT</span>
+					<div class="banner2" align="center"><img src="/images/midi-synth.png" alt="Banner"/></div>
+					
+					<p>The MIDI Synth is a small but powerful digital/analog synthesizer. It has a very gritty, crude and organic 6-bit DAC, and an analog LP/BP filter. It can do chiptune sounds to perfection, but the grittiness is also wonderful for warm analog-style pads. It features 2 powerful LFOs and 2 envelope generators that can be combined in complex ways. These modulators can be used to control both digital and analog parameters. Multiple algorithms are available: 4 voice-polyphonic synth, multi-osc monophonic synth, FM-noise machine, drum box.</p>
+					<div class="specs">
+						<div class="col1">
+							<b class="title">SPECIFICATIONS:</b>
+							<ul>
+								<li>Digital oscillator</li>
+								<li>MIDI I/O (Clock Sync)</li>	
+								<li>Analog Filter</li>	
+								<li>6-bit DAC</li>	
+								<li>Multiple Algorithms</li>	
+								<li>Handmade in Germany</li>	
+								
+							</ul>
+						</div>
+						<div class="col2">
+							<ul>
+								<li>32 patches</li>
+								<li>Opensource Development</li>	
+								<li>Software editor</li>	
+								<li>Power Cable</li>	
+								<li>4 Freely Mappable Knobs</li>	
+								<li>2 LFOs</li>	
+								 	
+							</ul>
+						</div>
+						<div class="col3">
+						</div>
+					</div>
+				</div>
+		
+<ruinwesen:footer/>
+</div>	
+
+</div>
+<ruinwesen:google-analytics/>
+
+</body>
+</html>
