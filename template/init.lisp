@@ -10,14 +10,14 @@
 	(unless (class-instances 'bknr.cron::cron-job)
 		(bknr.cron:make-cron-job "snapshot" 'snapshot-store 0 5 :every :every))
 	
-	(bknr.utils:actor-start (make-instance 'cron-actor)))
+	(bknr.utils:actor-start (make-instance 'bknr.cron::cron-actor)))
 
 (defun publish-template ()
 	(bknr.web:unpublish)
-	(make-instance 'website
+	(make-instance 'bknr.web:website
 		 :name "Template system"
 		 :handler-definitions `()
-		 :authorizer (make-instance 'bknr-authorizer)
+		 :authorizer (make-instance 'bknr.web:bknr-authorizer)
 		 ))
 
 (defun startup (&key foregroundp (port *webserver-port*))
@@ -35,9 +35,9 @@
 	(flet ((start-fn ()
 					 (hunchentoot:start (make-instance 'hunchentoot:acceptor
 																						 :port port
-																						 :taskmaster (make-instance 'hunchentoot:single-threaded-taskmaster
-																																			 :request-dispatcher 'bknr.web:bknr-dispatch
-																																			 :persistent-connections-p nil)))))
+																						 :taskmaster (make-instance 'hunchentoot:single-threaded-taskmaster)
+																						 :request-dispatcher 'bknr.web:bknr-dispatch
+																						 :persistent-connections-p nil))))
 		(if foregroundp
 				(funcall #'start-fn)
 				(bt:make-thread #'start-fn
