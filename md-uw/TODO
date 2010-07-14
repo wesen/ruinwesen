@@ -1,0 +1,27 @@
+X added parenscript
+
+optimization:
+  - make smaller objects not persistent
+  X cache image creation
+  -json for transport of lists
+  
+necessary features:
+  X user session
+  - user registration
+  - generate graphics for kit-effects
+
+- bknr datastore integration for
+       samples
+- sample support
+
+X ajax support in hunchentoot
+X html generation better (using css for layout)
+- hover thing for param locks
+X drag and drop kits
+X drag and drop patterns
+- favorites
+X scriptalicious support in parnescript
+
+- open folder blabla
+- dock better
+- transparent images
