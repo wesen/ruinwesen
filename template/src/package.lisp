@@ -21,7 +21,7 @@
         :bknr.rss
         )
   (:shadowing-import-from :cl-interpol #:quote-meta-chars)
-  (:shadowing-import-from :alexandria #:array-bindex)
+  (:shadowing-import-from :alexandria #:array-index)
   )
 
 (defpackage :template.tags
