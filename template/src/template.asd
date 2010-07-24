@@ -8,7 +8,6 @@
 	:author "template author <foo@foo.com>"
 	:version "0.1"
 	:maintainer "template author <foo@foo.com>"
-	:serial t
 	:depends-on (:cl-interpol
                :cl-ppcre
                :cxml
@@ -29,5 +28,6 @@
 	 (:file "config" :depends-on ("package"))
 	 (:file "init" :depends-on ("config"))
 	 (:file "template" :depends-on ("config"))
-   (:file "tags" :depends-on ("template"))
+   (:file "project" :depends-on ("template"))
+   (:file "tags" :depends-on ("template" "project"))
 	 ))

@@ -14,7 +14,7 @@ ul {
 	line-height: 1.3;
 }
 
-a {
+p.error, a {
 	color: #ba0104;
 }
 
@@ -205,6 +205,11 @@ div.maincontainerbig h2 {
 	margin-right: 20px;
 }
 
+div.message h2 {
+    margin-left: 0;
+    margin-right: 0;
+    }
+
 
 div.maincontainer {
 	width: 940px;
@@ -244,6 +249,20 @@ div#content {
 	margin-right: auto;
 	padding: 20px;
 	padding-bottom: 100px;
+}
+
+div.message {
+	margin-top: 0px;
+	background-color: #eaeaea;
+	border: 1px solid #c2b9b9;
+	width: 916px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	padding-top: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+	overflow: hidden;
 }
 
 div#homebox {

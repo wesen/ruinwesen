@@ -1,5 +1,7 @@
 (in-package :template)
 
+(defparameter *acceptor* nil)
+
 (defun store-startup ()
 	(close-store)
 	(make-instance 'mp-store
@@ -51,12 +53,16 @@
 		(format t "; loading site configuration file~%")
 		(load "site-config.lisp"))
 
+  (when *acceptor*
+    (hunchentoot:stop *acceptor*)
+    (setf *acceptor* nil))
 	(flet ((start-fn ()
-					 (hunchentoot:start (make-instance 'hunchentoot:acceptor
-																						 :port port
-																						 :taskmaster (make-instance 'hunchentoot:single-threaded-taskmaster)
-																						 :request-dispatcher 'bknr.web:bknr-dispatch
-																						 :persistent-connections-p nil))))
+					 (hunchentoot:start (setf *acceptor*
+                                    (make-instance 'hunchentoot:acceptor
+                                                   :port port
+                                                   :taskmaster (make-instance 'hunchentoot:single-threaded-taskmaster)
+                                                   :request-dispatcher 'bknr.web:bknr-dispatch
+                                                   :persistent-connections-p nil)))))
 		(if foregroundp
 				(funcall #'start-fn)
 				(bt:make-thread #'start-fn

@@ -34,7 +34,7 @@
                      (find-store-object id :class 'template::portfolio-project)
                      (random-elts (store-objects-with-class 'template::portfolio-project) 1))))
     (html ((:li :class "projectbox")
-           ((:a :href (format nil "/project/~a" (store-object-id project))
+           ((:a :href (format nil "/project?id=~a" (store-object-id project))
                 :alt (template::portfolio-project-title project))
             ((:img :src (format nil "/image/~a" (store-object-id (template::portfolio-project-box-image project)))
                    :alt (template::portfolio-project-title project)))
@@ -73,8 +73,48 @@
          (dolist (category (template::project-tag-sorted-list))
            (let ((name (string-downcase (car category))))
              (html (:li ((:span :class "category")
-                         ((:a :href (format nil "/projects/~a" name)
+                         ((:a :href (format nil "/projects?tag=~a" name)
                               :alt (format nil "~a projects" name))
                           (:princ-safe name)))
                         ((:span :class "category-count")
                          (:princ-safe (cdr category))))))))))
+
+;; handle the contact form
+
+(defvar *contact-form-errors* nil)
+
+(define-bknr-tag contact-form ()
+  (with-query-params (name email website message submit)
+    (if submit
+        (if (or (null name) (null email) (null message))
+            (let ((*contact-form-errors* "Please fill out the required fields!"))
+              (emit-tag-child 0))
+            (progn
+              (cl-smtp:send-email "localhost" email "manuel"
+                                  (format nil "Portfolio: Message from ~A <~A> (~A)" name email website)
+                                  message)
+              (html ((:div :class "message") 
+                     (:p "Thank you for your message! I will try to respond as fast as possible.")))))
+        (emit-tag-child 0))))
+
+(define-bknr-tag contact-form-errors ()
+  (when *contact-form-errors*
+    (html ((:p :class "error") (:princ-safe *contact-form-errors*)))))
+  
+    
+
+;; login and admin page tags
+(define-bknr-tag login-page ()
+  (if (and (hunchentoot:session-value :login-redirect-uri)
+           (not (bknr.user:anonymous-p (bknr-session-user))))
+      (redirect (puri:render-uri (hunchentoot:session-value :login-redirect-uri) nil))
+      (emit-tag-children)))
+
+
+(define-bknr-tag admin-page ()
+  (if (bknr.web::admin-p (bknr-session-user))
+      (emit-tag-children)
+      (progn
+        (setf (hunchentoot:session-value :login-redirect-uri)
+              (parse-uri (hunchentoot:script-name*)))
+        (redirect "/login"))))

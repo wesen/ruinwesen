@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:bknr="http://bknr.net/"
+      xmlns:ruinwesen="http://ruinwesen.com"
+      xmlns:portfolio="http://portfolio.ruinwesen.com">
+
+  <portfolio:head title="Odendahl Systemprogrammierung - Manuel Odendahl's Portfolio"/>
+
+<portfolio:login-page>
+	<body>
+    <portfolio:header/>
+
+		<div id="content">
+			<img id="golem-logo" alt="Golem" src="static/images/golem-logo.png"/>
+		
+			<div class="maincontainerbig">
+			<div id="contact">
+				<form action="login">
+					<div class="left1col">
+            <div class="contactinfo">
+						<div class="formelt">
+							<label for="__username">Username: <em><img src="static/images/required.png" alt="required"/></em></label>
+							<input type="text" size="30" id="username" name="__username"/>
+						</div>
+						<div class="formelt">
+							<label for="name">Password: <em><img src="static/images/required.png" alt="required"/></em></label>
+							<input type="password" size="30" id="password" name="__password"/>
+						</div>
+           <div class="formelt">
+              <input type="submit" id="submit" value="Login"/>
+            </div>
+              
+						</div> <!-- contactinfo -->
+					</div> <!-- left1col -->
+				</form> <!-- contact -->
+			</div> <!-- contact -->
+			</div> <!-- maincontainerbig -->
+		
+		</div>
+
+    <portfolio:footer/>
+	</body>
+    </portfolio:login-page>
+
+</html>

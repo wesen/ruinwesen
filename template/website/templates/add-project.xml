@@ -7,6 +7,7 @@
 
   <portfolio:head title="Odendahl Systemprogrammierung - Manuel Odendahl's Portfolio"/>
 
+<portfolio:admin-page>
 	<body>
     <portfolio:header/>
 
@@ -18,15 +19,10 @@
 				<div id="mailimg">
 				<img src="static/images/mail.png" alt="mail"/>
 				</div>
-            <portfolio:contact-form>
-				<form action="contact" method="post">
+				<form action="contact">
 					<div class="left1col">
 						<div class="contactinfo">
-				<p>If you want to ask me a question about my <a
-			href="projects.html" alt="projects">projects</a>, or hire me for
-			my <a href="services" alt="services">services</a>, please fill
-			out the following form. Your email address will never be
-			forwarded to third parties.</p>
+				<p>If you want to ask me a question about my <a href="projects.html" alt="projects">projects</a>, or hire me for my <a href="services" alt="services">services</a>, please fill out the following form. Your email address will never be forwarded to third parties.</p>
 						<div class="formelt">
 							<label for="name">Name: <em><img src="static/images/required.png" alt="required"/></em></label>
 							<input type="text" size="30" id="name" name="name"/>
@@ -40,18 +36,14 @@
 							<input type="text" size="30" id="website" name="website"/>
 						</div>
 						</div> <!-- contactinfo -->
-           
 					</div> <!-- left1col -->
 					<div class="right2col">
 						<div class="contactmessage">
 						<textarea id="message" name="message" cols="60" rows="20">Enter your message here...</textarea>
-              <portfolio:contact-form-errors/>
-						<input type="submit" id="submit" name="submit" value="Send the message!"/>						
+						<input type="submit" id="submit" value="Send the message!"/>						
 						</div>
 					</div>
 				</form> <!-- contact -->
-            </portfolio:contact-form>
-          
 			</div> <!-- contact -->
 			</div> <!-- maincontainerbig -->
 		
@@ -59,5 +51,6 @@
 
     <portfolio:footer/>
 	</body>
+    </portfolio:admin-page>
 
 </html>
