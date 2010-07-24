@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+	<title>golem electronics | electronics and programming services</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css"/>
+	<link type="text/css" rel="stylesheet" media="all" href="css/style.css"/>
+	</head>
+
+	<body>
+		<div id="head">
+			<h1><span></span>Odendahl Systemprogrammierung</h1>
+			<ul id="nav">
+				<li><a href="index.html" alt="About">About</a></li>
+				<li><a href="services.html" alt="Services">Services</a></li>
+				<li><a href="projects.html" alt="Projects">Projects</a></li>
+				<li><a href="blog.html" alt="Blog">Blog</a></li>
+				<li><a href="contact.html" alt="Contact">Contact</a></li>
+			</ul>
+		</div>
+
+		<div id="content">
+			<img id="golem-logo" alt="Golem" src="images/golem-logo.png"/>
+		
+		</div>
+		
+		<div id="footer">
+			<div id="twitterbox">
+				<img src="images/twitter-bird.png" alt="Twitter bird"/>
+				<p>Follow me on <a href="http://twitter.com/wesen" alt="wesen on twitter">twitter</a>!</p>
+			</div>
+			<div id="bookbox">
+				<img src="images/arduino-book.png" alt="Arduino Book"/>
+				<p>Buy our book on <a href="http://www.amazon.de/Arduino-Physical-Computing-Designer-oreillys/dp/3897218933" alt="Arduino Buch auf Amazon">amazon</a>!</p>
+			</div>
+			<p id="copyright">(c) 2010 Manuel Odendahl
+			<br/><a href="legal.html" alt="Legal information">legal / impressum</a></p>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:bknr="http://bknr.net/"
+      xmlns:ruinwesen="http://ruinwesen.com"
+      xmlns:portfolio="http://portfolio.ruinwesen.com">
+
+  <portfolio:head title="Odendahl Systemprogrammierung - Manuel Odendahl's Portfolio"/>
+
+	<body>
+    <portfolio:header/>
+
+		<div id="content">
+			<img id="golem-logo" alt="Golem" src="static/images/golem-logo.png"/>
+		
+			<div class="maincontainerbig">
+
+			<div id="homebox"><img id="homeimage" src="static/images/golem-main-image.png" alt="Golem Electronics Circus"/>
+			<div class="text">
+				<p>This is the portfolio of Manuel Odendahl.</p>
+				<p>My background is in <a href="#" alt="programming">computer science</a> and software engineering, later on adding <a href="#" alt="music">music</a> and <a href="#" alt="electronics">electronics</a> to my skills.</p>
+				<p>I specialize in the creative combination of <a href="#" alt="electronics">electronics</a>, <a href="#" alt="programming">programming</a> and <a href="#" alt="art">art</a>, approaching projects with incredible dedication and intensity in order to create something beautiful.</p>
+				<p>I provide consultation <a href="#" alt="services">services</a> for creative projects, as well as custom hardware and software design.</p>
+			</div>
+			</div>
+		
+			<div id="random-projects">
+				<h2>Random projects</h2>
+        <portfolio:project-list count="3" random="true"/>
+			</div>
+			</div>
+		</div>
+
+    <portfolio:footer/>
+	</body>
+
+</html>

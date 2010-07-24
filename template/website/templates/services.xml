@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:bknr="http://bknr.net/"
+      xmlns:ruinwesen="http://ruinwesen.com"
+      xmlns:portfolio="http://portfolio.ruinwesen.com">
+
+  <portfolio:head title="Odendahl Systemprogrammierung - Manuel Odendahl's Portfolio"/>
+
+	<body>
+    <portfolio:header/>
+
+		<div id="content">
+			<img id="golem-logo" alt="Golem" src="static/images/golem-logo.png"/>
+		
+			<div class="maincontainerbig">
+			<div id="bigservices">
+			<div class="servicebox">
+			<img alt="programming services" src="static/images/programming-services.png"/>
+			<p>I provide programming services in a wide range of programming languages and domains. I specialize in:</p>
+			<ul>
+				<li>embedded C and C++ (AVR, ARM)</li>
+				<li>Arduino, Processing</li>
+				<li>USB (host, device and driver development)</li>
+				<li>Java</li>
+				<li>Common Lisp</li>
+				<li>Python</li>
+				<li>Unix System Programming (C, shell, Perl)</li>
+				<li>Linux device drivers</li>
+				<li>System design and integration</li>
+			</ul>
+			</div>
+			
+			<div class="servicebox">
+			<img alt="Electronics services" src="static/images/electronics-services.png"/>
+			<p>I provide electronics design services, specializing in microcontroller and sensor interfacing, as well as human-computer interface design:</p>
+				<ul>
+				<li>PCB design and manufacture</li>
+				<li>Electronics design and prototyping</li>
+				<li>Interface design</li>
+				<li>Music controller and synthesizer design</li>
+				<li>MIDI</li>
+				<li>DMX</li>
+				<li>USB</li>
+			</ul>
+			</div>
+			
+			<div class="servicebox">
+			<img alt="Creative services" src="static/images/creative-services.png"/>
+			<p>I am a very creative person, and I love to combine my in-depth technical knowledge with creative fields such as music, visual arts and installation art. I specialize in:</p><br/>
+			<ul>
+				<li>Workshops (Arduino, Processing, Electronics, Programming)</li>
+				<li>Installation Art</li>
+				<li>Sound design</li>
+				<li>Live music performances</li>
+				<li>Interface design for musicians and lighting artists</li>
+			</ul>
+			</div>
+			</div> <!-- bigservices -->
+			
+			<div id="smallservices">
+			<div class="servicebox">
+			<img alt="Languages" src="static/images/languages.png"/>
+			<p>I am half-french half-german, and am fluent in french, german and english.</p>
+			</div>
+			
+			<div class="servicebox">
+			<img alt="train-rides" src="static/images/bc100.png"/>
+			<p>I am based in Weimar, Germany, close to Berlin, but I am available for work everywhere in Germany, France and Switzerland. I love to work on commute rides.</p>
+			</div>
+			
+			<div class="servicebox">
+			<img alt="Tools" src="static/images/tools.png"/>
+			<p>I have a well-furnished workshop, and can provide a lot of useful tools such as oscilloscope, USB-analyzer, CNC-mill, soldering station, and lots of electronic components to quickly create prototypes.</p>
+			</div>
+			</div> <!-- smallservices -->
+			
+			</div> <!-- services -->
+		</div> <!-- content -->
+		
+		
+    <portfolio:footer/>
+	</body>
+
+</html>

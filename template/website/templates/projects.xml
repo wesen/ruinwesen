@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:bknr="http://bknr.net/"
+      xmlns:ruinwesen="http://ruinwesen.com"
+      xmlns:portfolio="http://portfolio.ruinwesen.com">
+
+  <portfolio:head title="Odendahl Systemprogrammierung - Manuel Odendahl's Portfolio"/>
+
+	<body>
+    <portfolio:header/>
+
+		<div id="content">
+			<img id="golem-logo" alt="Golem" src="static/images/golem-logo.png"/>
+		
+			<div class="maincontainerbig">
+			<div class="left2col">
+			<div id="projects">
+				<h2>Random projects</h2>
+        <portfolio:project-list count="8" random="true"/>
+			</div> <!-- projects -->
+			</div> <!-- left2col -->
+			
+			<div class="right1col">
+			<div id="category-nav">
+			<h2>Categories</h2>
+      <portfolio:category-list/>
+			</div> <!-- category-nav -->
+			</div> <!-- right1col -->
+		
+			</div> <!-- maincontainerbig -->
+		</div>
+
+    <portfolio:footer/>
+	</body>
+
+</html>

@@ -20,7 +20,8 @@
                :cl-gd
                :unit-test
                :yason
-               :cl-pdf)
+               :cl-pdf
+               :cybertiggyr-time)
 
   
 	:components

@@ -19,8 +19,8 @@
 		 :handler-definitions
      `(
        ;; administration handlers
-;;       ("/admin" bknr.web:admin-handler)
-;;       ("/user"  bknr.web:user-handler)
+       user
+       images
 
        ;; static file serving
        ("/static" bknr.web:directory-handler
@@ -31,14 +31,15 @@
        ("/" bknr.web:template-handler
             :default-template "index"
             :catch-all t
-            :destionation ,(namestring (merge-pathnames "templates/" *website-directory*))
+            :destination ,(namestring (merge-pathnames "templates/" *website-directory*))
             :command-packages (("http://bknr.net" . :bknr.web)
-                               ("http://ruinwesen.com" . :template.tags))))
+                               ("http://portfolio.ruinwesen.com" . :template.tags))))
        
 		 :authorizer (make-instance 'bknr.web:bknr-authorizer)
 		 ))
 
 (defun startup (&key foregroundp (port *webserver-port*))
+  (setq cxml::*default-catalog* '("/home/manuel/share/xml/catalog"))
 	(setf hunchentoot:*hunchentoot-default-external-format*
 				(flex:make-external-format :utf-8 :eol-style :lf))
 	(ensure-directories-exist

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+	<title>golem electronics | electronics and programming services</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css"/>
+	<link type="text/css" rel="stylesheet" media="all" href="css/style.css"/>
+	</head>
+
+	<body>
+		<div id="head">
+			<h1><span></span>Odendahl Systemprogrammierung</h1>
+			<ul id="nav">
+				<li><a href="index.html" alt="About">About</a></li>
+				<li><a href="services.html" alt="Services">Services</a></li>
+				<li><a href="projects.html" alt="Projects">Projects</a></li>
+				<li><a href="blog.html" alt="Blog">Blog</a></li>
+				<li class="selected">Contact</li>
+			</ul>
+		</div>
+
+		<div id="content">
+			<img id="golem-logo" alt="Golem" src="images/golem-logo.png"/>
+		
+			<div class="maincontainerbig">
+			<div id="contact">
+				<div id="mailimg">
+				<img src="images/mail.png" alt="mail"/>
+				</div>
+				<form action="contact">
+					<div class="left1col">
+						<div class="contactinfo">
+				<p>If you want to ask me a question about my <a href="projects.html" alt="projects">projects</a>, or hire me for my <a href="services" alt="services">services</a>, please fill out the following form. Your email address will never be forwarded to third parties.</p>
+						<div class="formelt">
+							<label for="name">Name: <em><img src="images/required.png" alt="required"/></em></label>
+							<input type="text" size="30" id="name" name="name"/>
+						</div>
+						<div class="formelt">
+							<label for="name">Email: <em><img src="images/required.png" alt="required"/></em></label>
+							<input type="text" size="30" id="email" name="email"/>
+						</div>
+						<div class="formelt">
+							<label for="website">Website:</label>
+							<input type="text" size="30" id="website" name="website"/>
+						</div>
+						</div> <!-- contactinfo -->
+					</div> <!-- left1col -->
+					<div class="right2col">
+						<div class="contactmessage">
+						<textarea id="message" name="message" cols="60" rows="20">Enter your message here...</textarea>
+						<input type="submit" id="submit" value="Send the message!"/>						
+						</div>
+					</div>
+				</form> <!-- contact -->
+			</div> <!-- contact -->
+			</div> <!-- maincontainerbig -->
+		
+		</div>
+		
+		<div id="footer">
+			<div id="twitterbox">
+				<img src="images/twitter-bird.png" alt="Twitter bird"/>
+				<p>Follow me on <a href="http://twitter.com/wesen" alt="wesen on twitter">twitter</a>!</p>
+			</div>
+			<div id="bookbox">
+				<img src="images/arduino-book.png" alt="Arduino Book"/>
+				<p>Buy our book on <a href="http://www.amazon.de/Arduino-Physical-Computing-Designer-oreillys/dp/3897218933" alt="Arduino Buch auf Amazon">amazon</a>!</p>
+			</div>
+			<p id="copyright">(c) 2010 Manuel Odendahl
+			<br/><a href="legal.html" alt="Legal information">legal / impressum</a></p>
+		</div>
+	</body>
+
+</html>

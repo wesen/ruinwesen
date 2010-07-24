@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+	<title>golem electronics | electronics and programming services</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css"/>
+	<link type="text/css" rel="stylesheet" media="all" href="css/style.css"/>
+	</head>
+
+	<body>
+		<div id="head">
+			<h1><span></span>Odendahl Systemprogrammierung</h1>
+			<ul id="nav">
+				<li><a href="index.html" alt="About">About</a></li>
+				<li><a href="services.html" alt="Services">Services</a></li>
+				<li class="selected">Projects</li>
+				<li><a href="blog.html" alt="Blog">Blog</a></li>
+				<li><a href="contact.html" alt="Contact">Contact</a></li>
+			</ul>
+		</div>
+
+		<div id="content">
+			<img id="golem-logo" alt="Golem" src="images/golem-logo.png"/>
+
+			<div class="maincontainerbig">
+			<div class="left2col">
+				<div id="project">
+					<img alt="html-match project" src="images/projects/html-match.png"/>
+					<div class="project-title">
+						<h2>HTML-MATCH</h2>
+						<div class="project-tags">
+							<a href="projects.html" alt="common-lisp projects">common-lisp</a>, <a href="projects.html" alt="common-lisp projects">programming</a>, <a href="projects.html" alt="common-lisp projects">web</a>
+						</div>
+					</div>
+					<div class="project-date"><p>2005</p></div>
+					<div class="project-description">
+					<p>I am very fond of crawling, spidering, parsing and analyzing web sites. I converted the pattern matcher shown in Peter Norvig's book "Paradigms of Artificial Intelligence Programming" to work on HTML patterns, making it much easier to analyze website in Common Lisp. Common Lisp in general is a very handy language when working with structured data like XML or HTML, as the inherent list orientation suits data trees like the DOM tree very well.</p>
+					<p>The html-match software is now part of the <a href="http://bknr.net">bknr web framework</a>.</p>
+					</div>
+				</div>
+				<a href="project.html" alt="previous common-lisp project" id="prevlink">previous common-lisp project</a>
+				<a href="project.html" alt="next common-lisp project" id="nextlink">next common-lisp project</a>
+			</div> <!-- left2col -->
+			
+			<div class="right1col">
+				<div id="category-nav">
+				<h2>Categories</h2>
+			
+				<ul id="categories">
+						<li><span class="category"><a href="projects" alt="common-lisp projects">common-lisp</a></span> <span class="category-count">15</span></li>
+						<li><span class="category"><a href="projects" alt="common-lisp projects">programming</a></span> <span class="category-count">30</span></li>
+						<li><span class="category"><a href="projects" alt="common-lisp projects">web</a></span> <span class="category-count">2</span></li>
+						<li><span class="category"><a href="projects" alt="common-lisp projects">electronics</a></span> <span class="category-count">15</span></li>
+						<li><span class="category"><a href="projects" alt="common-lisp projects">avr</a></span> <span class="category-count">15</span></li>
+						<li><span class="category"><a href="projects" alt="common-lisp projects">midi</a></span> <span class="category-count">10</span></li>
+					</ul>
+				</div> <!-- category-nav -->
+			</div> <!-- right1col -->
+		
+			</div> <!-- maincontainerbig -->		
+		</div>
+		
+		<div id="footer">
+			<div id="twitterbox">
+				<img src="images/twitter-bird.png" alt="Twitter bird"/>
+				<p>Follow me on <br/><a href="http://twitter.com/wesen" alt="wesen on twitter">twitter</a>!</p>
+			</div>
+			<div id="bookbox">
+				<img src="images/arduino-book.png" alt="Arduino Book"/>
+				<p>Buy our book on <a href="http://www.amazon.de/Arduino-Physical-Computing-Designer-oreillys/dp/3897218933" alt="Arduino Buch auf Amazon">amazon</a>!</p>
+			</div>
+			<p id="copyright">(c) 2010 Manuel Odendahl
+			<br/><a href="legal.html" alt="Legal information">legal / impressum</a></p>
+		</div>
+	</body>
+
+</html>

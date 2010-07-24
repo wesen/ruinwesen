@@ -29,6 +29,13 @@
         :cl-user
         :bknr.web
         :xhtml-generator
+        :bknr.datastore
+        :bknr.indices
+        :bknr.images
+        :bknr.user
+        :hunchentoot
+        :cl-interpol
+        :cl-ppcre
         :bknr.utils
         :template)
   (:shadowing-import-from :cl-interpol #:quote-meta-chars))

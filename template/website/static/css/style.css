@@ -1,0 +1,554 @@
+body { 
+	background-color: #333333; 
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #333333;
+}
+
+p {
+	line-height: 1.3;
+	margin-bottom: 12px;
+}
+
+ul {
+	line-height: 1.3;
+}
+
+a {
+	color: #ba0104;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* header */
+
+div#head {
+	position: relative;
+	background-color: #eaeaea;
+	width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	padding-top: 10px;
+	border-bottom: 1px solid #333333;
+	overflow: hidden;
+}
+
+div#head h1 {
+	position: relative;
+	width: 720px;
+	height: 45px;
+	overflow: hidden;
+	margin-left: 10px;
+}
+
+/* 
+ * hide the h1 text so that people without images enabled in their browser can see the text,
+ * rather than use the text-indent method.
+ */
+div#head h1 {
+    text-indent: -9999px;
+    }
+div#head h1 span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(../images/odendahl-systemprogrammierung-logo.png);
+	background-repeat: no-repeat;
+}
+
+/** navigation */
+#nav {
+	width: 940px;
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style-type: none;
+	line-height: 1;
+}
+
+#nav li {
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#nav a {
+	float: left;
+	margin-left: 2px;
+	margin-right: 10px;
+	margin-top: 16px;
+
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 6px;
+	padding-top: 4px;
+
+	text-align: center;
+	text-decoration: none;
+	font-size: 22px;
+	color: #333333;	
+}
+
+#nav li.selected {
+	float: left;
+	margin-left: 2px;
+	margin-right: 10px;
+	margin-top: 16px;
+
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-bottom: 6px;
+	padding-top: 4px;
+
+	text-align: center;
+	font-size: 22px;
+	background-color: #333333;
+	color: white;
+}
+
+#nav a:hover {
+	color: #ba0104;
+}
+
+
+img#golem-logo {
+	position: absolute;
+	top: -108px;
+	right: 130px;
+}
+
+/* footer */
+div#footer {
+	border-top: 1px solid #333333;
+	width: 960px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 20px;
+	height: 80px;
+}
+
+div#footer div {
+float: left;
+	width: 300px;
+	background-color: #eaeaea;
+	margin-right: 10px;
+	margin-left: 10px;
+	height: 50px;
+}
+
+div#twitterbox, div#bookbox {
+	position: relative;
+}
+
+div#twitterbox img {
+	position: absolute;
+	top: -40px;
+	left: 10px;
+}
+
+div#twitterbox p {
+	float: left;
+	margin-left: 100px;
+	padding-top: 5px;
+}
+
+div#bookbox img {
+	position: absolute;
+	top: -50px;
+	left: 10px;
+}
+
+div#bookbox p {
+	width: 160px;
+	float: left;
+	margin-left: 110px;
+	padding-top: 5px;
+}
+
+div#footer p#copyright {
+	color: white;
+	float: right;
+	padding-right: 10px;
+	font-size: 12px;
+}
+
+
+/* layout elements */
+h2 {
+	font-size: 24px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #333333;
+	margin: 0px;
+	margin-bottom: 12px;
+}
+
+div.maincontainerbig {
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+div.maincontainerbig h2 {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
+div.maincontainer {
+	width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	overflow: hidden;
+}
+
+div.left2col {
+	width: 660px;
+	float: left;
+}
+
+div.right1col {
+	width: 300px;
+	float: right;
+}
+
+div.right2col {
+	width: 660px;
+	float: right;
+}
+
+div.left1col {
+	width: 300px;
+	float: left;
+}
+
+/* main content */
+
+div#content {
+	position: relative;
+	background-color: white;
+	width: 1020px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	padding-bottom: 100px;
+}
+
+div#homebox {
+	margin-top: 0px;
+	background-color: #eaeaea;
+	border: 1px solid #c2b9b9;
+	width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+div#homebox img#homeimage {
+	float: left;
+	border: 1px solid #e9dede;
+	margin: 12px;
+}
+
+div#homebox div.text {
+	width: 280px;
+	float:right;
+	padding-top: 12px;
+	padding-right: 18px;
+	padding-left: 8px;
+}
+
+/* random projects */
+ul.projectlist {
+	padding: 0;
+	margin: 0 0 10px 0;
+}
+
+ul.projectlist li {
+	float: left;
+	width: 298px;
+	margin-left: 20px;
+	background-color: #eaeaea;
+	border: 1px solid #c2b9b9;
+	display: inline;
+	margin-bottom: 20px;
+}
+
+ul.projectlist li img {
+	margin: 12px;
+	border: 1px solid #e9dede;
+}
+
+ul.projectlist li p.legend {
+	margin-left: 12px;
+	margin-bottom: 12px;
+}
+
+/* project description */
+
+div#project {
+	background-color: #eaeaea;
+	border: 1px solid #c2b9b9;
+	margin-left: 20px;
+	padding: 12px;
+	margin-right: 20px;
+}
+
+div#project img {
+	border: 1px solid #e9dede;
+}
+
+div.project-title {
+	border-bottom: 1px solid #333333;
+	position: relative;
+	overflow: hidden;
+	margin-top: 14px;
+}
+
+div.project-title h2 {
+	float: left;
+	margin: 0px;
+	padding-bottom: 4px;	
+	border-bottom: none;
+}
+
+div.project-date {
+	overflow: hidden;
+	padding: 0;
+	margin-top: 4px;
+	margin-bottom: 16px;
+}
+
+div.project-date p {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+div.project-title div.project-tags {
+	float: right;
+	position: absolute;
+	right: 0;
+	bottom: 6px;
+}
+
+a#prevlink {
+	float:left;
+	margin-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+a#nextlink {
+	float:right;
+	margin-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+/* blog */
+
+/* blog description */
+
+div#blog {
+	background-color: #eaeaea;
+	border: 1px solid #c2b9b9;
+	margin-left: 20px;
+	padding: 12px;
+	margin-right: 20px;
+	margin-bottom: 16px;
+}
+
+div#blog img {
+	border: 1px solid #e9dede;
+	margin-bottom: 16px;
+}
+
+div.blog-title {
+	border-bottom: 1px solid #333333;
+	position: relative;
+	overflow: hidden;
+	margin-top: 14px;
+}
+
+div.blog-title h2 {
+	float: left;
+	margin: 0px;
+	padding-bottom: 4px;	
+	border-bottom: none;
+}
+
+div.blog-date {
+	overflow: hidden;
+	padding: 0;
+	margin-top: 4px;
+	margin-bottom: 16px;
+}
+
+div.blog-date p {
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+
+div.blog-title div.blog-tags {
+	float: right;
+	position: absolute;
+	right: 0;
+	bottom: 6px;
+}
+
+/* services */
+div#bigservices, div#smallservices {
+	overflow: hidden;
+	display: block;
+	float: left;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+div#bigservices {
+	height: 660px;
+}
+
+div#smallservices {
+	height: 300px;
+}
+
+
+div.servicebox {
+	float: left;
+	width: 298px;
+	margin: 0 0 10px 0;
+	margin-left: 20px;
+	background-color: #eaeaea;
+	border: 1px solid #c2b9b9;
+	display: block;
+	height: 100%;
+}
+
+div.servicebox img {
+	margin: 12px;
+	border: 1px solid #e9dede;
+}
+
+div.servicebox p, div.servicebox ul {
+	margin-left: 16px;
+	margin-right: 12px;
+}
+
+div.servicebox ul li {
+	margin-left: 18px;
+	margin-bottom: 4px;
+}
+
+div.servicebox ul {
+	list-style-type: circle;
+}
+
+/* category nav list */
+div#category-nav h2 {
+	margin: 0px 20px 10px 0px;
+}
+div#category-nav ul {
+	margin-right: 20px;
+	margin-bottom: 16px;
+}
+
+div#category-nav li {
+	overflow: hidden;
+	padding-bottom: 6px;
+}
+
+span.category {
+	float: left;
+}
+
+span.category-count {
+	float: right;
+}
+
+/* contact */
+
+div#contact {
+	overflow: hidden;
+}
+
+div#contact label {
+	display: block;
+	padding-bottom: 6px;
+	width: 100%;
+}
+
+div#contact div.formelt {
+	margin-right: 12px;
+	margin-bottom: 12px;
+}
+
+div#contact div.formelt input {
+	width: 100%;
+	margin-right: 20px;
+}
+
+div#contact label em {
+	float: right;
+}
+
+div#contact textarea {
+	display: block;
+	width: 588px;
+	margin-bottom: 12px;
+}
+
+div#contact div.contactinfo {
+	width: 274px;
+	background-color: #eaeaea;
+	border: 1px solid #c2b9b9;
+	margin-left: 20px;
+	padding: 12px;
+}
+
+div#contact div.contactmessage {
+	float: right;
+	padding: 12px;
+	width: 594px;
+	background-color: #eaeaea;
+	border: 1px solid #c2b9b9;
+	margin-right: 20px;
+}
+
+div#contact div#mailimg {
+	margin-top: 12px;
+	background-color: #eaeaea;
+	border: 1px solid #c2b9b9;
+	width: 938px;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px;
+	overflow: hidden;
+	margin-bottom: 12px;
+}
+
+div#mailimg img {
+	border: 1px solid #e9dede;
+	background-color: white;
+	padding-left: 12px;
+	padding-right: 12px;
+	margin: 12px;
+}
+
