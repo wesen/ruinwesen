@@ -1,7 +1,7 @@
 (in-package :template)
 
 (define-persistent-class portfolio-project ()
-  ((title :update)
+  ((title :update :index-type string-unique-index :index-reader get-project-with-title)
    (tags :update :initform nil
          :index-type hash-list-index
          :index-reader get-projects-with-tag
@@ -17,7 +17,13 @@
 (defun project-tag-sorted-list ()
   (let* ((tags (get-project-tags))
          (count-list (mapcar #'(lambda (tag) (cons tag (project-tag-count tag))) tags)))
-    (sort count-list #'< :key #'cdr)))
+    (sort count-list #'> :key #'cdr)))
+
+(defun get-projects-with-tag-sorted (tag)
+  (when (stringp tag)
+    (setf tag (make-keyword-from-string tag)))
+  (let ((projects (get-projects-with-tag tag)))
+    (sort (copy-tree projects) #'> :key #'portfolio-project-time)))
 
 #|
 (make-instance 'portfolio-project

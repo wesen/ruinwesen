@@ -15,10 +15,7 @@
 		
 			<div class="maincontainerbig">
 			<div class="left2col">
-			<div id="projects">
-				<h2>Random projects</h2>
-        <portfolio:project-list count="8" random="true"/>
-			</div> <!-- projects -->
+        <portfolio:projects/>
 			</div> <!-- left2col -->
 			
 			<div class="right1col">

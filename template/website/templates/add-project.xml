@@ -19,31 +19,42 @@
 				<div id="mailimg">
 				<img src="static/images/mail.png" alt="mail"/>
 				</div>
-				<form action="contact">
+        <portfolio:add-project-form>
+				<form action="add-project" method="post" enctype="multipart/form-data">
 					<div class="left1col">
 						<div class="contactinfo">
-				<p>If you want to ask me a question about my <a href="projects.html" alt="projects">projects</a>, or hire me for my <a href="services" alt="services">services</a>, please fill out the following form. Your email address will never be forwarded to third parties.</p>
 						<div class="formelt">
-							<label for="name">Name: <em><img src="static/images/required.png" alt="required"/></em></label>
-							<input type="text" size="30" id="name" name="name"/>
+							<label for="title">Title: <em><img src="static/images/required.png" alt="required"/></em></label>
+							<input type="text" size="30" id="title" name="title"/>
 						</div>
 						<div class="formelt">
-							<label for="name">Email: <em><img src="static/images/required.png" alt="required"/></em></label>
-							<input type="text" size="30" id="email" name="email"/>
+							<label for="tags">Tags (space-separated): <em><img src="static/images/required.png" alt="required"/></em></label>
+							<input type="text" size="30" id="tags" name="tags"/>
 						</div>
 						<div class="formelt">
-							<label for="website">Website:</label>
-							<input type="text" size="30" id="website" name="website"/>
+							<label for="time">Time (YYYY-MM-DD): </label>
+							<input type="text" size="30" id="time" name="time"/>
+						</div>
+						<div class="formelt">
+							<label for="file">File: <em><img src="static/images/required.png" alt="required"/></em></label>
+							<input type="file" size="30" id="file" name="file"/>
+						</div>
+						<div class="formelt">
+							<label for="boxfile">Box File: <em><img src="static/images/required.png" alt="required"/></em></label>
+							<input type="file" size="30" id="boxfile" name="boxfile"/>
 						</div>
 						</div> <!-- contactinfo -->
 					</div> <!-- left1col -->
 					<div class="right2col">
 						<div class="contactmessage">
-						<textarea id="message" name="message" cols="60" rows="20">Enter your message here...</textarea>
-						<input type="submit" id="submit" value="Send the message!"/>						
+						<textarea id="description" name="description" cols="60"	rows="20">  </textarea>
+              <portfolio:add-project-form-errors/>
+
+              <input type="submit" id="submit" value="Add the	project!" name="submit"/>						
 						</div>
 					</div>
 				</form> <!-- contact -->
+          </portfolio:add-project-form>
 			</div> <!-- contact -->
 			</div> <!-- maincontainerbig -->
 		

@@ -32,7 +32,7 @@
 							<input type="text" size="30" id="name" name="name"/>
 						</div>
 						<div class="formelt">
-							<label for="name">Email: <em><img src="static/images/required.png" alt="required"/></em></label>
+							<label for="email">Email: <em><img src="static/images/required.png" alt="required"/></em></label>
 							<input type="text" size="30" id="email" name="email"/>
 						</div>
 						<div class="formelt">

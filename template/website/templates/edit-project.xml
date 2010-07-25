@@ -7,6 +7,7 @@
 
   <portfolio:head title="Odendahl Systemprogrammierung - Manuel Odendahl's Portfolio"/>
 
+<portfolio:admin-page>
 	<body>
     <portfolio:header/>
 
@@ -14,21 +15,20 @@
 			<img id="golem-logo" alt="Golem" src="static/images/golem-logo.png"/>
 		
 			<div class="maincontainerbig">
-			<div class="left2col">
-        <portfolio:project/>
-			</div> <!-- left2col -->
-			
-			<div class="right1col">
-				<div id="category-nav">
-				<h2>Categories</h2>
-          <portfolio:category-list/>
-				</div> <!-- category-nav -->
-			</div> <!-- right1col -->
+			<div id="contact">
+				<div id="mailimg">
+				<img src="static/images/mail.png" alt="mail"/>
+				</div>
+        <portfolio:add-project-form>
+        <portfolio:edit-project-form/>
+        </portfolio:add-project-form>
+			</div> <!-- contact -->
+			</div> <!-- maincontainerbig -->
 		
-			</div> <!-- maincontainerbig -->		
 		</div>
 
     <portfolio:footer/>
 	</body>
+    </portfolio:admin-page>
 
 </html>
