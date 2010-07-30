@@ -1,7 +1,9 @@
 (in-package :template)
 
 (define-persistent-class portfolio-project ()
-  ((title :update :index-type string-unique-index :index-reader get-project-with-title)
+  ((title :update
+          :index-type string-unique-index
+          :index-reader get-project-with-title)
    (tags :update :initform nil
          :index-type hash-list-index
          :index-reader get-projects-with-tag
@@ -36,3 +38,30 @@
 |#
 
 
+(defun slurp-file (file)
+  (chunga:trim-whitespace
+   (with-output-to-string (out)
+     (with-open-file (s file)
+       (loop for line = (read-line s nil 'foo)
+          until (eq line 'foo)
+          do (princ line out))))))
+
+(defun import-projects ()
+  (loop for file in (directory "/home/manuel/portfolio-images/txts/*.txt")
+     for filename = (pathname-name file)
+       for tag-file = (make-pathname :defaults #p"/home/manuel/portfolio-images/txts/tags/bla.txt"
+                                     :name filename)
+     for image-file = (make-pathname :defaults #p"/home/manuel/portfolio-images/full/bla.png"
+                                     :name filename)
+       for time-file = (make-pathname :defaults #p"/home/manuel/portfolio-images/txts/times/bla.txt"
+                                      :name filename)
+       for time = (cybertiggyr-time:parse-time (slurp-file time-file))
+       for boximage-file = (make-pathname :defaults #p"/home/manuel/portfolio-images/boxes/bla.png"
+                                        :name (format nil "~a-box" filename))
+       for description = (slurp-file file)
+       for title = (string-upcase filename)
+       for tags = (remove :|| (remove :|TAGS:| (make-tags-from-string (slurp-file tag-file))))
+       unless (not (null (get-project-with-title title)))
+     collect (let ((image (import-image image-file :name title))
+                   (box-image (import-image boximage-file :name (format nil "~A-BOX" title))))
+               (make-instance 'portfolio-project :title title :tags tags :description description :time time :image image :box-image box-image))))

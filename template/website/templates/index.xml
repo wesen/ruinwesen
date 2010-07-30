@@ -18,9 +18,9 @@
 			<div id="homebox"><img id="homeimage" src="static/images/golem-main-image.png" alt="Golem Electronics Circus"/>
 			<div class="text">
 				<p>This is the portfolio of Manuel Odendahl.</p>
-				<p>My background is in <a href="#" alt="programming">computer science</a> and software engineering, later on adding <a href="#" alt="music">music</a> and <a href="#" alt="electronics">electronics</a> to my skills.</p>
-				<p>I specialize in the creative combination of <a href="#" alt="electronics">electronics</a>, <a href="#" alt="programming">programming</a> and <a href="#" alt="art">art</a>, approaching projects with incredible dedication and intensity in order to create something beautiful.</p>
-				<p>I provide consultation <a href="#" alt="services">services</a> for creative projects, as well as custom hardware and software design.</p>
+				<p>My background is in <a href="/projects?tag=programming" title="programming">computer science</a> and software engineering, later on adding <a href="/projects?tag=music" title="music">music</a> and <a href="/projects?tag=electronics" title="electronics">electronics</a> to my skills.</p>
+				<p>I specialize in the creative combination of <a href="/projects?tag=electronics" title="electronics">electronics</a>, <a href="/projects?tag=programming" title="programming">programming</a> and <a href="/projects?tag=art" title="art">art</a>, approaching projects with incredible dedication and intensity in order to create something beautiful.</p>
+				<p>I provide consultation <a href="/services" title="services">services</a> for creative projects, as well as custom hardware and software design.</p>
 			</div>
 			</div>
 		

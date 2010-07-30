@@ -1,0 +1,49 @@
+div.maincontainerbig {
+   }
+
+div.servicebox {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+div.right2col {
+	width: 660px;
+	float: right;
+  margin: 0px;
+}
+
+div.left1col {
+}
+
+div.right2col {
+    padding: 0;
+    margin: 0;
+    }
+
+div#contact div.formelt {
+	margin-right: 0px;
+	margin-bottom: 12px;
+}
+
+div#contact div.formelt input {
+	width: 100%;
+  margin: 0px;
+	margin-right: 0px;
+}
+
+div#contact div.contactinfo {
+  margin: 0px;
+  margin-left: 20px;
+	padding: 6px;
+}
+
+div#contact textarea {
+    width: 90%;
+    }
+
+div.contactmessage {
+    margin-right: 20px;
+    padding: 12px;
+    }
+
+

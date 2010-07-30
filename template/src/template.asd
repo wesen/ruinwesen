@@ -29,5 +29,6 @@
 	 (:file "init" :depends-on ("config"))
 	 (:file "template" :depends-on ("config"))
    (:file "project" :depends-on ("template"))
-   (:file "tags" :depends-on ("template" "project"))
+   (:file "tags" :depends-on ("template" "project" "utils"))
+   (:file "utils" :depends-on ("template" "project"))
 	 ))

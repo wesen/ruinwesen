@@ -13,3 +13,7 @@
        if (funcall test prev elt)
        return e1
        do (setf prev e1)))
+
+(defun make-tags-from-string (string)
+  (mapcar #'make-keyword-from-string (cl-ppcre:split "[\\s,]+" string)))  
+
