@@ -46,6 +46,6 @@
 	:bknr.datastore
 	:ruinwesen
 	:ruinwesen.config)
-  (:shadowing-import-from :cl-interpol #:quote-meta-chars)
+;  (:shadowing-import-from :cl-interpol #:quote-meta-chars)
   ; (:export )
   )

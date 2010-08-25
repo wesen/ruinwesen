@@ -63,15 +63,17 @@
 (defparameter *json-client-url* "http://ruinwesen.com/minicommand")
 
 (defun json-action-reply (action status message &optional additional)
-  (with-output-to-string (s)
-    (json:encode-json
-     `(("protocol-id" . ,*json-protocol-id*)
-       ("action" . "response")
-       ("requested-action" . ,action)
-       ("status" . ,status)
-       ,@(when message `(("message" . ,message)))
-       ,@additional)
-     s)))
+  (yason:with-output-to-string* ()
+    (yason:with-object ()
+      (yason:encode-object-elements
+       "protocol-id" *json-protocol-id*
+       "action" "response"
+       "requested-action" action
+       "status" status)
+      (when message
+        (yason:encode-object-element "message" message))
+      (when additional
+        (apply #'yason:encode-object-elements additional)))))
 
 (defun patch-check-login (user password)
   (verify-password (find-user user) password))
@@ -137,15 +139,16 @@
 (defun make-patch-from-json (json)
   (let ((data (json-get-value :data json)))
     (when data
-      (let ((patch (make-object 'rw-patch :author (json-username)
-				:comment (json-get-metadata-value :comment json)
-				:title (json-get-metadata-value :title json)
-				:name (json-get-metadata-value :name json)
-				:tags (cons :needs-to-be-approved
-					    (mapcar #'make-keyword-from-string
-						    (json-get-metadata-value :tags json)))
-				:device-id (json-get-metadata-value :device-id json)
-				:environment-id (json-get-metadata-value :environment-id json))))
+      (let ((patch (make-instance 'rw-patch
+                                  :author (json-username)
+                                  :comment (json-get-metadata-value :comment json)
+                                  :title (json-get-metadata-value :title json)
+                                  :name (json-get-metadata-value :name json)
+                                  :tags (cons :needs-to-be-approved
+                                              (mapcar #'make-keyword-from-string
+                                                      (json-get-metadata-value :tags json)))
+                                  :device-id (json-get-metadata-value :device-id json)
+                                  :environment-id (json-get-metadata-value :environment-id json))))
 	(handler-case
 	    (let ((arr (cl-base64:base64-string-to-usb8-array data)))
 	      (blob-from-array patch arr)
@@ -335,9 +338,10 @@
 
 (defun json-send-bug-report (json)
   (let* ((bug-report-msg (json-get-value :bug-report json))
-	 (bug-report (make-object 'bug-report :author (json-username)
-				  :bug-report bug-report-msg
-				  :created (get-universal-time))))
+	 (bug-report (make-instance 'bug-report
+                                    :author (json-username)
+                                    :bug-report bug-report-msg
+                                    :created (get-universal-time))))
     (cl-smtp:send-email "localhost" "info@ruinwesen.com" '("manuel@bl0rg.net" "patchmanager@fastmail.fm")
 			(format nil "RW Bug Report from ~A" (json-username))
 			bug-report-msg)
@@ -355,42 +359,19 @@
 
 (defmethod handle ((handler patch-manager-handler))
   (with-query-params ()
-    (with-http-response  ()
+    (with-http-response ()
       (no-cache)
-	(let ((post-data (raw-post-data :request *request* :force-text t)))
-	  (when post-data
-	    (let* ((json (json:decode-json-from-string post-data)))
-	      (let ((result (patch-dispatch-json json)))
-		#+nil(format t "result: ~A~%" result)
-		result)))))))
+      (alexandria:when-let ((post-data (raw-post-data :request *request* :force-text t)))
+        (patch-dispatch-json (yason:parse post-data))))))
 
 (defun patch-dispatch-json (json)
   (let ((action (json-get-value :action json))
-				(*json-auth* (json-get-auth json))
-				(protocol-id (json-get-value :protocol-id json)))
-;;    (format *standard-output* "~S~%" json)
-    (cond ((string= action "store-new-patch")
-	   (json-upload-patch json))
-	  ((string= action "delete-patch")
-	   (json-delete-patch json))
-	  ((string= action "approve-patch")
-	   (json-approve-patch json))
-	  ((string= action "register-new-user")
-	   (json-create-user json))
-	  ((string= action "get-patch-source-list")
-	   (json-patch-url-list json))
-	  ((string= action "delete-user")
-	   (json-delete-user json))
-	  ((string= action "get-server-info")
-	   (json-get-server-info json))
-	  ((string= action "get-client-info")
-	   (json-get-client-info json))
-	  ((string= action "get-news")
-	   (json-get-news json))
-	  ((string= action "send-bug-report")
-	   (json-send-bug-report json))
-	  (t
-	   (json-action-reply action "failed" (format nil "unknown action ~S" action))))))
+        (*json-auth* (json-get-auth json))
+        (protocol-id (json-get-value :protocol-id json)))
+    ;;    (format *standard-output* "~S~%" json)
+    (alexandria:if-let ((handler (find-symbol (format nil "~A-~A" '#:json action))))
+      (funcall handler json)
+      (json-action-reply action "failed" (format nil "unknown action ~S" action)))))
 
 (defclass patch-serve-handler (object-handler)
   ())

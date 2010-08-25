@@ -1,12 +1,11 @@
 (in-package :ruinwesen.config)
 
-(defparameter *website-url* "http://jockel.hasis.biz:4242/")
+(defparameter *website-url* "http://bknr.net:4242/")
 
 (defparameter *dollars-to-eur* 1.5)
 
-(format t "pathname ~A~%" *load-pathname*)
 (defparameter *root-directory*
-  "/home/mnl/siff-svn/ruinwesen/")
+  (merge-pathnames #P"../" (make-pathname :directory (pathname-directory *load-pathname*))))
 
 (defparameter *store-directory*
   (merge-pathnames #p"datastore/" *root-directory*))
