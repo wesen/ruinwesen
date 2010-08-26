@@ -73,11 +73,11 @@
     (when id
       (setf id (parse-integer id :junk-allowed t)))
     (cond ((null id)
-	   (make-object 'ruinwesen-news
-			:title title
-			:owners (list (bknr-session-user))
-			:text text
-			:date (get-universal-time))
+	   (make-instance 'ruinwesen-news
+                          :title title
+                          :owners (list (bknr-session-user))
+                          :text text
+                          :date (get-universal-time))
 	   (redirect "/news"))
 	  (t
 	   (let ((news (store-object-with-id id)))
@@ -136,12 +136,12 @@
 		    (request-uploaded-file "image-file"))
 		 (media (request-uploaded-file "sound-file")))
 
-	     (edit-product-media (make-object 'product :name name
-					:owners (list (bknr-session-user))
-					:description description
-					:keywords keywords
-					:price (make-money (floor (parse-number:parse-real-number price)) :USD))
-			  picture media mediadescription)
+	     (edit-product-media (make-instance 'product :name name
+                                                :owners (list (bknr-session-user))
+                                                :description description
+                                                :keywords keywords
+                                                :price (make-money (floor (parse-number:parse-real-number price)) :USD))
+                                 picture media mediadescription)
 	     (redirect (format nil "/products/~A" (store-object-id product)))))
 
 	  ((and id (string= action "deletepicture") pictureid)
@@ -262,7 +262,7 @@
       (if error
 	  (expand-template handler "contact")
 	  (progn
-	    (make-object 'rw-contact :name name :email email :city city :text text)
+	    (make-instance 'rw-contact :name name :email email :city city :text text)
 	    (cl-smtp:send-email "localhost" email "info@ruinwesen.com"
 				(format nil "Ruinwesen: Message from ~A of ~A" name city)
 				(format nil
@@ -295,8 +295,8 @@
       (if error
 	  (expand-template handler "preorder")
 	  (progn
-	    (make-object 'preorder :name name :email email :country country :form-factor form-factor
-			 :device device :text text)
+	    (make-instance 'preorder :name name :email email :country country :form-factor form-factor
+                           :device device :text text)
 	    (cl-smtp:send-email "localhost" email "info@ruinwesen.com"
 				(format nil "Ruinwesen: Preorder from ~A of ~A" name country)
 				(format nil

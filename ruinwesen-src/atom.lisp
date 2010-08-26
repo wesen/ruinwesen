@@ -162,14 +162,14 @@
   (let* ((id (parse-integer blogid))
 	 (blog (store-object-with-id id)))
     (format t "blog: ~A~%" blog)
-    (let ((article (make-object 'rw-blog-article
-				:short (struct-field struct "description")
-				:subject (struct-field struct "title")
-				:text (struct-field struct "mt_text_more")
-				:author (find-user username))))
-    (bknr.text::blog-add-article blog article)
+    (let ((article (make-instance 'rw-blog-article
+                                  :short (struct-field struct "description")
+                                  :subject (struct-field struct "title")
+                                  :text (struct-field struct "mt_text_more")
+                                  :author (find-user username))))
+      (bknr.text::blog-add-article blog article)
     
-    (princ-to-string (store-object-id article)))))
+      (princ-to-string (store-object-id article)))))
 
 (defun mt-edit-post (postid username password struct publish)
   (unless (verify-password (find-user username) password)
