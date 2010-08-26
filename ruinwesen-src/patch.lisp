@@ -136,7 +136,7 @@
 			       (format nil "login ~S already exists" user)))))))
 
 (defun json-get-value (name json)
-  (gethash name json))
+  (gethash (string-downcase (string name)) json))
 
 (defun json-get-metadata-value (name json)
   (let ((metadata (json-get-value :patch-metadata json)))
@@ -374,13 +374,16 @@
         (patch-dispatch-json (yason:parse post-data))))))
 
 (defun patch-dispatch-json (json)
-  (let ((action (json-get-value :action json))
-        (*json-auth* (json-get-auth json))
-        #+(or) (protocol-id (json-get-value :protocol-id json)))
-    ;;    (format *standard-output* "~S~%" json)
-    (alexandria:if-let ((handler (find-symbol (format nil "~A-~A" '#:json action) :json-actions)))
-      (funcall handler json)
-      (json-action-reply action "failed" (format nil "unknown action ~S" action)))))
+  (let* ((action (json-get-value :action json))
+         (*json-auth* (json-get-auth json))
+         #+(or) (protocol-id (json-get-value :protocol-id json))
+         (handler (find-symbol (format nil "~:@(json-~A~)" action) :json-actions)))
+    #+(or)
+    (format *standard-output* "json: ~A action: ~A handler: ~A~%"
+            (alexandria:hash-table-plist json) action handler)
+    (if handler
+        (funcall handler json)
+        (json-action-reply action "failed" (format nil "unknown action ~S" action)))))
 
 (defclass patch-serve-handler (object-handler)
   ())
