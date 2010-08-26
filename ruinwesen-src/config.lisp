@@ -11,6 +11,6 @@
   (merge-pathnames #p"datastore/" *root-directory*))
 
 (defparameter *website-directory*
-  (probe-file (merge-pathnames #p"website/" *root-directory*)))
+  (probe-file (merge-pathnames #p"ruinwesen-website/" *root-directory*)))
 
 (defparameter *webserver-port* 4242)

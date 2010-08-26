@@ -2,7 +2,7 @@
 
 (defvar *server* nil)
 
-(defun startup ()
+(defun startup (&key foregroundp (port *webserver-port*))
   (setf *hunchentoot-default-external-format*
         (flex:make-external-format :utf-8 :eol-style :lf))
   (close-store)
@@ -25,9 +25,19 @@
   (bknr.cron:start-cron)
 
   (when *server*
-    (hunchentoot:stop *server*))
+    (hunchentoot:stop *server*)
+    (setf *server* nil))
 
-  (setf *server* (hunchentoot:start (make-instance 'hunchentoot:acceptor
-                                                   :port ruinwesen.config:*webserver-port*))))
+  (flet
+      ((start-fn ()
+         (hunchentoot:start (make-instance 'hunchentoot:acceptor
+                                           :port port
+                                           :taskmaster (make-instance 'hunchentoot:single-threaded-taskmaster)
+                                           :request-dispatcher 'bknr.web:bknr-dispatch
+                                           :persistent-connections-p nil))))
+    (if foregroundp
+        (funcall #'start-fn)
+        (bt:make-thread #'start-fn
+                        :name (format nil "HTTP server on port ~A" port)))))
 
 (defmethod bknr.indices::destroy-object-with-class ((class t) (object t)))
