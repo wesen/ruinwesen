@@ -63,18 +63,18 @@
 (defparameter *json-client-version* "1.0")
 (defparameter *json-client-url* "http://ruinwesen.com/minicommand")
 
-(defun json-action-reply (action status message &rest additional)
-  (yason:with-output-to-string* ()
-    (yason:with-object ()
-      (yason:encode-object-elements
-       "protocol-id" *json-protocol-id*
-       "action" "response"
-       "requested-action" action
-       "status" status)
-      (when message
-        (yason:encode-object-element "message" message))
-      (when additional
-        (apply #'yason:encode-object-elements additional)))))
+(defmacro with-json-action-reply ((action status &optional format &rest args)
+                                  &body body)
+  `(yason:with-output-to-string* ()
+     (yason:with-object ()
+       (yason:encode-object-elements
+        "protocol-id" *json-protocol-id*
+        "action" "response"
+        "requested-action" ,action
+        "status" ,status
+        ,@(when format
+                `("message" (format nil ,format ,@args))))
+       ,@body)))
 
 (defun patch-check-login (user password)
   (verify-password (find-user user) password))
@@ -125,15 +125,14 @@
     (if (or (null user)
 	    (null password)
 	    (string= user ""))
-	(json-action-reply "register-new-user" "failed" "invalid user information")
+	(with-json-action-reply ("register-new-user" "failed" "invalid user information"))
 	(handler-case
 	    (progn
               (make-user user :password password :email email)
-              (json-action-reply "register-new-user" "ok" (format nil "registered new user ~S" user)))
+              (with-json-action-reply ("register-new-user" "ok"  "registered new user ~S" user)))
 	  (error (e)
 	    (declare (ignore e))
-	    (json-action-reply "register-new-user" "failed"
-			       (format nil "login ~S already exists" user)))))))
+	    (with-json-action-reply ("register-new-user" "failed" "login ~S already exists" user)))))))
 
 (defun json-get-value (name json)
   (gethash (string-downcase (string name)) json))
@@ -166,34 +165,38 @@
 	    nil))))))
 
 (defun patch-metadata-to-json (patch)
-  (with-slots (title comment author tags deleted last-modified device-id name) patch
-    `((:title . ,title)
-      (:id . ,(store-object-id patch))
-      (:comment . ,comment)
-      (:author . ,author)
-      (:tags . ,tags)
-      ("last-modified-date" . ,(cybertiggyr-time:format-time nil "%Y-%m-%d" last-modified))
-      ("device-id" . ,device-id)
-      (:name . ,name))))
-  
+  (yason:with-object ()
+    (with-slots (title comment author tags deleted last-modified device-id name) patch
+      (yason:encode-object-elements
+       "title" title
+       "id" (store-object-id patch)
+       "comment" comment
+       "author" author
+       "tags" (mapcar #'string-downcase tags)
+       "last-modified-date" (cybertiggyr-time:format-time nil "%Y-%m-%d" last-modified)
+       "device-id" device-id
+       "name" name))))
 
 (defun patch-to-patch-source-json (patch)
-  (with-slots (deleted) patch
-    `(("patch-id" . ,(store-object-id patch))
-      ("patch-url" . ,(format nil "http://ruinwesen.com/patch/~A"
-			      (store-object-id patch)))
-      ,@(when deleted `((:deleted . ,deleted)))
-      ("patch-metadata" . ,(patch-metadata-to-json patch)))))
+  (yason:with-object ()
+    (with-slots (deleted) patch
+      (yason:encode-object-elements
+       "patch-id" (store-object-id patch)
+       "patch-url" (format nil "/patch/~A" (store-object-id patch)))
+      (when deleted
+        (yason:encode-object-element "deleted" deleted))
+      (yason:with-object-element ("patch-metadata")
+        (patch-metadata-to-json patch)))))
  
 (define-json-action json-store-new-patch (json)
   (if (json-check-auth)
       (let ((patch (make-patch-from-json json)))
 	(if (null patch)
-	    (json-action-reply "store-new-patch" "failed"
-			       "could not create/store/decode patch")
-	    (json-action-reply "store-new-patch" "ok" nil
-			       "patch-source" (patch-to-patch-source-json patch))))
-      (json-action-reply "store-new-patch" "failed" "username/password incorrect")))
+	    (with-json-action-reply ("store-new-patch" "failed" "could not create/store/decode patch"))
+	    (with-json-action-reply ("store-new-patch" "ok")
+              (yason:with-object-element ("patch-source")
+                (patch-to-patch-source-json patch)))))
+      (with-json-action-reply ("store-new-patch" "failed" "username/password incorrect"))))
 
 (defun find-patches-since (date-since &optional (approved t))
   (setf date-since 0)
@@ -210,18 +213,13 @@
 			 (parse-time date-since-str)
 			 0))
 	 (user (json-get-user)))
-    (json-action-reply "get-patch-source-list" "ok" nil
-		       "patch-source-list"
-                       (let ((res (loop for patch in
-                                       (find-patches-since date-since (if (and user
-                                                                               (admin-p user))
-                                                                          nil
-                                                                          t))
-                                       collect (patch-to-patch-source-json patch))))
-                         (if res
-                             res
-                             (make-array 0)))
-                       "date-since" date-since-str)))
+    (with-json-action-reply ("get-patch-source-list" "ok")
+      (yason:with-object-element ("patch-source-list")
+        (yason:with-array ()
+          (dolist (patch (find-patches-since date-since (or (not user)
+                                                            (not (admin-p user)))))
+            (patch-to-patch-source-json patch))))
+      (yason:encode-object-element "date-since" date-since-str))))
 
 (defun approve-patch (patch)
   (with-transaction ()
@@ -247,22 +245,21 @@
 
     (cond ((null patch-id)
 	   (format t "invalid")
-	   (json-action-reply "delete-patch" "failed" "invalid patch id"))
+	   (with-json-action-reply ("delete-patch" "failed" "invalid patch id")))
 	  ((null patch)
 	   (format t "null~%")
-	   (json-action-reply "delete-patch" "failed" "no patch with this id"))
+	   (with-json-action-reply ("delete-patch" "failed" "no patch with this id")))
 	  ((not (or (and user (admin-p user))
 		    (json-check-auth author)))
 	   (format t "auth ~%")
-	   (json-action-reply "delete-patch" "failed"
-			      (format nil "no credentials to delete object ~A" patch)))
+	   (with-json-action-reply ("delete-patch" "failed" "no credentials to delete object ~A" patch)))
 	  (t
 	   (format t "foobar author ~A~%" author)
 ;;	   (delete-object patch)
 	   (with-transaction ()
 	     (setf (slot-value patch 'deleted) t
 		   (slot-value patch 'bknr.datastore::timestamp) (get-universal-time)))
-	   (json-action-reply "delete-patch" "ok" nil)))))
+	   (with-json-action-reply ("delete-patch" "ok"))))))
 
 (define-json-action json-approve-patch (json)
   (let* ((patch-id (parse-integer (or (json-get-value :patch-id json) "") :junk-allowed t))
@@ -276,70 +273,69 @@
 		
     (cond ((null patch-id)
            (format t "invalid")
-           (json-action-reply "approve-patch" "failed" "invalid patch id"))
+           (with-json-action-reply ("approve-patch" "failed" "invalid patch id")))
           ((null patch)
            (format t "null~%")
-           (json-action-reply "approve-patch" "failed" "no patch with this id"))
+           (with-json-action-reply ("approve-patch" "failed" "no patch with this id")))
           ((not (or (and user (admin-p user))
                     (json-check-auth author)))
            (format t "auth ~%")
-           (json-action-reply "approve-patch" "failed"
-                              (format nil "no credentials to approve object ~A" patch)))
+           (with-json-action-reply ("approve-patch" "failed"
+                                                    "no credentials to approve object ~A" patch)))
           (t
            (approve-patch patch)
-           (json-action-reply "approve-patch" "ok" nil)))))
+           (with-json-action-reply ("approve-patch" "ok"))))))
 
 (define-json-action json-delete-user (json)
   (let* ((user (json-get-user))
 	 (delete-username (json-get-value :username json))
 	 (delete-user (find-user delete-username)))
     (cond ((null user)
-	   (json-action-reply "delete-user" "failed" (format nil "wrong username/password")))
+	   (with-json-action-reply ("delete-user" "failed" "wrong username/password")))
 	  ((not (admin-p user))
-	   (json-action-reply "delete-user" "failed" "no credentials"))
+	   (with-json-action-reply ("delete-user" "failed" "no credentials")))
 	  ((null delete-user)
-	   (json-action-reply "delete-user" "failed" (format nil "no user ~a found" delete-username)))
+	   (with-json-action-reply ("delete-user" "failed" "no user ~a found" delete-username)))
 	  ((and user
 		(admin-p user)
 		(not (null delete-user)))
 	   (delete-object delete-user)
-	   (json-action-reply "delete-user" "ok" (format nil "user ~a deleted" delete-username)))
+	   (with-json-action-reply ("delete-user" "ok" "user ~a deleted" delete-username)))
 	  (t
-	   (json-action-reply "delete-user" "failed" "unknown error")))))
+	   (with-json-action-reply ("delete-user" "failed" "unknown error"))))))
 
 (define-json-action json-get-server-info (json)
   (declare (ignore json))
-  (json-action-reply "get-server-info" "ok" "server info"))
+  (with-json-action-reply ("get-server-info" "ok" "server info")))
 
 (define-json-action json-get-client-info (json)
   (declare (ignore json))
-  (json-action-reply "get-client-info" "ok" nil
-                     "client-version" *json-client-version*
-                     "client-url" *json-client-url*))
+  (with-json-action-reply ("get-client-info" "ok")
+    (yason:encode-object-elements
+     "client-version" *json-client-version*
+     "client-url" *json-client-url*)))
 
 (defun news-to-news-json (news)
-  `(("title" . ,(bknr.text:article-subject news))
-    ("news-id" . ,(store-object-id news))
-    ("message" . ,(format nil "~A~A"
-			  (rw-blog-article-short news)
-			  (let ((text (bknr.text:article-text news)))
-			    (if text
-				(format nil "<br/>~A" text)
-				""))))
-    ("date" . ,(cybertiggyr-time:format-time nil "%Y-%m-%d" (bknr.text:article-time news)))))
+  (yason:with-object ()
+    (yason:encode-object-elements
+     "title" (bknr.text:article-subject news)
+     "news-id" (store-object-id news)
+     "message" (format nil "~A~@[<br/>~A~]"
+                       (rw-blog-article-short news)
+                       (bknr.text:article-text news))
+     "date" (cybertiggyr-time:format-time nil "%Y-%m-%d" (bknr.text:article-time news)))))
 
 (define-json-action json-get-news (json)
   (let* ((date-since-str (json-get-value :date-since json))
 	 (date-since (if date-since-str
 			 (parse-time date-since-str)
 			 0)))
-    (json-action-reply "get-news" "ok" nil
-                       "news-list" (let ((res (loop for news in (news-posts :count nil :since date-since)
-                                                 collect (news-to-news-json news))))
-                                     (if res
-                                         res
-                                         (make-array 0)))
-                       "date-since" date-since-str)))
+    (with-json-action-reply ("get-news" "ok")
+      (yason:with-object-element ("news-list")
+        (yason:with-array ()
+          (dolist (news (news-posts :count nil :since date-since))
+            (news-to-news-json news))))
+      (yason:encode-object-element "date-since" date-since-str))))
 
 (define-persistent-class bug-report ()
   ((bug-report :read)
@@ -355,7 +351,7 @@
     (cl-smtp:send-email "localhost" "info@ruinwesen.com" '("manuel@bl0rg.net" "patchmanager@fastmail.fm")
 			(format nil "RW Bug Report from ~A" (json-username))
 			bug-report-msg)
-    (json-action-reply "send-bug-report" "ok" nil)))
+    (with-json-action-reply ("send-bug-report" "ok"))))
 
 (defun all-bug-reports ()
   (store-objects-with-class 'bug-report))
@@ -383,7 +379,7 @@
             (alexandria:hash-table-plist json) action handler)
     (if handler
         (funcall handler json)
-        (json-action-reply action "failed" (format nil "unknown action ~S" action)))))
+        (with-json-action-reply (action "failed" "unknown action ~S" action)))))
 
 (defclass patch-serve-handler (object-handler)
   ())
