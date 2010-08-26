@@ -20,7 +20,9 @@
 	      :index-reader patches-for-environment)
    (downloads :update :initform 0)
    (deleted :update :initform nil)
-   (name :update :initform "")))
+   (name :update :initform "")
+   (hex-data :update :initform nil)
+   (documentation :update :initform nil)))
 
 (defmethod print-object ((patch rw-patch) stream)
   (print-unreadable-object (patch stream :type t)
@@ -49,6 +51,36 @@
 
 (defun all-patches ()
   (store-objects-with-class 'rw-patch))
+
+;; auto-unfold blob into slots
+
+(defun patch-unfold-blob (patch)
+  (let* ((temporary-directory (cl-fad:pathname-as-directory
+                               (make-temporary-pathname :name "rw-blob" :defaults #P"/tmp/")))
+         (*default-pathname-defaults* temporary-directory))
+    (ensure-directories-exist temporary-directory)
+    (asdf:run-shell-command "cd ~A && unzip ~A"
+                            (namestring temporary-directory)
+                            (namestring (blob-pathname patch)))
+    (with-transaction (:unfold-blob)
+      (with-slots (hex-data documentation) patch
+        (setf hex-data
+              (if (probe-file "mididata.hex")
+                  (file-contents "mididata.hex" :element-type 'character)
+                  "")
+              documentation
+              (if (probe-file "documentation.txt")
+                  (file-contents "documentation.txt" :element-type 'character)
+                  ""))))
+    (cl-fad:delete-directory-and-files temporary-directory)))
+
+(defmethod rw-patch-hex-data :before ((patch rw-patch))
+  (unless (slot-value patch 'hex-data)
+    (patch-unfold-blob patch)))
+
+(defmethod rw-patch-documentation :before ((patch rw-patch))
+  (unless (slot-value patch 'documentation)
+    (patch-unfold-blob patch)))
 
 #+nil
 (make-instance 'rw-patch
@@ -164,7 +196,7 @@
 	    (delete-object patch)
 	    nil))))))
 
-(defun patch-metadata-to-json (patch)
+(defun patch-to-json (patch &key full)
   (yason:with-object ()
     (with-slots (title comment author tags deleted last-modified device-id name) patch
       (yason:encode-object-elements
@@ -175,7 +207,11 @@
        "tags" (mapcar #'string-downcase tags)
        "last-modified-date" (cybertiggyr-time:format-time nil "%Y-%m-%d" last-modified)
        "device-id" device-id
-       "name" name))))
+       "name" name)
+      (when full
+        (yason:encode-object-elements
+         "documentation" (rw-patch-documentation patch)
+         "hex-data" (rw-patch-hex-data patch))))))
 
 (defun patch-to-patch-source-json (patch)
   (yason:with-object ()
@@ -186,7 +222,7 @@
       (when deleted
         (yason:encode-object-element "deleted" deleted))
       (yason:with-object-element ("patch-metadata")
-        (patch-metadata-to-json patch)))))
+        (patch-to-json patch)))))
  
 (define-json-action json-store-new-patch (json)
   (if (json-check-auth)
@@ -198,10 +234,9 @@
                 (patch-to-patch-source-json patch)))))
       (with-json-action-reply ("store-new-patch" "failed" "username/password incorrect"))))
 
-(defun find-patches-since (date-since &optional (approved t))
-  (setf date-since 0)
+(defun find-patches-since (&key (since 0) (approved t))
   (sort (remove-if-not #'(lambda (x)
-			   (and (>= (blob-timestamp x) date-since)
+			   (and (>= (blob-timestamp x) since)
 				(if approved
 				    (not (member :needs-to-be-approved (rw-patch-tags x)))
 				    t)))
@@ -216,8 +251,9 @@
     (with-json-action-reply ("get-patch-source-list" "ok")
       (yason:with-object-element ("patch-source-list")
         (yason:with-array ()
-          (dolist (patch (find-patches-since date-since (or (not user)
-                                                            (not (admin-p user)))))
+          (dolist (patch (find-patches-since :since date-since
+                                             :approved (or (not user)
+                                                           (not (admin-p user)))))
             (patch-to-patch-source-json patch))))
       (yason:encode-object-element "date-since" date-since-str))))
 
@@ -363,11 +399,10 @@
   ())
 
 (defmethod handle ((handler patch-manager-handler))
-  (with-query-params ()
-    (with-http-response ()
-      (no-cache)
-      (alexandria:when-let ((post-data (raw-post-data :request *request* :force-text t)))
-        (patch-dispatch-json (yason:parse post-data))))))
+  (with-http-response ()
+    (no-cache)
+    (alexandria:when-let ((post-data (raw-post-data :request *request* :force-text t)))
+      (patch-dispatch-json (yason:parse post-data)))))
 
 (defun patch-dispatch-json (json)
   (let* ((action (json-get-value :action json))
@@ -394,3 +429,26 @@
     (let ((stream (send-headers)))
       (blob-to-stream patch stream)
       (force-output stream))))
+
+(defclass patch-rest-handler (object-handler)
+  ())
+
+(defmethod object-handler-get-object ((handler patch-rest-handler))
+  (alexandria:when-let ((id-or-name (parse-url)))
+    (find-store-object id-or-name :class 'rw-patch :query-function #'store-object-with-id)))
+
+(defmethod handle-object ((handler patch-rest-handler) patch)
+  (with-http-response (:content-type (if (string-equal "application/json" (hunchentoot:header-in* :accept))
+                                         "application/json"
+                                         "text/plain"))
+    (no-cache)
+    (yason:with-output-to-string* ()
+      (if patch
+          (patch-to-json patch :full t)
+          (if (parse-url)
+              (error-404)
+              (yason:with-object ()
+                (yason:with-object-element ("patches")
+                  (yason:with-array ()
+                    (dolist (patch (find-patches-since))
+                      (patch-to-json patch))))))))))

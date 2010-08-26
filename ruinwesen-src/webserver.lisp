@@ -36,6 +36,7 @@
 			      :destination ,(merge-pathnames #p"static/images/" *website-directory*))
 		   user
 		   ("/patch/" patch-serve-handler)
+                   ("/patches/" patch-rest-handler)
 		   ("/get-patch" patch-serve-handler)
 		   ("/patch-manager" patch-manager-handler)
 		   ("/" template-handler
