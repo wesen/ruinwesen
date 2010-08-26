@@ -77,10 +77,10 @@ images become image tags."
 						 (>= (bknr.text:article-time x) since)
 						 t))
 			       (sort (copy-tree (bknr.text:blog-articles blog))
-				     #'> :key #'bknr.text:article-time))))
-    (if (> start (length items))
-	nil
-	(subseq items start (min (+ start count) (length items))))))
+				     #'> :key #'bknr.text:article-time)))
+         (nitems (length items)))
+    (when (< start nitems)
+      (subseq items start (min (+ start (or count nitems)) (length items))))))
 
 (defun rw-posts (&key (count 5) (start 0))
   (blog-posts (bknr.text:blog-with-name "ruinwesen-blog") :count count :start start))
