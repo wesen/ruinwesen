@@ -4,12 +4,16 @@
 (defparameter *last-twitters-ruin* nil)
 
 (defun gather-twitters ()
-  (let ((twitter (get-twitter "wesen" :count 3)))
-    (when twitter
-      (setf *last-twitters* twitter)))
-  (let ((twitter (get-twitter "RuinMusic" :count 3)))
-    (when twitter
-      (setf *last-twitters-ruin* twitter))))
+  (handler-case
+      (progn
+        (let ((twitter (get-twitter "wesen" :count 3)))
+          (when twitter
+            (setf *last-twitters* twitter)))
+        (let ((twitter (get-twitter "RuinMusic" :count 3)))
+          (when twitter
+            (setf *last-twitters-ruin* twitter))))
+    (error (e)
+      (warn "can't gather twitter data: ~A" e))))
 
 (defun get-text-body (node)
   (unless (= (length (dom:child-nodes node)) 0)
