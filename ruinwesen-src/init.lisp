@@ -32,9 +32,11 @@
       ((start-fn ()
          (hunchentoot:start (make-instance 'hunchentoot:acceptor
                                            :port port
-                                           :taskmaster (make-instance 'hunchentoot:single-threaded-taskmaster)
+                                           :taskmaster (if foregroundp
+                                                           (make-instance 'hunchentoot:single-threaded-taskmaster)
+                                                           (make-instance 'hunchentoot:one-thread-per-connection-taskmaster))
                                            :request-dispatcher 'bknr.web:bknr-dispatch
-                                           :persistent-connections-p nil))))
+                                           :persistent-connections-p t))))
     (if foregroundp
         (funcall #'start-fn)
         (bt:make-thread #'start-fn
