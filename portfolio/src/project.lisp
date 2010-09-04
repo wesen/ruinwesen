@@ -1,4 +1,4 @@
-(in-package :template)
+(in-package :portfolio)
 
 (define-persistent-class portfolio-project ()
   ((title :update

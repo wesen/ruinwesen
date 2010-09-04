@@ -1,4 +1,4 @@
-(in-package :template)
+(in-package :portfolio)
 
 (defparameter *acceptor* nil)
 
@@ -14,10 +14,11 @@
 	
 	(bknr.utils:actor-start (make-instance 'bknr.cron::cron-actor)))
 
-(defun publish-template ()
+(defun publish-portfolio ()
 	(bknr.web:unpublish)
 	(make-instance 'bknr.web:website
-		 :name "Template system"
+		 :name "Portfolio system"
+     :url "jockel2"
 		 :handler-definitions
      `(
        ;; administration handlers
@@ -35,7 +36,7 @@
             :catch-all t
             :destination ,(namestring (merge-pathnames "templates/" *website-directory*))
             :command-packages (("http://bknr.net" . :bknr.web)
-                               ("http://portfolio.ruinwesen.com" . :template.tags))))
+                               ("http://portfolio.ruinwesen.com" . :portfolio.tags))))
        
 		 :authorizer (make-instance 'bknr.web:bknr-authorizer)
 		 ))
@@ -48,7 +49,7 @@
 	 (setf tbnl:*tmp-directory* (merge-pathnames "hunchentoot-tmp/" *store-directory*)))
 
 	(store-startup)
-	(publish-template)
+	(publish-portfolio)
 	(when (probe-file "site-config.lisp")
 		(format t "; loading site configuration file~%")
 		(load "site-config.lisp"))

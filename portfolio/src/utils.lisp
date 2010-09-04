@@ -1,4 +1,4 @@
-(in-package :template)
+(in-package :portfolio)
 
 (defun find-before (list elt &key (test #'eql))
   (loop for e1 in list
