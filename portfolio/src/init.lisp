@@ -61,6 +61,8 @@
 					 (hunchentoot:start (setf *acceptor*
                                     (make-instance 'hunchentoot:acceptor
                                                    :port port
+                                                   :read-timeout nil
+                                                   :write-timeout nil
                                                    :taskmaster (make-instance 'hunchentoot:single-threaded-taskmaster)
                                                    :request-dispatcher 'bknr.web:bknr-dispatch
                                                    :persistent-connections-p nil)))))

@@ -1,7 +1,17 @@
 (in-package :portfolio)
 
-(eval-when (:compile-toplevel)
-	(defparameter *config-file-pathname* "/home/manuel/code/wesen/lisp/portfolio/src/config.lisp"))
+(eval-when (:compile-toplevel :Execute)
+  
+	(defparameter *config-file-pathname* "/home/manuel/code/wesen/ruinwesen/portfolio/src/config.lisp")
+  (defparameter bknr.web::*template-dtd-catalog* (list "/home/manuel/code/lisp/bknr-svn/thirdparty/xhtml/catalog.xml"))
+
+  (setf cxml:*catalog* (cxml:make-catalog *template-dtd-catalog*)
+	cxml:*dtd-cache* (cxml:make-dtd-cache)
+	cxml:*cache-all-dtds* t)
+
+  )
+  
+
 
 (defparameter *website-url* "http://localhost:4242/")
 (defparameter *root-directory* (merge-pathnames #p"../"
