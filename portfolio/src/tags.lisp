@@ -1,4 +1,4 @@
-(in-package :template.tags)
+(in-package :portfolio.tags)
 
 (cl-interpol:enable-interpol-syntax)
 
@@ -16,7 +16,7 @@
 
        ((:script :type "text/javascript" :src "/static/js/jquery.js") " ")
        ((:script :type "text/javascript" :src "/static/js/supersleight.plugin.js") " ")
-       ((:script :type "text/javascript" :src "/static/js/template.js") " ")
+       ((:script :type "text/javascript" :src "/static/js/portfolio.js") " ")
          
 
                  )))
@@ -61,37 +61,37 @@
   (unless tag
     (setf tag (query-param "tag")))
   (let ((project (if id
-                     (find-store-object id :class 'template::portfolio-project :query-function #'template::get-project-with-title)
-                     (random-elts (store-objects-with-class 'template::portfolio-project) 1))))
-    (with-slots (template::title template::tags template::time template::description template::image template::image)
+                     (find-store-object id :class 'portfolio::portfolio-project :query-function #'portfolio::get-project-with-title)
+                     (random-elts (store-objects-with-class 'portfolio::portfolio-project) 1))))
+    (with-slots (portfolio::title portfolio::tags portfolio::time portfolio::description portfolio::image portfolio::image)
         project
       (html ((:div :id "project")
-             ((:img :alt template::title :src (format nil "/image/~a" (store-object-id template::image))))
+             ((:img :alt portfolio::title :src (format nil "/image/~a" (store-object-id portfolio::image))))
              ((:div :class "project-title")
-              (:h2 (:princ-safe (string-upcase template::title))))
-             ((:div :class "project-date") (:princ-safe (cybertiggyr-time:format-time nil "%Y" template::time)))
+              (:h2 (:princ-safe (string-upcase portfolio::title))))
+             ((:div :class "project-date") (:princ-safe (cybertiggyr-time:format-time nil "%Y" portfolio::time)))
              ((:div :class "project-description")
-              (:p (:princ template::description)))
+              (:p (:princ portfolio::description)))
              ((:div :class "project-tags")
               (:princ-safe "Tags: ")
-              (dolist (tag template::tags)
+              (dolist (tag portfolio::tags)
                 (html ((:a :href (format nil "/projects?tag=~a" (string-downcase (symbol-name tag))) :title (format nil "~a projects" tag))
                        (:princ-safe (string-downcase (symbol-name tag)))) " ")))
 
             (when (bknr.web::admin-p (bknr-session-user))
-              (html (:hr) ((:a :href (format nil "/edit-project?id=~a" (template::portfolio-project-title project)))
+              (html (:hr) ((:a :href (format nil "/edit-project?id=~a" (portfolio::portfolio-project-title project)))
                      "edit project")))
              )             
             (when tag
-              (let* ((projects (template::get-projects-with-tag-sorted tag))
-                     (prev-project (template::find-before projects project))
-                     (next-project (template::find-after projects project)))
+              (let* ((projects (portfolio::get-projects-with-tag-sorted tag))
+                     (prev-project (portfolio::find-before projects project))
+                     (next-project (portfolio::find-after projects project)))
                 (when prev-project
-                  (html ((:a :href (format nil "/project?id=~a&tag=~a" (template::portfolio-project-title prev-project) tag)
+                  (html ((:a :href (format nil "/project?id=~a&tag=~a" (portfolio::portfolio-project-title prev-project) tag)
                              :title (format nil "previous ~a project" tag) :id "prevlink")
                          (:princ-safe (format nil "previous ~a project" tag)))))
                 (when next-project
-                  (html ((:a :href (format nil "/project?id=~a&tag=~a" (template::portfolio-project-title next-project) tag)
+                  (html ((:a :href (format nil "/project?id=~a&tag=~a" (portfolio::portfolio-project-title next-project) tag)
                              :title (format nil "next ~a project" tag) :id "nextlink")
                          (:princ-safe (format nil "next ~a project" tag)))))))
             
@@ -100,15 +100,15 @@
 
 (define-bknr-tag project-box (&key id tag)
   (let ((project (if id
-                     (find-store-object id :class 'template::portfolio-project :query-function #'template::get-project-with-title)
-                     (random-elts (store-objects-with-class 'template::portfolio-project) 1))))
+                     (find-store-object id :class 'portfolio::portfolio-project :query-function #'portfolio::get-project-with-title)
+                     (random-elts (store-objects-with-class 'portfolio::portfolio-project) 1))))
     (html ((:li :class "projectbox")
-           ((:a :href (format nil "/project?id=~a&tag=~a" (template::portfolio-project-title project) (string-downcase tag))
-                :title (template::portfolio-project-title project))
-            ((:img :src (format nil "/image/~a" (store-object-id (template::portfolio-project-box-image project)))
-                   :alt (template::portfolio-project-title project)))
+           ((:a :href (format nil "/project?id=~a&tag=~a" (portfolio::portfolio-project-title project) (string-downcase tag))
+                :title (portfolio::portfolio-project-title project))
+            ((:img :src (format nil "/image/~a" (store-object-id (portfolio::portfolio-project-box-image project)))
+                   :alt (portfolio::portfolio-project-title project)))
             ((:span :class "legend")
-             (:princ-safe (string-upcase (template::portfolio-project-title project)))))))))
+             (:princ-safe (string-upcase (portfolio::portfolio-project-title project)))))))))
 
 (define-bknr-tag project-list (&key count tag random)
   (unless tag
@@ -117,16 +117,16 @@
         tag (when tag (make-keyword-from-string tag)))
   (let ((projects
          (sort (copy-tree (if tag
-                              (template::get-projects-with-tag tag)
-                              (store-objects-with-class 'template::portfolio-project)))
-               #'> :key #'template::portfolio-project-time)))
+                              (portfolio::get-projects-with-tag tag)
+                              (store-objects-with-class 'portfolio::portfolio-project)))
+               #'> :key #'portfolio::portfolio-project-time)))
     (when random
       (setf projects (randomize-list projects)))
     (when count
       (setf projects (subseq projects 0 (min (length projects) count))))
     (html ((:ul :class "projectlist")
            (dolist (project projects)
-             (project-box :id (template::portfolio-project-title project) :tag tag))))))
+             (project-box :id (portfolio::portfolio-project-title project) :tag tag))))))
 
 (define-bknr-tag projects (&key tag count random)
   (unless tag
@@ -141,7 +141,7 @@
 
 (define-bknr-tag category-list ()
   (html ((:ul :id "categories")
-         (dolist (category (template::project-tag-sorted-list))
+         (dolist (category (portfolio::project-tag-sorted-list))
            (let ((name (string-downcase (car category))))
              (html (:li ((:span :class "category")
                          ((:a :href (format nil "/projects?tag=~a" name)
@@ -172,8 +172,8 @@
 (define-bknr-tag edit-project-form (&key id)
   (unless id
     (setf id (query-param "id")))
-  (let ((project (when id (find-store-object id :class 'template::portfolio-project
-                                             :query-function #'template::get-project-with-title))))
+  (let ((project (when id (find-store-object id :class 'portfolio::portfolio-project
+                                             :query-function #'portfolio::get-project-with-title))))
     (format t "edit-project-form ~A~%" project)
     (html
      ((:form :action "/edit-project" :method "post" :enctype "multipart/form-data")
@@ -188,7 +188,7 @@
           "Title: " (required))
          ((:input :type "text" :size "30" :id "title" :name "title"
                   :value (if project
-                             (template::portfolio-project-title project)
+                             (portfolio::portfolio-project-title project)
                              ""))))
         ((:div :class "formelt")
          ((:label :for "tags")
@@ -197,7 +197,7 @@
                   :value (if project
                              (format nil "~{~A~^ ~}" (mapcar #'(lambda (x)
                                                                  (string-downcase (symbol-name x)))
-                                                             (template::portfolio-project-tags project)))
+                                                             (portfolio::portfolio-project-tags project)))
                              ""))))
         ((:div :class "formelt")
          ((:label :for "time")
@@ -205,7 +205,7 @@
          ((:input :type "text" :size "30" :id "time" :name "time"
                   :value (if project
                              (cybertiggyr-time:format-time nil "%Y-%m-%d"
-                                                           (template::portfolio-project-time project))
+                                                           (portfolio::portfolio-project-time project))
                              ""))))
         ((:div :class "formelt")
          ((:label :for "file")
@@ -219,7 +219,7 @@
        ((:div :class "contactmessage")
         ((:textarea :id "description" :name "description" :cols "60" :rows "20")
          (if project
-             (html (:princ-safe (template::portfolio-project-description project)))
+             (html (:princ-safe (portfolio::portfolio-project-description project)))
              (html (:princ-safe "  "))))
         (add-project-form-errors)
         ((:input :type "submit" :id "submit" :value (if project
@@ -238,8 +238,8 @@
 
 (defun handle-edit-project ()
   (with-query-params (title tags time file boxfile description project-id)
-    (let ((project (find-store-object project-id :class 'template::portfolio-project
-                                      :query-function #'template::get-project-with-title)))
+    (let ((project (find-store-object project-id :class 'portfolio::portfolio-project
+                                      :query-function #'portfolio::get-project-with-title)))
       (when time
         (setf time (cybertiggyr-time:parse-time time)))
       (when (null project)
@@ -251,23 +251,23 @@
           (emit-tag-child 0))
         (return-from handle-edit-project))
       (with-transaction ()
-        (with-slots (template::title template::tags template::time template::description) project
-          (setf template::title title
-                template::tags (template::make-tags-from-string tags)
-                template::time time
-                template::description description)))
+        (with-slots (portfolio::title portfolio::tags portfolio::time portfolio::description) project
+          (setf portfolio::title title
+                portfolio::tags (portfolio::make-tags-from-string tags)
+                portfolio::time time
+                portfolio::description description)))
       (when boxfile
         (let ((boxfileobj (import-image (first boxfile) :name (second boxfile)
                                         :type (image-type-symbol (third boxfile)))))
           (with-transaction ()
-            (with-slots (template::box-image) project
-              (setf template::box-image boxfileobj)))))
+            (with-slots (portfolio::box-image) project
+              (setf portfolio::box-image boxfileobj)))))
       (when file
         (let ((fileobj (import-image (first file) :name (second file)
                                         :type (image-type-symbol (third file)))))
           (with-transaction ()
-            (with-slots (template::image) project
-              (setf template::image fileobj)))))
+            (with-slots (portfolio::image) project
+              (setf portfolio::image fileobj)))))
       (html ((:div :class "message")
              (:p "Project has been updated!"))
             (project :id (store-object-id project))))))
@@ -280,10 +280,10 @@
         (let ((*add-project-form-errors* "Please fill out the required fields!"))
           (emit-tag-child 0))
         (progn
-          (let* ((taglist (template::make-tags-from-string tags))
+          (let* ((taglist (portfolio::make-tags-from-string tags))
                  (fileobj (import-image (first file) :name (second file) :type (image-type-symbol (third file))))
                  (boxfileobj (import-image (first boxfile) :name (second boxfile) :type (image-type-symbol (third file))))
-                 (project (make-instance 'template::portfolio-project
+                 (project (make-instance 'portfolio::portfolio-project
                                          :title title
                                          :tags taglist
                                          :description description

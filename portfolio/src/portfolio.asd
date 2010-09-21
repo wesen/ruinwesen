@@ -1,13 +1,13 @@
-(defpackage :template.system
+(defpackage :portfolio.system
 	(:use :asdf :cl))
 
-(in-package :template.system)
+(in-package :portfolio.system)
 
-(defsystem :template
-	:name "TEMPLATE"
-	:author "template author <foo@foo.com>"
+(defsystem :portfolio
+	:name "PORTFOLIO"
+	:author "portfolio author <foo@foo.com>"
 	:version "0.1"
-	:maintainer "template author <foo@foo.com>"
+	:maintainer "portfolio author <foo@foo.com>"
 	:depends-on (:cl-interpol
                :cl-ppcre
                :cxml
@@ -27,8 +27,8 @@
 	((:file "package")
 	 (:file "config" :depends-on ("package"))
 	 (:file "init" :depends-on ("config"))
-	 (:file "template" :depends-on ("config"))
-   (:file "project" :depends-on ("template"))
-   (:file "tags" :depends-on ("template" "project" "utils"))
-   (:file "utils" :depends-on ("template" "project"))
+	 (:file "portfolio" :depends-on ("config"))
+   (:file "project" :depends-on ("portfolio"))
+   (:file "tags" :depends-on ("portfolio" "project" "utils"))
+   (:file "utils" :depends-on ("portfolio" "project"))
 	 ))

@@ -1,13 +1,14 @@
 (in-package :cl-user)
 
-(defpackage :template.config
+(defpackage :portfolio.config
 	(:use :cl :cl-user)
 	(:export
 	 #:*website-url*
 	 #:*website-directory*))
 
-(defpackage :template
-	(:documentation "Package for the TEMPLATE system")
+(defpackage :portfolio
+	(:documentation "Package for the PORTFOLIO system")
+  (:nicknames :template)
 	(:use :cl
         :cl-ppcre
         :bknr.datastore
@@ -24,7 +25,7 @@
   (:shadowing-import-from :alexandria #:array-index)
   )
 
-(defpackage :template.tags
+(defpackage :portfolio.tags
   (:use :cl
         :cl-user
         :bknr.web
@@ -37,7 +38,7 @@
         :cl-interpol
         :cl-ppcre
         :bknr.utils
-        :template)
+        :portfolio)
   (:shadowing-import-from :cl-interpol #:quote-meta-chars))
 
-(in-package :template)
+(in-package :portfolio)
