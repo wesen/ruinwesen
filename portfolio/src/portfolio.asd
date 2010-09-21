@@ -5,9 +5,9 @@
 
 (defsystem :portfolio
 	:name "PORTFOLIO"
-	:author "portfolio author <foo@foo.com>"
+	:author "Manuel Odendahl <wesen@ruinwesen.com>"
 	:version "0.1"
-	:maintainer "portfolio author <foo@foo.com>"
+	:maintainer "Manuel Odendahl <wesen@ruinwesen.com>"
 	:depends-on (:cl-interpol
                :cl-ppcre
                :cxml
@@ -28,7 +28,7 @@
 	 (:file "config" :depends-on ("package"))
 	 (:file "init" :depends-on ("config"))
 	 (:file "portfolio" :depends-on ("config"))
-   (:file "project" :depends-on ("portfolio"))
-   (:file "tags" :depends-on ("portfolio" "project" "utils"))
-   (:file "utils" :depends-on ("portfolio" "project"))
+	 (:file "project" :depends-on ("portfolio"))
+	 (:file "tags" :depends-on ("portfolio" "project" "utils"))
+	 (:file "utils" :depends-on ("portfolio" "project"))
 	 ))
