@@ -5,11 +5,11 @@
 
 #|
 <introspection xmlns="http://purl.org/atom/ns#" > 
-  <search-entries>http://example.com/myblog/atom.cgi/search</search-entries>
-  <create-entry>http://example.com/myblog/atom.cgi/edit</create-entry>
-  <edit-template>http://example.com/atom.cgi/templates</edit-template>
-  <user-prefs>http://example.com/myblog/atom.cgi/prefs</user-prefs>
-  <categories>http://example.com/atom.cgi/categories</categories>
+<search-entries>http://example.com/myblog/atom.cgi/search</search-entries>
+<create-entry>http://example.com/myblog/atom.cgi/edit</create-entry>
+<edit-template>http://example.com/atom.cgi/templates</edit-template>
+<user-prefs>http://example.com/myblog/atom.cgi/prefs</user-prefs>
+<categories>http://example.com/atom.cgi/categories</categories>
 </introspection>
 |#
 
@@ -152,6 +152,12 @@
 (defun struct-field (struct name)
   (cdr (assoc name struct :test #'string-equal)))
 
+(defun make-blog-keywords-from-string (string)
+	(mapcar #'make-keyword-from-string (cl-ppcre:split "\\s+" string)))
+
+(defun make-blog-string-from-keywords (article)
+	(format nil "~{~(~A~)~^ ~}" (blog-article-keywords article)))
+
 (defun mt-new-post (blogid username password struct publish)
 ;;  (format t "HAHA ~A ~A ~A ~A~%" username password blogid struct)
 
@@ -162,14 +168,19 @@
   (let* ((id (parse-integer blogid))
 	 (blog (store-object-with-id id)))
     (format t "blog: ~A~%" blog)
-    (let ((article (make-object 'rw-blog-article
-				:short (struct-field struct "description")
-				:subject (struct-field struct "title")
-				:text (struct-field struct "mt_text_more")
-				:author (find-user username))))
-    (bknr.text::blog-add-article blog article)
-    
-    (princ-to-string (store-object-id article)))))
+		(let* ((keywords (make-blog-keywords-from-string (struct-field struct "keywords")))
+					 (description (struct-field struct "description"))
+					 (title (struct-field struct "title"))
+					 (text (struct-field struct "mt_text_more"))
+					 (article (make-object 'rw-blog-article
+																 :short description
+																 :subject title
+																 :text text
+																 :keywords keywords
+																 :author (find-user username))))
+			(bknr.text::blog-add-article blog article)
+			
+			(princ-to-string (store-object-id article)))))
 
 (defun mt-edit-post (postid username password struct publish)
   (unless (verify-password (find-user username) password)
@@ -179,14 +190,18 @@
 	 (post (store-object-with-id id)))
     (with-transaction ()
       (let ((description (struct-field struct "description"))
-	    (text (struct-field struct "mt_text_more"))
-	    (title (struct-field struct "title")))
-	(when description
-	  (setf (rw-blog-article-short post) description))
-	(when text
-	  (setf (article-text post) text))
-	(when title
-	  (setf (article-subject post) title))))
+						(text (struct-field struct "mt_text_more"))
+						(title (struct-field struct "title"))
+						(keywords (make-blog-keywords-from-string (struct-field struct "mt_keywords"))))
+				(format t "keywords: ~A~%" keywords)
+				(when description
+					(setf (rw-blog-article-short post) description))
+				(when text
+					(setf (article-text post) text))
+				(when keywords
+					(setf (blog-article-keywords post) keywords))
+				(when title
+					(setf (article-subject post) title))))
     :bool-true))
 
 (defun get-post (appkey postid username password)
@@ -217,7 +232,7 @@
      ("mt_convert_breaks" . "__default__")
      ("mt_excerpt" . ,(or (rw-blog-article-short article) ""))
      ("mt_text_more" . ,(or (article-text article) ""))
-     ("mt_keywords" . ""))))
+     ("mt_keywords" . ,(make-blog-string-from-keywords article)))))
      
 (defun get-recent-posts (param1 blogid username password num)
   (unless (verify-password (find-user username) password)
