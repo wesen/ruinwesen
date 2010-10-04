@@ -27,7 +27,8 @@
 	:components
 	((:file "package")
 	 (:file "config" :depends-on ("package"))
-	 (:file "init" :depends-on ("config"))
+	 (:file "webserver" :depends-on ("config"))
+	 (:file "init" :depends-on ("config" "webserver"))
 	 (:file "portfolio" :depends-on ("config"))
 	 (:file "project" :depends-on ("portfolio"))
 	 (:file "tags" :depends-on ("portfolio" "project" "utils"))
