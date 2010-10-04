@@ -1,6 +1,11 @@
 (in-package :portfolio)
 
-(defparameter *acceptor* nil)
+(defvar *acceptor* nil
+  "Stores the HUNCHENTOOT acceptor used to serve the website.")
+(defvar *ht-thread* nil
+  "Stores the thread used to run HUNCHENTOOT.")
+(defvar *cron-actor* nil
+  "Stores the CRON-ACTOR handling the cron jobs inside the datastore.")
 
 (defun store-startup ()
   (close-store)
@@ -11,39 +16,20 @@
 						  :n-blobs-per-directory 1000)))
   (unless (class-instances 'bknr.cron::cron-job)
     (bknr.cron:make-cron-job "snapshot" 'snapshot-store 0 5 :every :every))
-  (bknr.utils:actor-start (make-instance 'bknr.cron::cron-actor)))
-
-(defun publish-portfolio ()
-  (bknr.web:unpublish)
-  (make-instance 'bknr.web:website
-		 :name "Portfolio system"
-		 :url "jockel2"
-		 :handler-definitions
-		 `(
-		   ;; administration handlers
-		   user
-		   images
-
-		   ;; static file serving
-		   ("/static" bknr.web:directory-handler
-			      :destination ,(merge-pathnames #p"static/" *website-directory*)
-			      :filename-separator #\,)       
-
-		   ;; default template handler
-		   ("/" bknr.web:template-handler
-			:default-template "index"
-			:catch-all t
-			:destination ,(namestring (merge-pathnames "templates/" *website-directory*))
-			:command-packages (("http://bknr.net" . :bknr.web)
-					   ("http://portfolio.ruinwesen.com" . :portfolio.tags))))
-		 
-		 :authorizer (make-instance 'bknr.web:bknr-authorizer)
-		 ))
+  (bknr.utils:actor-start (setf *cron-actor* (make-instance 'bknr.cron::cron-actor))))
 
 (defun startup (&key foregroundp (port *webserver-port*))
-  (setq cxml::*default-catalog* '("/home/manuel/share/xml/catalog"))
-  (setf hunchentoot:*hunchentoot-default-external-format*
-	(flex:make-external-format :utf-8 :eol-style :lf))
+  (setq cxml::*default-catalog*
+	(list (namestring (merge-pathnames #p"catalog" *xml-catalog-directory*))))
+  (unless (probe-file (first cxml::*default-catalog*))
+    (error "Could not find XML catalog.~%
+Please make sure that ~A points to the correct location, or create
+it if it is missing."
+	   (first cxml::*default-catalog*)))
+  (setf cxml::*catalog* (cxml:make-catalog))
+  
+  (setf *hunchentoot-default-external-format* (flex:make-external-format :utf-8 :eol-style :lf))
+
   (ensure-directories-exist
    (setf tbnl:*tmp-directory* (merge-pathnames "hunchentoot-tmp/" *store-directory*)))
   
@@ -54,21 +40,35 @@
     (format t "; loading site configuration file~%")
     (load "site-config.lisp"))
 
+  (start-http-server))
+
+(defun shutdown-portfolio ()
+  (actor-stop *cron-actor*)
+  (stop-http-server)
+  (close-store))
+
+(defun stop-http-server ()
+  "Stop the running webserver, and destroy the thread it was running in."
   (when *acceptor*
     (hunchentoot:stop *acceptor*)
-    (setf *acceptor* nil))
-  (flet ((start-fn ()
-	   (hunchentoot:start (setf *acceptor*
-                                    (make-instance 'hunchentoot:acceptor
-                                                   :port port
-                                                   :read-timeout nil
-                                                   :write-timeout nil
-                                                   :taskmaster (make-instance 'hunchentoot:single-threaded-taskmaster)
-                                                   :request-dispatcher 'bknr.web:bknr-dispatch
-                                                   :persistent-connections-p nil)))))
-    (if foregroundp
-	(funcall #'start-fn)
-	(bt:make-thread #'start-fn
-			:name (format nil "HTTP server on port ~A" port)))))
+    (bt:destroy-thread *ht-thread*)
+    (setf *acceptor* nil)))
+
+(defun start-http-server ()
+  "Restart the webserver, republishing the website as well."
+  (stop-http-server)
+
+  (publish-portfolio)
+
+  (setf *acceptor*
+	(make-instance 'hunchentoot:acceptor
+		       :port *webserver-port*
+		       :taskmaster (make-instance 'hunchentoot:single-threaded-taskmaster)
+		       :persistent-connections-p nil
+		       :request-dispatcher 'bknr.web:bknr-dispatch))
+
+  (setf *ht-thread*
+	(bt:make-thread (curry #'hunchentoot:start *acceptor*)
+			:name (format nil "HTTP server on port ~A" *webserver-port*))))
 
 (defmethod bknr.indices::destroy-object-with-class ((class t) (object t)))
