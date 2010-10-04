@@ -32,13 +32,13 @@ it if it is missing."
 
   (ensure-directories-exist
    (setf tbnl:*tmp-directory* (merge-pathnames "hunchentoot-tmp/" *store-directory*)))
-  
-  (store-startup)
-  (publish-portfolio)
 
   (when (probe-file "site-config.lisp")
     (format t "; loading site configuration file~%")
     (load "site-config.lisp"))
+
+  (store-startup)
+  (publish-portfolio)
 
   (start-http-server))
 
