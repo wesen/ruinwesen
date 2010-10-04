@@ -5,7 +5,10 @@
   (:export #:*website-url*
 	   #:*website-directory*
 	   #:*webserver-port*
-	   #:*store-directory*))
+	   #:*store-directory*
+	   #:*thirdparty-directory*
+	   #:*xml-catalog-directory*
+	   ))
 
 (defpackage :ruinwesen
   (:use :cl
@@ -23,6 +26,7 @@
 	:bknr.images
 	:bknr.rss
 	:bknr.text
+	:alexandria
 	:cxml
 	:ruinwesen.config
 	:xhtml-generator)
