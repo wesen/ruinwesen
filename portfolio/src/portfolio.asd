@@ -20,7 +20,8 @@
                :unit-test
                :yason
                :cl-pdf
-               :cybertiggyr-time)
+               :cybertiggyr-time
+	       :alexandria)
 
   
 	:components
