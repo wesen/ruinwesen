@@ -1,17 +1,18 @@
 (in-package :ruinwesen.config)
 
+;; this is kind of a dirty hack to get the root of the thirdparty directory
+(defparameter *thirdparty-directory*
+  (asdf:system-relative-pathname :cl-gd #p"../"))
+
 (defparameter *website-url* "http://jockel.hasis.biz:4242/")
 
 (defparameter *dollars-to-eur* 1.5)
 
-(format t "pathname ~A~%" *load-pathname*)
-(defparameter *root-directory*
-  "/home/mnl/siff-svn/ruinwesen/")
+(defparameter *root-directory* (asdf:system-relative-pathname :ruinwesen #p"../"))
+(defparameter *xml-catalog-directory* (asdf:system-relative-pathname :ruinwesen #p"../xml/"))
 
-(defparameter *store-directory*
-  (merge-pathnames #p"datastore/" *root-directory*))
+(defparameter *store-directory* (merge-pathnames #p"datastore/" *root-directory*))
 
-(defparameter *website-directory*
-  (probe-file (merge-pathnames #p"website/" *root-directory*)))
+(defparameter *website-directory* (probe-file (merge-pathnames #p"website/" *root-directory*)))
 
-(defparameter *webserver-port* 4242)
+(defparameter *webserver-port* 4141)
