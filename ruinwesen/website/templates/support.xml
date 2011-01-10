@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header title="Ruin &amp; Wesen: Support"/>
+
+<body>
+<div class="container">
+	<ruinwesen:header/>
+	<ruinwesen:navigation/>
+
+<div class="content">
+	<ruinwesen:banner/>
+
+<div class="contenttext">
+	<h3>Support</h3>
+	<p>Looking for documentation and support? Consult the links below
+	for more information about our products. Firmwares, software and
+	VSTs are available on the <a href="/files">Files page</a>.</p>
+
+<div style="clear: both">
+	<h5 class="supportlead">MiniCommand</h5>
+
+<div class="supportcol1" style="height: 128px">
+	<b class="title">INFORMATION:</b>
+	<ul>
+		<li><a href="http://ruinwesen.com/products">MiniCommand Product Page</a></li>
+		<li><a href="http://ruinwesen.com/midi-ctrl">MIDI-CTRL Framework</a></li>
+		<li><a
+	href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki">MIDI-CTRL
+	Redmine</a></li>
+		<li><a href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki/FAQ" title="Minicommand FAQ">Minicommand FAQ</a></li>
+		<li><a href="http://forum.ruinwesen.com" title="Support forum">Support forum</a></li>
+		<li><a href="mailto:info@ruinwesen.com" title="Email contact">Email contact</a></li>
+	</ul>					
+</div>
+<div class="supportcol2" style="height: 128px">
+	<b class="title">VIDEOS:</b>
+	<ul>
+		<li><a href="http://ruinwesen.blip.tv/file/3165126/" title="Device and Wesen Live Patch">Wesen Live Patch</a></li>
+		<li><a href="http://ruinwesen.blip.tv/file/3165224/" title="Patch Manager">Patch Manager</a></li>
+		<li><a href="http://ruinwesen.blip.tv/file/3166970/" title="Pattern Euclid">Pattern Euclid</a></li>
+		<li><a href="http://ruinwesen.blip.tv/file/3195600/" title="Monomachine Live Patch">Monomachine Patch</a></li>
+		<li><a href="http://ruinwesen.blip.tv/file/3196290/" title="MC Live Setup">Live Setup</a></li>
+	</ul>
+</div>
+</div>
+
+
+<div style="clear: both">
+	<h5 class="supportlead">Music</h5>
+
+<div class="supportcol1" style="height: 104px">
+	<b class="title">RUIN:</b>
+	<ul>
+		<li><a href="http://myspace.com/ruinsite" title="ruin myspace">Myspace</a></li>
+		<li><a href="http://ruinsite.com/ruindisco.html" title="ruin discography">Ruin Discography</a></li>
+		<li><a href="http://bitkins.com/" title="bitkins netlabel">bitkins netlabel</a></li>
+		<li><a href="http://www.archive.org/details/ahlsowend" title="ahlsowend netlabel">Ahlsowend Netlabel</a></li>
+		<li><a href="http://ruinblog.wordpress.com/" title="ruin blog">Ruin Blog</a></li>
+	</ul>
+</div>
+<div class="supportcol2" style="height: 104px">
+	<b class="title">WESEN:</b>
+	<ul>
+		<li><!-- <a href="http://rednetic.net/releases/index.php?rel=13" title="wesen - zwiebel EP">Wesen - Zwiebel EP</a> --> Wesen - Zwiebel EP</li>
+		<li><a href="http://bl0rg.net/~manuel/weimar-after.mp3" title="01.01.2010 liveset">01.01.2010 Liveset</a></li>
+		<li><a href="http://ruinwesen.com/support-files/stickam-liveset.mp3" title="27.09.2008 liveset">27.09.2008 Liveset
+		</a></li>
+		<li><a href="http://www.youtube.com/watch?v=Q7Zz68LVScQ" title="md mnm liveset">Liveset Video (with MidiCommand)</a>
+		</li>
+
+	</ul>					
+</div>
+</div>
+
+
+</div>
+
+
+<div class="spacer">  </div>
+<ruinwesen:footer/>
+</div>	
+</div>
+
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

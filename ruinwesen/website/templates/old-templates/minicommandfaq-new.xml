@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:bknr="http://bknr.net/"
+		xmlns:ruinwesen="http://ruinwesen.com/"
+		lang="en">
+	
+	<ruinwesen:html-header title="MiniCommand FAQ"/>
+	
+	<body>
+		<div class="container">
+			<ruinwesen:header/>
+			<ruinwesen:navigation/>
+			
+			<div class="content">
+				<ruinwesen:banner/>
+				<div class="contenttext">
+					<div style="clear:both">
+					</div>
+					
+					
+					<div class="product">
+						<div class="producttitle">MINICOMMAND FAQ</div>
+						<br/><br/>
+						
+						<!-- <div class="banner2" align="center"><img src="/images/mini-command-banner-slim.png" alt="Banner"/></div> -->
+
+						<h3>General</h3>
+						<ul>
+							<li><a href="#minicommand-mididuino">What's the MiniCommand and the Mididuino software environment?</a></li>
+							<li><a href="#order-minicommand">How can I order a Minicommand?</a></li>
+							<li><a href="#minicommand-availability">Are Minicommands available for sale?</a></li>
+							<li><a href="#firmware-storage">Where is the firmware stored?</a></li>
+							<li><a href="#firmware-storage">Can I store multiple firmwares on the SD-Card? </a></li>
+							<li><a href="#firmwares-other-synths">Are other synthesizers and drum machines than the Elektron MachineDrum and Elektron MonoMachine supported?</a></li>
+							<li><a href="#shipping-costs">How much are the shipping costs for the MiniCommand?</a></li>
+						</ul>
+
+						<h3>Hardware</h3>
+						<ul>
+							<li><a href="#wrong-check">Why does my Minicommand show "WRONG CHECK" when I try to upload a new firmware?</a></li>
+							<li><a href="#weird-things">My MiniCommand does weird things (resets, display blanks, encoder trouble...)!</a></li>
+							<li><a href="#updating-problem">I have trouble updating the firmwares on my MiniCommand.</a></li>
+							<li><a href="#sd-card-error">I get the message "SD CARD ERROR" when turning on my MiniCommand.</a></li>
+							<li><a href="#leds-hardware">What are the LEDs used for? I don't understand how they work.</a></li>
+							<li><a href="#connect-minicommand">How do I need to connect my MiniCommand to a synthesizer?</a></li>
+						</ul>
+
+						<h3>Firmwares</h3>
+						<ul>
+							<li><a href="#monster-firmwares">What are the so-called "monster" firmwares?</a></li>
+							<li><a href="#sd-card">What is the SD-Card used for? When will it properly be supported?</a></li>
+							<li><a href="#extra-features-sysex">How does the MiniCommand access so many "extra" features of the synthesizers it controls?</a></li>
+							<li><a href="#autolearn">How does the Autolearn feature on the MachineDrum and MonoMachine firmwares work?</a></li>
+							<li><a href="#euclid-note-off">The Euclid firmware doesn't send any NOTE OFF events, this is very annoying.</a></li>
+						</ul>
+
+						<h3>Development</h3>
+						<ul>
+							<li><a href="#programming-merger">Programming firmwares for my synthesizer is quite tedious because I have to unplug everytime I want to reprogram the Minicommand...</a></li>
+							<li><a href="#mididuino-release">When is the MidiDuino environment going to be released with proper documentation?</a></li>
+							<li><a href="#development-community">How is the community around the Minicommand going to be organized?</a></li>
+							<li><a href="#midi-setup-function">Why can't I send MIDI in the setup() function?</a></li>
+						</ul>
+
+						<h3>Patch Manager</h3>
+						<ul>
+							<li><a href="#patch-manager-order">The Patch Manager displays firmwares in the wrong order.</a></li>
+							<li><a href="#patch-manager-firmwares">Will third-party firmwares be released in the Patch Manager?</a></li>
+						</ul>
+
+						<h3>MachineDrum Firmwares</h3>
+						<ul>
+							<li><a href="#melodic-machines">What machines are supported for pitch melodies?</a></li>
+							<li><a href="#ram-p-resampling">How does the RAM-P1 resampling feature work exactly?</a></li>
+							<li><a href="#euclid-rhythm">Why does generating a new euclid rhythm with MDPatternEuclid erase the changes I made to the pattern?</a></li>
+							<li><a href="#plus-drive">How will the MiniCommand interact with the new +Drive feature?</a></li>
+							<li><a href="#turbomidi">Will the MiniCommand support turbomidi?</a></li>
+						</ul>
+
+						<h3>MonoMachine Firmwares</h3>
+						<ul>
+							<li><a href="#pattern-euclid-monomachine">Why can't MNMPatternEuclid save patterns correctly? </a></li>
+						</ul>
+
+						<h2>General</h2>
+
+						<h3 class="title">What's the MiniCommand and the MidiDuino software environment?</h3>
+						<p><a name="minicommand-mididuino">&nbsp;</a>
+						All the software included in the MidiDuino library was originally
+						written for the Ruin &amp; Wesen MIDI controllers, the first one available
+						being the MiniCommand. These controllers offer a complete hardware
+						MIDI Controller development environment, and use a custom version of
+						the Arduino environment for programming. The MIDI code written for
+						these devices was then ported over to the standard Arduino.<br/><br/>
+
+						The development environment used to program the MiniCommand is also
+						called MidiDuino, in contrast to the MidiDuino library, which is available on <a href="http://ruinwesen.com/mididuino">the MidiDuino page</a>.</p>
+
+						<h3 class="title">How can I order a Minicommand?</h3>
+						<p><a name="order-minicommand">&nbsp;</a>Just fill out the <a href="/preorder">preorder form</a>, and we will get back to you with more information about the availability of the MiniCommand in your country, payment details and shipping information. If there are no MiniCommands available at the time you fill out the preorder form, we will contact you as soon as a new batch is available.
+						</p>
+
+						<h3 class="title">Are Minicommands available for sale?</h3>
+						<p><a name="minicommand-availability">&nbsp;</a>The availability of the MiniCommand depends on both the current batch production status and the country they need to be shipped to. Shipping worldwide can get quite expensive. To check if the MiniCommand is available in your country and at what price, either fill out the <a href="/preorder">preorder form</a> or contact us using the <a href="/contact">contact form</a>.
+						</p>
+
+						
+						<h3 class="title">Where is the firmware stored?</h3>
+
+						<p><a name="firmware-storage">&nbsp;</a>The firmware is stored on the internal flash memory of the Atmel, and not on the SD Card. Theoretically, this means that you can flash a new firmware a limited amount of times (Atmel gives 10000 as a lower boundary). In practice, this is practically irrelevant, as even if you reflash your device 30 times each day, it would take you at least 3 years of fulltime development to begin to reach that limit. You have to be careful of not using "advanced" tricks to reprogram the flash memory over and over though. It's better to use the SD-Card for that purpose.</p>
+
+						<h3 class="title">Are other synthesizers and drum machines than the Elektron MachineDrum and Elektron MonoMachine supported?</h3>
+						<p><a name="firmwares-other-synths">&nbsp;</a>At the moment, most firmwares are geared towards the Elektron MachineDrum and Elektron MonoMachine, although there are a few general MIDI firmwares (the MagicMidiController firmware and the Pitch Euclid firmware). However, libraries to support new synthesizers are in the works in the new version of the MidiDuino framework. Stay tuned...</p>
+
+						<h3 class="title">How much are the shipping costs for the MiniCommand?</h3>
+						<p><a name="shipping-costs">&nbsp;</a>The MiniCommands are shipped using UPS, and the shipping costs can vary a lot. We are working on integrating an automatic calculation of shipping costs on the website. The shipping costs are around 7 EUR for Germany, 15-40 EUR for Europe, and about 100 EUR for the rest of the world. Due to the high costs for the rest of the world, we try to do batch shipping to the US, Canada and Australia, however this has turned out to be a less than optimal solution for the first two batches. We are now working on alternative way of distribution, using distributors, and looking for other carrier options.</p>
+						
+						<h2>Hardware</h2>
+						<h3 class="title">Why does my MiniCommand show "WRONG CHECK"?</h3>
+
+						<p><a name="wrong-check">&nbsp;</a>There probably was an error in transmitting the firmware, maybe due to an interruption or because the MIDI cable is faulty. Check your setup, and power cycle the MiniCommand before sending the firmware again. This should take care of the problem.</p>
+
+						<h3 class="title">My MiniCommand does weird things (resets, display blanks, encoders don't work, etc...)!</h3>
+
+						<p><a name="#weird-things">&nbsp;</a>That's probably a mechanical or electronic issue, but it could also be due to a number of code issues. Check that the size of your program doesn't exceed the possibilities of the MiniCommand: 64 kB of data and bss (uninitialized data), 64 kB of program code. If you're not sure (and the devil definitely is in the details in those cases), please contact us at <a href="info@ruinwesen.com">info@ruinwesen.com</a>.</p>
+
+						<h3 class="title">I have trouble updating the firmwares on my MiniCommand.</h3>
+						<p><a name="updating-problem">&nbsp;</a>This may be caused by either software problems, or some hardware problems on the first two batches of MiniCommands (nothing bad that the users can't fix themselves). Contact us for more informations, and we will post a detailed documentation on how to fix those problems soon.</p>
+
+						<h3 class="title">I get the message "SD CARD ERROR" when turning on my MiniCommand.</h3>
+						<p><a name="sd-card-error">&nbsp;</a>The SD-Card in the MiniCommand is used only to store MIDI Clock settings at the moment. The files are stored in the VFAT (FAT32) filesystem on the SD-Card, and the sourcecode to handle the filesystem is quite complicated. There seems to be a problem with the SD-Card somehow corrupting their filesystem (it only happened with 2 of the shipped SD cards, so it seems to be quite isolated). This is being investigated at the moment, as we managed to get one of the faulty SD cards. If you have a faulty SD card, contact us and we will ship you a new one.</p>
+
+						<h3 class="title">What are the LEDs used for? I don't understand how they work.</h3>
+						<p><a name="leds-hardware">&nbsp;</a>The LEDs light up when the bootloader is active. When a firmware is loaded, the LEDs are under control of the firmware. The left LED is usually used to indicate MIDI tempo sync, and will flash every quarter note. However, this depends on the firmware, and is not really unified at the moment. We are working on it.</p>
+
+						<h3 class="title">How do I need to connect my MiniCommand to a synthesizer?</h3>
+						<p><a name="connect-minicommand">&nbsp;</a> The MiniCommand usually needs to both send MIDI data and receive MIDI data from the controlled synthesizer. Thus, the MIDI output of the MiniCommand needs to be connected to the MIDI input of the synthesizer, and the MIDI input of the MiniCommand needs to be connected to the MIDI output of the synthesizer. To allow a more complicated setup (for example syncing the MiniCommand and the controlled synthesizer to an external clock source), the second input of the MiniCommand can be used to merge MIDI data into the sent and received MIDI communication. To do that, setup the MIDI clock information in MIDI clock page: hold the upper left button when turning on the MiniCommand, and set CLK to the input port, if the CLK is going to be sent out, and what kind of MIDI data is merged into the output from the second MIDI port. We will post some more elaborate setup diagrams on our blog soon.</p>
+
+						<h2>Firmwares</h2>
+
+						<h3 class="title">What are the so-called "monster" firmwares?</h3>
+						<p><a name="monster-firmwares">&nbsp;</a> As firmwares can't be loaded from the SD-Card, multiple separate firmwares need to be combined into a big, all-in-one firmware. These firmwares are called "monster" firmwares, and they offer an overall "control page" allowing to access, mute and control specific parameters of the individual firmwares. Due to the restricted firmware size on the MiniCommand hardware, only a few different firmwares can be grouped into a monster firmware. Thus, there are monster firmwares geared towards melodic use, towards studio use, towards pattern generation, towards live playing, etc...</p>
+
+						
+						<h3 class="title">What is the SD-Card used for? When will it be properly supported?</h3>
+						<p><a name="sd-card">&nbsp;</a> The SD-Card was included in the MiniCommand design to replace a smaller EEPROM chip. It is used to store files (using the SDCard API in the MidiDuino framework). However, the complexity of the filesystem API, and the restricted resources of the 8-bit CPU used in the MiniCommand have not allowed us to completely finish the support for the SD-Card. At the moment, it is used to store the MIDI clock settings. However, we are ourselves looking forward to finally harness the power of having 1 GB of storage, and will continue to work on making the SD-Card support better.</p>
+
+						<h3 class="title">How does the MiniCommand access so many "extra" features of the synthesizers it controls?</h3>
+						<p><a name="extra-features-sysex">&nbsp;</a> The MiniCommand runs specific firmwares that know exactly what synthesizer or drum machine they control. In contrast to normal MIDI controllers, who can only work with the more standard, general MIDI messages like NOTE ON, NOTE OFF, CC and PRG CHG, the MiniCommand knows everything about the receiving end. It knows which sysex messages are supported, what dump format is used, and maybe even about some "hacker" tricks that can be used to trigger specific functionality. For example, to control the MachineDrum and the MonoMachine, the MiniCommand reads out all the GLOBAL settings, the current KIT, and it can even parse the complete current PATTERN. That way, it knows automatically on what channel the MachineDrum is configured, which machine is loaded on which track, and even which hit is set on which step. That way, it knows the names of the parameters control by individual CC messages, and can show an "intelligent" interface to the user. This concept can of course be extended to any other synthesizer, drum machine or software. Also see <a href="#firmwares-other-synths">"Are other synthesizers and drum machines than the Elektron MachineDrum and MonoMachine supported?"</a>.
+						</p>
+						
+						<h3 class="title">How does the Autolearn feature on the MachineDrum and MonoMachine firmwares work?</h3>
+						<p><a name="autolearn">&nbsp;</a> The Autolearn feature works by first reading out the current KIT from the controlled groovebox (it needs both IN and OUT to be connected). When it then receives CC messages from the MachineDrum or the MonoMachine, it looks up which machine and which parameter this CC corresponds too, and displays the correct name for it. It thus needs the groovebox to send out CC messages for all the tracks. This means that the BASE CHANNEL setting in the GLOBAL page needs to be set to a valid value for the AutoLearn to work.</p>
+						
+						
+						<h3 class="title">The Euclid firmware doesn't send any NOTE OFF events, this is very annoying.</h3>
+						<p><a name="euclid-note-off">&nbsp;</a> The Euclid firmware was originally built for grooveboxes, taking only a NOTE ON event to trigger the sound. The sequencing part of the MidiDuino framework is not entirely finished at the moment, in part due to the restricted resources on the MiniCommand. This makes precise note length timing a bit difficult. We have a prototype version of the Euclid firmware that cuts off notes before sending out new ones, but it is not yet entirely finished. We will also try to make the timing of note lengths more flexible. The new firmware will be published in the Patch Manager once it is ready. Sorry for the inconvenience.</p>
+
+						<h2>Development</h2>
+
+						<h3 class="title">Programming firmwares for my synthesizer is quite tedious because I have to unplug everytime I want to reprogram the MiniCommand...</h3>
+
+						<p><a name="programming-merger">&nbsp;</a>That's quite true. We use a MIDI merger to connect the synthesizer, the PC and the MiniCommand together, so that no unplugging is required. Beware that this may mess with the tightness of the MIDI clock.</p>
+
+						<h3 class="title">When is the MidiDuino environment going to be released with proper documentation?</h3>
+						<p><a name="mididuino-release">&nbsp;</a> The new version of the MidiDuino framework is a huge step forward from the previous version. It has been "ready" since october, but due to the huge workload of building and shipping the MiniCommands, as well as the increased tax and bureaucracy required to run a company, we did not have time to package a proper release. Now that all the background work has been refactored and streamlined, we are looking forward to releasing the framework soon.</p>
+						<p>We have put a lot of effort into a redesign of the MidiDuino documentation, with beautiful typography and custom illustrations. This process is still underway, as we want to polish it through. However, we will begin putting up preliminary versions of the documentation online, rather than being perfectionist about it. It's an opensource product after all. Watch out for announcements on our blog!</p>
+
+						<h3 class="title">How is the community around the MiniCommand going to be organized?</h3>
+						<p><a name="development-community">&nbsp;</a> We are currently setting up an account at <a href="http://assembla.com">assembla.com</a> to coordinate the development of the MidiDuino framework. This will allow us to keep track of discussions, feature requests, bug tracking, and include other developers into the project much more easily. Watch out for announcements on our webpage.</p>
+
+
+						<h3 class="title">Why can't I send MIDI in the setup() function?</h3>
+
+						<p><a name="midi-setup-function">&nbsp;</a> You have to enable interrupts before sending data on the serial
+						interface, as it uses a buffered output. If you want to
+						send MIDI from the setup(), call sei() before sending the MIDI
+						data. Be sure to do this at the end of the setup() routine. </p>
+						
+
+						<h2>Patch Manager</h2>
+
+						<h3 class="title">The Patch manager displays firmwares in the wrong order.</h3>
+						<p><a name="patch-manager-order">&nbsp;</a> This is a known bug. The developer of the Patch Manager program is currently busy with his normal day job, so that we have to postpone the new version of the Patch Manager until more urgent matters are taken care of. We are also thinking about turning the whole thing into a webpage, to make it even more accessible and flexible.</p>
+
+						<h3 class="title">Will third-party firmwares be released in the Patch Manager?</h3>
+						<p><a name="patch-manager-firmwares">&nbsp;</a> Yes, we plan to release third party firmwares in the Patch Manager. We are going to setup an approval process however, as we want to make sure that no firmware bugs that could harm the MiniCommand bootloader are included in those firmwares. All the firmwares released in the Patch Manager will be opensource and free, we don't want to turn it into an App Store :) .</p>
+
+
+						<h2>MachineDrum Firmwares</h2>
+
+						<h3 class="title">What machines are supported for pitch melodies?</h3>
+						<p><a name="melodic-machines">&nbsp;</a> The following machines are supported for playing pitched notes: EFM-RS, EFM-HH, EFM-CP, EFM-SD, EFM-XT, EFM-BD, TRX-CL, TRX-SD, TRX-XC, TRX-XT, TRX-BD, GND-SN, TRX-B2, TRX-RS, EFM-CB, ROM, EFM-CY, E12-BC, E12-CB, E12-LT. Support for RAM-P and MID machines will be added soon.</p>
+
+						<h3 class="title">How does the RAM-P1 resampling feature work exactly?</h3>
+						<p><a name="ram-p-resampling">&nbsp;</a> The RAM-P1 resampling feature is a bit tricky to get working. The pattern needs to have one track with a RAM-R1 machine loaded, as well as a second track that has a RAM-P1 machine. Use only one track with a RAM-P1 machine, more will confuse the MiniCommand. The firmware scans through all the machines, and recognizes the first RAM-P1 machine it finds. The exact settings for the RAM-R1 and RAM-P1 depend on the overall level of your patterns, it takes a bit of time to find the sweet spot where the resampled version plays back as loud as the "real" pattern, and without distortion. Try to play with the levels, and take the master effects EQ and COMPRESSOR into account as well.</p>
+						<p>In a first step, the current pattern needs to be resampled by the RAM-R1 machine, while the RAM-P1 machine is muted. To do this, we use a track with a RAM-R1 machine, and a single hit on the first step of the pattern.  Once the RAM-P1 machine has resample the current pattern, mute the RAM-R1 track and unmute the RAM-P1 track. Don't have both tracks unmuted at the same time, as this can lead to nasty feedback! The firmware will send triggers to the RAM-P1 machine automatically on every downbeat, so there is no need to put any steps for that track (in fact, that will only lead to clicks and phasing).</p>
+
+						<h3 class="title">Why does generating a new euclid rhythm with MDPatternEuclid erase the changes I made to the pattern?</h3>
+						<p><a name="euclid-rhythm">&nbsp;</a> The PatternEuclid firmwares works by reading in the current pattern information over sysex. That information is quite long, and it takes about 1 or 2 seconds to transmit. This information is then kept in memory on the MiniCommand. Generating a new rhythm will modify that copy of the pattern, and transmit the pattern back to the MachineDrum, overwriting the previous version of the pattern. If the pattern is modified separately on the MachineDrum, it needs to be read back into the MiniCommand. Else, generating a new rhythm on the MiniCommand will modify the previous version, and send that one back to the MachineDrum, erasing any independent changes made on the MachineDrum itself. We will try to make this a bit more user-friendly in the future, but are a bit limited by the slowness of the Sysex transfer.</p>
+
+						<h3 class="title">How will the MiniCommand interact with the new +Drive feature?</h3>
+						<p><a name="plus-drive">&nbsp;</a> We don't have a +Drive MachineDrum yet, but will have one available pretty soon. Features are planned for the MiniCommand that are similar to those of the +Drive, but they will be a bit different, and complementary. There is no way the MiniCommand can be as tightly integrated with the MachineDrum workflow as +Drive is, but on the other hand, there will be much more flexibility. More information soon on our development page.</p>
+
+						<h3 class="title">Will the MiniCommand support Turbomidi?</h3>
+						<p><a name="turbomidi">&nbsp;</a> Yes, there actually is a prototype implementation of TurboMidi in the new MidiDuino framework. It seems that most MiniCommands can go up to 5X or even 8X using Turbomidi. This feature needs a bit more testing before being included in standard firmwares, but it is there, and will allow for a much smoother flow when doing big SYSEX exchanges.</p>
+
+						<h2>MonoMachine Firmwares</h2>
+
+						<h3 class="title">Why can't MNMPatternEuclid save patterns correctly?</h3>
+						<p><a name="">&nbsp;</a> The MonoMachine accepts sysex messages only when the SYSEX RECV menu is open. This is a bit detrimental to the overall flow of the PatternEuclid firmware. There is nothing we can do on the MiniCommand to fix that. However, we asked Elektron to make the sysex receive work even when outside of the SYSEX RECV menu (as it is on the Machinedrum), so we are hoping for the best :)</p>
+
+					</div>
+
+					
+				</div>
+				
+				<ruinwesen:footer/>
+			</div>	
+
+		</div>
+		<ruinwesen:google-analytics/>
+
+	</body>
+</html>
