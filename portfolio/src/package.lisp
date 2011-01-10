@@ -4,7 +4,10 @@
 	(:use :cl :cl-user)
 	(:export
 	 #:*website-url*
-	 #:*website-directory*))
+	 #:*website-directory*
+         #:*xml-catalog-directory*
+         #:*store-directory*
+         #:*webserver-port*))
 
 (defpackage :portfolio
 	(:documentation "Package for the PORTFOLIO system")
