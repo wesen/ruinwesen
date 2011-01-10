@@ -1,7 +1,5 @@
 (in-package :md)
 
-;;; XXX kit identical
-
 ;;; store data
 
 (defvar *current-user* nil)
@@ -196,39 +194,35 @@
 	 (member key1 key2))
 	(t (eql key1 key2))))
 
+(defparameter *rom-machine-list*
+  '(:ROM-01 :ROM-02 :ROM-03 :ROM-04
+    :ROM-05 :ROM-06 :ROM-07 :ROM-08
+    :ROM-09 :ROM-10 :ROM-11 :ROM-12
+    :ROM-13 :ROM-14 :ROM-15 :ROM-16      
+    :ROM-17 :ROM-18 :ROM-19 :ROM-20
+    :ROM-21 :ROM-22 :ROM-23 :ROM-24
+    :ROM-25 :ROM-26 :ROM-27 :ROM-28
+    :ROM-29 :ROM-30 :ROM-31 :ROM-32
+    :ROM-33 :ROM-34 :ROM-35 :ROM-36
+    :ROM-37 :ROM-38 :ROM-39 :ROM-40
+    :ROM-41 :ROM-42 :ROM-43 :ROM-44
+    :ROM-45 :ROM-46 :ROM-47 :ROM-48)
+  "List of all possible ROM machines.")
+
 (defun rom-model-p (model)
-  (member (machine-name model)
-	  '(:ROM-01 :ROM-02 :ROM-03 :ROM-04
-	    :ROM-05 :ROM-06 :ROM-07 :ROM-08
-	    :ROM-09 :ROM-10 :ROM-11 :ROM-12
-	    :ROM-13 :ROM-14 :ROM-15 :ROM-16      
-	    :ROM-17 :ROM-18 :ROM-19 :ROM-20
-	    :ROM-21 :ROM-22 :ROM-23 :ROM-24
-	    :ROM-25 :ROM-26 :ROM-27 :ROM-28
-	    :ROM-29 :ROM-30 :ROM-31 :ROM-32)))
+  "Returns if the model is a ROM machine."
+  (member (machine-name model) *rom-machine-list*))
 
 (defun rom-num-model (num)
-  (machine-num (elt '(:ROM-01 :ROM-02 :ROM-03 :ROM-04
-	    :ROM-05 :ROM-06 :ROM-07 :ROM-08
-	    :ROM-09 :ROM-10 :ROM-11 :ROM-12
-	    :ROM-13 :ROM-14 :ROM-15 :ROM-16      
-	    :ROM-17 :ROM-18 :ROM-19 :ROM-20
-	    :ROM-21 :ROM-22 :ROM-23 :ROM-24
-	    :ROM-25 :ROM-26 :ROM-27 :ROM-28
-	    :ROM-29 :ROM-30 :ROM-31 :ROM-32) num)))
+  "Returns the model of a ROM machine umber."
+  (machine-num (elt *rom-machine-list* num)))
 
 (defun rom-model-num (model)
-  (index-of 	  '(:ROM-01 :ROM-02 :ROM-03 :ROM-04
-	    :ROM-05 :ROM-06 :ROM-07 :ROM-08
-	    :ROM-09 :ROM-10 :ROM-11 :ROM-12
-	    :ROM-13 :ROM-14 :ROM-15 :ROM-16      
-	    :ROM-17 :ROM-18 :ROM-19 :ROM-20
-	    :ROM-21 :ROM-22 :ROM-23 :ROM-24
-	    :ROM-25 :ROM-26 :ROM-27 :ROM-28
-	    :ROM-29 :ROM-30 :ROM-31 :ROM-32)
-		  (machine-name model)))
+  "Returns the number of a ROM model name."
+  (index-of *rom-machine-list* (machine-name model)))
 
 (defun model-param-name (model param)
+  "Returns the name of a parameter of a specific model."
   (let ((model-assoc (cadr (assoc (machine-name model) *model-param-names* :test #'eql-or-member))))
     (when model-assoc
       (cadr (assoc param model-assoc)))))
