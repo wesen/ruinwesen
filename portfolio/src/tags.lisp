@@ -30,7 +30,8 @@
                           ("Services" . "/services")
                           ("Projects" . ("/projects" "/project"))
                           ;;("Blog" . "/blog")
-                          ("Contact" . "/contact")))
+                          ("Contact" . "/contact")
+                          ))
              (cond
                ((if (listp (cdr elt))
                     (member (hunchentoot:script-name*) (cdr elt) :test #'string=)
@@ -45,10 +46,10 @@
 (define-bknr-tag footer ()
   (html ((:div :id "footer")
          ((:div :id "twitterbox")
-          ((:img :src "/static/images/twitter-bird.png" :alt "Twitter bird")) (:span " ")
+          ((:img :src "/static/images/twitter-bird.png" :width 79 :height 87 :alt "Twitter bird")) (:span " ")
           (:p "Follow me on " (:br) ((:a :href "http://twitter.com/wesen" :title "wesen on twitter") "twitter") "!"))
          ((:div :id "bookbox")
-          ((:img :src "/static/images/arduino-book.png" :alt "Arduino Book"))
+          ((:img :src "/static/images/arduino-book.png" :width 79 :height 93 :alt "Arduino Book"))
           (:p "Buy our book on " ((:a :href "http://www.amazon.de/Arduino-Physical-Computing-Designer-oreillys/dp/3897218933" :title "Arduino Buch auf Amazon") "amazon") "!"))
          ((:p :id "copyright") "(c) 2010 Manuel Odendahl" (:br)
           ((:a :href "/legal" :title "Legal information") "legal / impressum")))))
@@ -66,7 +67,7 @@
     (with-slots (portfolio::title portfolio::tags portfolio::time portfolio::description portfolio::image portfolio::image)
         project
       (html ((:div :id "project")
-             ((:img :alt portfolio::title :src (format nil "/image/~a" (store-object-id portfolio::image))))
+             ((:img :width 594 :height 405 :alt portfolio::title :src (format nil "/image/~a" (store-object-id portfolio::image))))
              ((:div :class "project-title")
               (:h2 (:princ-safe (string-upcase portfolio::title))))
              ((:div :class "project-date") (:princ-safe (cybertiggyr-time:format-time nil "%Y" portfolio::time)))
@@ -75,7 +76,7 @@
              ((:div :class "project-tags")
               (:princ-safe "Tags: ")
               (dolist (tag portfolio::tags)
-                (html ((:a :href (format nil "/projects?tag=~a" (string-downcase (symbol-name tag))) :title (format nil "~a projects" tag))
+                (html ((:a :href (format nil "/projects?tag=~a" (hunchentoot:url-encode (string-downcase (symbol-name tag)))) :title (format nil "~a projects" tag))
                        (:princ-safe (string-downcase (symbol-name tag)))) " ")))
 
             (when (bknr.web::admin-p (bknr-session-user))
@@ -87,11 +88,12 @@
                      (prev-project (portfolio::find-before projects project))
                      (next-project (portfolio::find-after projects project)))
                 (when prev-project
-                  (html ((:a :href (format nil "/project?id=~a&tag=~a" (portfolio::portfolio-project-title prev-project) tag)
+                  (html ((:a :href (format nil "/project?id=~a&tag=~a" (portfolio::portfolio-project-title prev-project)
+                                           (hunchentoot:url-encode tag))
                              :title (format nil "previous ~a project" tag) :id "prevlink")
                          (:princ-safe (format nil "previous ~a project" tag)))))
                 (when next-project
-                  (html ((:a :href (format nil "/project?id=~a&tag=~a" (portfolio::portfolio-project-title next-project) tag)
+                  (html ((:a :href (format nil "/project?id=~a&tag=~a" (portfolio::portfolio-project-title next-project) (hunchentoot:url-encode tag))
                              :title (format nil "next ~a project" tag) :id "nextlink")
                          (:princ-safe (format nil "next ~a project" tag)))))))
             
@@ -103,9 +105,9 @@
                      (find-store-object id :class 'portfolio::portfolio-project :query-function #'portfolio::get-project-with-title)
                      (random-elts (store-objects-with-class 'portfolio::portfolio-project) 1))))
     (html ((:li :class "projectbox")
-           ((:a :href (format nil "/project?id=~a&tag=~a" (portfolio::portfolio-project-title project) (string-downcase tag))
+           ((:a :href (format nil "/project?id=~a&tag=~a" (portfolio::portfolio-project-title project) (hunchentoot:url-encode (string-downcase tag)))
                 :title (portfolio::portfolio-project-title project))
-            ((:img :src (format nil "/image/~a" (store-object-id (portfolio::portfolio-project-box-image project)))
+            ((:img :width 273 :height 249 :src (format nil "/image/~a" (store-object-id (portfolio::portfolio-project-box-image project)))
                    :alt (portfolio::portfolio-project-title project)))
             ((:span :class "legend")
              (:princ-safe (string-upcase (portfolio::portfolio-project-title project)))))))))
@@ -144,7 +146,7 @@
          (dolist (category (portfolio::project-tag-sorted-list))
            (let ((name (string-downcase (car category))))
              (html (:li ((:span :class "category")
-                         ((:a :href (format nil "/projects?tag=~a" name)
+                         ((:a :href (format nil "/projects?tag=~a" (hunchentoot:url-encode name))
                               :title (format nil "~a projects" name))
                           (:princ-safe name)))
                         ((:span :class "category-count")
@@ -310,7 +312,7 @@
             (let ((*contact-form-errors* "Please fill out the required fields!"))
               (emit-tag-child 0))
             (progn
-              (cl-smtp:send-email "localhost" email "manuel"
+              (cl-smtp:send-email "localhost" email "manuel@bl0rg.net"
                                   (format nil "Portfolio: Message from ~A <~A> (~A)" name email website)
                                   message)
               (html ((:div :class "message") 
