@@ -60,6 +60,7 @@
     (g4 . c4)
     (f4 . d4)))
 
+
 (defun convert-file-list (map1 map2 
 			  files1 files2 &key (outname "out"))
   (let* ((first-file (find-if #'pathnamep files1))

@@ -151,3 +151,21 @@
 (defmethod update-with-sample-list ((group group) sample-list)
   (dolist (kit (group-kits group))
     (update-with-sample-list kit sample-list)))
+
+
+(defun pattern-images (pattern dir)
+  (ensure-directories-exist dir)
+  (let* ((kit (md-pattern-kit pattern))
+	 (name (symbol-name (pattern-name pattern)))
+	 (directory (merge-pathnames (make-pathname :directory (list :relative name))
+				     dir))
+	 (machines (kit-machines kit))
+	 )
+    (ensure-directories-exist directory)
+    (dolist (machine machines)
+      (format t "writing ~A ~A~%" machine (machine-index machine))
+      (let* ((num (machine-index machine))
+	     (filename (merge-pathnames (format nil "~A-~A.png"
+							name num)
+						directory)))
+	(md-image-file machine filename)))))

@@ -4,8 +4,6 @@
 
 ;;; XXX memory leak!!!
 
-(defparameter *md-img-dir* "/Users/manuel/siff-svn/md-uw/pngs/")
-
 (defvar *created-images* nil)
 
 (defmacro my-create-image (&rest args)
@@ -39,7 +37,7 @@
 
 (defun md-img-file (name)
   (make-pathname :name name :type "png"
-		 :defaults *md-img-dir*))
+		 :defaults *image-directory*))
 
 (defparameter *md-knob-pos*
   '((0 4) (5 7) (8 12) (13 14) (15 15) (16 22) (23 25) (26 30)
