@@ -123,7 +123,6 @@
   (round (/ (- len (* (length word) 4)) 2)))
 
 (defun invert-img (img &key (x 0) (y 0) width height)
-  (declaim (sb-ext:muffle-conditions sb-ext:compiler-note))
   (let ((*default-image* img))
     (unless width (setf width (- (image-width img) x)))
     (unless height (setf height (- (image-height img) y)))
