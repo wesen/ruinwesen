@@ -94,7 +94,8 @@
 	 :index-initargs (:test #'equal)
 	 :index-reader md-objects-with-name
 	 :montezuma-index :tokenized)
-   (type :read :index-type hash-index
+   (type :read
+         :index-type hash-index
 	 :index-reader md-objects-with-type
 	 :montezuma-index :untokenized
 	 :montezuma-convert symbol-to-lowercase)
@@ -150,7 +151,7 @@
   ((name :update :index-type hash-index
 		 :index-initargs (:test #'equal)
 		 :index-reader md-imports-with-name)
-   (type :read :initform :IMPORT)
+   (type :read :initform :import)
    (objects :update :initform nil))
   (:metaclass montezuma-persistent-class))
 

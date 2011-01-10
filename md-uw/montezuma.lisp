@@ -14,30 +14,30 @@
   (remove-if-not #'(lambda (x)
 		     (and (typep x 'montezuma-effective-slot-definition)
 			  (slot-value x 'montezuma-index)))
-		 (sb-mop:class-slots class)))
+		 (closer-mop:class-slots class)))
 	   
-(defclass montezuma-direct-slot-definition (index-direct-slot-definition)
+(defclass montezuma-direct-slot-definition (bknr.datastore::persistent-direct-slot-definition)
   ((montezuma-index :initarg :montezuma-index :initform nil)
    (montezuma-stored :initarg :montezuma-stored :initform nil)
    (montezuma-convert :initarg :montezuma-convert :initform #'montezuma-to-string)))
 
-(defclass montezuma-effective-slot-definition (index-effective-slot-definition)
+(defclass montezuma-effective-slot-definition (bknr.datastore::persistent-effective-slot-definition)
   ((montezuma-index :initarg :montezuma-index :initform nil)
    (montezuma-stored :initarg :montezuma-stored :initform nil)
    (montezuma-convert :initarg :montezuma-convert :initform #'montezuma-to-string)))
 
-(defmethod sb-mop:validate-superclass ((sub montezuma-persistent-class)
+(defmethod closer-mop:validate-superclass ((sub montezuma-persistent-class)
 				       (super persistent-class))
   t)
 
-(defmethod sb-mop:direct-slot-definition-class ((class montezuma-persistent-class) &key &allow-other-keys)
+(defmethod closer-mop:direct-slot-definition-class ((class montezuma-persistent-class) &key &allow-other-keys)
   'montezuma-direct-slot-definition)
 
-(defmethod sb-mop:effective-slot-definition-class ((class montezuma-persistent-class) &rest initargs)
+(defmethod closer-mop:effective-slot-definition-class ((class montezuma-persistent-class) &rest initargs)
   (declare (ignore initargs))
   'montezuma-effective-slot-definition)
 
-(defmethod sb-mop:compute-effective-slot-definition :around
+(defmethod closer-mop:compute-effective-slot-definition :around
     ((class montezuma-persistent-class) name direct-slots)
   (let* ((montezuma-directs (remove-if-not #'(lambda (class)
 						(typep class 'montezuma-direct-slot-definition))
@@ -83,7 +83,7 @@
 (defmethod index-add ((index montezuma-index) (obj store-object))
   (let ((doc (make-instance 'montezuma:document)))
     (dolist (slot (montezuma-object-slots obj))
-      (let ((slot-name (slot-value slot 'sb-pcl::name)))
+      (let ((slot-name (closer-mop:slot-definition-name slot)))
 	(when (slot-boundp obj slot-name)
 	  (montezuma:add-field
 	   doc
@@ -112,11 +112,11 @@
     (setf doc (montezuma:get-document index doc)))
   (store-object-with-id (parse-integer (montezuma:document-value doc "id"))))
 
-(defmethod index-get ((index montezuma-index) key &rest options)
+(defmethod index-get ((index montezuma-index) key)
   (let ((res))
     (montezuma:search-each (montezuma-index-index index) key
 			   #'(lambda (doc score)
-			       (push (list (montezuma-doc-object (montezuma-index-index index) doc) score) res)) options)
+			       (push (list (montezuma-doc-object (montezuma-index-index index) doc) score) res)))
     res))
     
 (defmethod index-clear ((m-index montezuma-index))

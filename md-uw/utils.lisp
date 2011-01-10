@@ -81,7 +81,7 @@
 	     (res (setf (gethash obj hash) (make-object (class-name class))))
 	     (slots (remove-if #'(lambda (x) (member x
 						     '(bknr.indices::destroyed-p bknr.datastore::id)))
-			       (mapcar #'sb-mop::slot-definition-name (sb-mop:class-slots class))))
+			       (mapcar #'closer-mop:slot-definition-name (closer-mop:class-slots class))))
 	     (values (mapcar #'(lambda (slot)
 				 (if (slot-boundp obj slot)
 				     (let ((value (slot-value obj slot)))

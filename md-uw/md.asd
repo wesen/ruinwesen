@@ -21,22 +21,17 @@
 	       (:file "group" :depends-on ("package" "md" "utils"))
 	       (:file "export" :depends-on ("package" "md" "utils" "group"))
 
-	       (:file "ajax" :depends-on ("package" "utils"))
-	       (:file "image-handler" :depends-on ("package" "utils" "gd" "md"))
-	       (:file "html" :depends-on ("package" "utils" "gd" "md" "ajax" "image-handler"))
-
 	       )
   :depends-on (:cm
 	       :cl-gd
 	       :cl-fad
 	       :cl-who
-	       :hunchentoot
-	       :bknr-datastore
-	       :parenscript
+	       :bknr.datastore
 	       :cl-ppcre
 	       :cl-interpol
 	       :cl-json
 	       :montezuma
+               :closer-mop
 
 	       ))
 	       
