@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header title="Ruin &amp; Wesen: Support"/>
+
+<body>
+<div class="container">
+	<ruinwesen:header/>
+	<ruinwesen:navigation/>
+
+<div class="content">
+	<ruinwesen:banner/>
+
+<div class="contenttext">
+	<h3>Files</h3>
+	<p>Looking for firmwares, software, vsts? They are all here. Furthermore, for your hacking pleasure, extensive hacking documentation, source code and schematics are provided as well.</p>
+
+<div style="clear: both">
+	<h5 class="supportlead">Software</h5>
+
+	<div class="supportcol1" style="height: 68px">
+	<b class="title">PATCH MANAGER:</b>
+ <ul>
+    <li><a
+  href="http://ruinwesen.com/support-files/patchmanager-win2.zip"
+  title="PatchManager for Windows">PatchManager (Windows)</a></li>
+    <li><a
+  href="http://ruinwesen.com/support-files/patchmanager-macosx3.zip"
+  title="PatchManager for MACOSX">PatchManager (MacOSX)</a></li>
+    <li><a
+  href="http://ruinwesen.com/support-files/patchmanager-linux.zip"
+  title="PatchManager for Linux">PatchManager (Linux)</a></li>
+	</ul>
+</div>
+<div class="supportcol2" style="height: 68px">
+	<b class="title">MIDI-CTRL FRAMEWORK:</b>
+	<ul>
+    <li><a
+  href="http://ruinwesen.com/support-files/midi-ctrl/midi-ctrl-0017.zip"
+  title="MIDI-CTRL 017 Windows">MIDI-CTRL 017 for Windows</a></li>
+    <li><a
+  href="http://ruinwesen.com/support-files/midi-ctrl/MidiCtrl-0017.dmg"
+  title="MIDI-CTRL017 MacOSX">MIDI-CTRL 017 for MacOSX</a></li>
+	</ul>
+</div>
+
+<div class="supportcol1" style="height: 50px">
+	<b class="title">JAVA:</b>
+	<ul>
+		<li><a href="/support-files/rwmidi-0.1c.zip" title="rwmidi">RWMidi Processing (zip)</a></li>
+		<li><a href="/support-files/rwmidi/documentation/RWMidi.html" title="rwmidi doc">RWMidi Processing Documentation</a></li>
+		<!--    <li><a href="/support-files/MachineDrumNotes-0.1a.zip" title="MD Notes Java">MachineDrum Notes Java</a></li>
+		<li><a href="/support-files/MachineDrumNotes.pdf" title="MD  Notes doc">MachineDrum Notes Documentation</a></li>
+		-->
+	</ul>
+</div>
+<div class="supportcol2" style="height: 50px">
+	<b class="TITLE">&nbsp;</b>
+	<ul>
+		<li><a href="/support-files/game_of_life.txt" title="Game Of Life Sequencer">GameOfLife Sequencer (sourcecode)</a></li>
+		<li><a href="http://vimeo.com/1824904" title="Game Of Life Sequencer">GameOfLife Sequencer (screencast)</a></li>
+
+	</ul>
+</div>
+</div>
+
+<div style="clear: both">
+	<h5 class="supportlead">VSTs</h5>
+
+<div class="supportcol1" style="height: 85px">
+	<b class="title">RUIN:</b>
+	<ul>
+		<li><a href="http://ruinwesen.com/blog?id=396" title="Drummm Blog">Drummm Blog</a></li>
+		<li><a href="http://ruinwesen.com/support-files/Drummm.zip" title="Drummm">Download Drummm!</a></li>
+		<li><a href="http://ruinwesen.com/blog?id=526" title="Synevo Blog">Synevo Blog</a></li>
+		<li><a href="http://ruinwesen.com/support-files/synevo.zip" title="Synevo">Download Synevo!</a></li>
+	</ul>
+</div>
+<div class="supportcol2" style="height: 85px">
+	<b class="title">WESEN:</b>
+	<ul>
+		<li>Nothing yet!</li>
+
+	</ul>					
+</div>
+</div>
+
+</div>
+
+
+<div class="spacer">  </div>
+<ruinwesen:footer/>
+</div>	
+</div>
+
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

@@ -1,153 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html
-xmlns="http://www.w3.org/1999/xhtml"
-xmlns:bknr="http://bknr.net/"
-xmlns:ruinwesen="http://ruinwesen.com/"
-lang="en">
-
-<ruinwesen:html-header title="MiniCommand FAQ"/>
-
-<body>
-<div class="container">
-  <ruinwesen:header/>
-  <ruinwesen:navigation/>
-
-<div class="content">
-  <ruinwesen:banner/>
-			<div class="contenttext">
-<div style="clear:both">
-  </div>
-
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:bknr="http://bknr.net/"
+		xmlns:ruinwesen="http://ruinwesen.com/"
+		lang="en">
+	
+	<ruinwesen:html-header title="MiniCommand FAQ"/>
+	
+	<body>
+		<div class="container">
+			<ruinwesen:header/>
+			<ruinwesen:navigation/>
 			
-				<div class="product">
-					<div class="producttitle">MINICOMMAND FAQ</div>
-					<br/><br/>
+			<div class="content">
+				<ruinwesen:banner/>
+				<div class="contenttext">
+					<div style="clear:both">
+					</div>
 					
-<!--					<div class="banner2" align="center"><img src="/images/mini-command-banner-slim.png" alt="Banner"/></div> -->
+					
+					<div class="product">
+						<div class="producttitle">MINICOMMAND FAQ</div>
+						<br/><br/>
+						
+						<!-- <div class="banner2" align="center"><img src="/images/mini-command-banner-slim.png" alt="Banner"/></div> -->
 
+						<p>The MiniCommand FAQ has been move over to the <a href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki/FAQ">redmine wiki</a>.</p>
+					</div>
 
-					<h3>General</h3>
-					<ul>
-						<li><a href="#minicommand-mididuino">What's the MiniCommand and the Mididuino software environment?</a></li>
-						<li><a href="#order-minicommand">How can I order a Minicommand? <!-- XXX --></a></li>
-						<li><a href="#minicommand-availability">Are Minicommands available for sale? <!-- XXX --></a></li>
-						<li><a href="#programming-merger">Programming firmwares for my synthesizer is quite tedious because I have to unplug everytime I want to reprogram the Minicommand...</a></li>
-						<li><a href="#firmware-storage">Where is the firmware stored?</a></li>
-						<li><a href="#firmware-storage">Can I store multiple firmwares on the SD-Card? <!-- XXX --></a></li>
-						<li><a href="#firmwares-other-synths">Are other synthesizer and drum machines supported? <!-- XXX --></a></li>
-						<li><a href="#shipping-costs">How much are the shipping costs for the Minicommand? <!-- XXX --></a></li>
-					</ul>
-
-					<h3>Hardware</h3>
-					<ul>
-						<li><a href="#wrong-check">Why does my Minicommand show "WRONG CHECK" when I try to upload a new firmware?</a></li>
-						<li><a href="#weird-things">My MiniCommand does weird things (resets, display blanks, encoders don't word, etc...)!</a></li>
-						<li><a href="#updating-problem">I have trouble update the firmwares on my MiniCommand. <!-- XXX --> </a></li>
-						<li><a href="#sd-card-error">I get the message "SD CARD ERROR" when turning on my Minicommand. <!-- XXX --></a></li>
-						<li><a href="#leds-hardware">What are the LEDs used for? I don't understand how they work. <!-- XXX --></a></li>
-					</ul>
-
-					<h3>Firmwares</h3>
-					<ul>
-						<li><a href="#monster-firmwares">What are the so-called "monster" firmwares? <!-- XXX --></a></li>
-						<li><a href="#sd-card">What is the SD-Card used for? When will it supported? <!-- XXX --></a></li>
-						<li><a href="#autolearn">How does the Autolearn feature on the MachineDrum and MonoMachine firmwares work? <!-- XXX --></a></li>
-						<li><a href="#euclid-note-off">The Euclid firmware doesn't send any NOTE OFF events, this is very annoying. <!-- XXX --></a></li>
-					</ul>
-
-					<h3>Development</h3>
-					<ul>
-						<li><a href="#mididuino-release">When is the MidiDuino environment going to be released with proper documentation? <!-- XXX --></a></li>
-						<li><a href="#development-community">How is the community around the Minicommand going to be organized? <!-- XXX --></a></li>
-					</ul>
-
-					<h3>Patch Manager</h3>
-					<ul>
-						<li><a href="#patch-manager-order">The Patch Manager displays firmwares in the wrong order. <!-- XXX --></a></li>
-						<li><a href="#patch-manager-firmwares">Will third-party firmwares be released in the Patch Manager? <!-- XXX --></a></li>
-					</ul>
-
-					<h3>MachineDrum Firmwares</h3>
-					<ul>
-						<li><a href="#melodic-machines">What machines are supported for pitch melodies? <!-- XXX --></a></li>
-						<li><a href="#ram-p-resampling">How does the RAM-P1 resampling feature work exactly? <!-- XXX --></a></li>
-						<li><a href="#euclid-rhythm">Why does generating a new euclid rhythm with MDPatternEuclid erase the changes I made to the pattern? <!-- XXX --></a></li>
-						<li><a href="plus-drive">How will the MiniCommand work with +drive? <!-- XXX --></a></li>
-					</ul>
-
-					<h3>MonoMachine Firmwares</h3>
-					<ul>
-						<li><a href="#pattern-euclid-monomachine">Why does MNMPatternEuclid not save patterns? <!-- XXX --></a></li>
-					</ul>
-
-					<h2>General</h2>
-
-					<h3 class="title">What's the MiniCommand and the MidiDuino software environment?</h3>
-<p><a name="minicommand-mididuino">&nbsp;</a>
- All the software included in the MidiDuino library was originally
-written for the Ruin &amp; Wesen MIDI controllers, the first one available
-being the MiniCommand. These controllers offer a complete hardware
-MIDI Controller development environment, and use a custom version of
-the Arduino environment for programming. The MIDI code written for
-these devices was then ported over to the standard Arduino.<br/><br/>
-
-The development environment used to program the MiniCommand is also
-called MidiDuino, in contrast to the MidiDuino library, which is available on <a href="http://ruinwesen.com/mididuino">the MidiDuino page</a>.</p>
-
-					<h3 class="title">Programming firmwares for my synthesizer is quite tedious because I have to unplug everytime I want to reprogram the MiniCommand...</h3>
-
-<p><a name="programming-merger">&nbsp;</a>That's quite true. We use a MIDI merger to connect the synthesizer, the PC and the MiniCommand together, so that no unplugging is required. Beware that this may mess with the tightness of the MIDI clock.</p>
-
-					<h3 class="title">Where is the firmware stored?</h3>
-
-<p><a name="firmware-storage">&nbsp;</a>The firmware is stored on the internal flash memory of the Atmel, and not on the SD Card. Theoretically, this means that you can flash a new firmware a limited amount of times (Atmel gives 10000 as a lower boundary). In practice, this is practically irrelevant, as even if you reflash your device 30 times each day, it would take you at least 3 years of fulltime development to begin to reach that limit. You have to be careful of not using "advanced" tricks to reprogram the flash memory over and over though. It's better to use the SD-Card for that purpose.</p>
-
-
-					<h2>Hardware</h2>
-<h3 class="title">Why does my MiniCommand show "WRONG CHECK"?</h3>
-
-<p><a name="wrong-check">&nbsp;</a>There probably was an error in transmitting the firmware, maybe due to an interruption or because the MIDI cable is faulty. Check your setup, and power cycle the MiniCommand before sending the firmware again. This should take care of the problem.</p>
-
-<h3 class="title">My MiniCommand does weird things (resets, display blanks, encoders don't work, etc...)!</h3>
-
-<p><a name="#weird-things">&nbsp;</a>That's probably a mechanical or electronic issue, but it could also be due to a number of code issues. Check that the size of your program doesn't exceed the possibilities of the MiniCommand: 64 kB of data and bss (uninitialized data), 64 kB of program code. If you're not sure (and the devil definitely is in the details in those cases), please contact us at <a href="info@ruinwesen.com">info@ruinwesen.com</a>.</p>
-
-<h2>Environment issues</h2>
-
-<h3 class="title">I get the following error when compiling code on MacOSX (right at the top of the log window):</h3> <p style="color: gray; width: 400px; margin-left: 50px">/Applications/mididuino-0013/hardware/libraries/CommonTools/helpers.h:1: error: stray '#' in program </p>
-
-<p>That's due to a stupid mistake in the very first zip of the MidiDuino release we put online. Just download the zip again and you should be fine. Sorry for the inconvenience!</p>
-
-
-<h3 class="title">Why can't I seem to program my MiniCommand under Vista?</h3>
-
-<p>It seems that the generic USB MIDI driver under Vista has problems recognizing the first sent bytes. It works after sending a few messages though, so if the transfer gets stuck, try sending a few notes down the MIDI adapter and try again.</p>
-
-
-<h2>Code issues</h2>
-<h3 class="title">Why is setTempo() not doing the right thing?</h3>
-
-<p>We are aware of that and will fix the correct tempo settings in a
-future version.</p>
-
-
-
-<h3 class="title">Why can't I send MIDI in the setup() function?</h3>
-
-<p>You have to enable interrupts before sending data on the serial
-interface, as it uses a buffered output. If you want to
-send MIDI from the setup(), call sei() before sending the MIDI
-data. Be sure to do this at the end of the setup() routine. </p>
+					
 				</div>
+				
+				<ruinwesen:footer/>
+			</div>	
 
-		
-			</div>
-			
-<ruinwesen:footer/>
-</div>	
+		</div>
+		<ruinwesen:google-analytics/>
 
-</div>
-<ruinwesen:google-analytics/>
-
-</body>
+	</body>
 </html>

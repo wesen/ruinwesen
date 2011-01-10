@@ -21,7 +21,7 @@ lang="en">
 				<div class="product">
 					<div class="producttitle">MIDI-CTRL</div><span class="priceright">Program your MiniCommand</span>
 					
-					<div class="banner2" align="center"><img src="/images/midi-ctrl-logo-banner.png" alt="Banner"/></div>
+					<div class="banner2" align="center"><img src="/images/mini-command-banner-slim.png" alt="Banner"/></div>
 					
 <p>The MIDI-CTRL environment allows you to program your own
 					firmwares for the MiniCommand. Use the powerful Ruin &amp;
@@ -72,7 +72,7 @@ lang="en">
     <li><a
   href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki"
   title="MIDI-CTRL documentation">MIDI-CTRL 0017 documentation wiki</a></li>
-    <li><a href="http://ruinwesen.com/minicommandfaq" title="MiniCommand FAQ">MiniCommand FAQ</a></li>
+    <li><a href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki/FAQ" title="MiniCommand FAQ">MiniCommand FAQ</a></li>
   </ul>					
 </div>
 

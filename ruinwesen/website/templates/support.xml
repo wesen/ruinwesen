@@ -17,21 +17,27 @@ lang="en">
 
 <div class="contenttext">
 	<h3>Support</h3>
-	<p>Looking for documentation, firmwares, software? They are all here. Furthermore, for your hacking pleasure, extensive hacking documentation, source code and schematics are provided as well.</p>
+	<p>Looking for documentation and support? Consult the links below
+	for more information about our products. Firmwares, software and
+	VSTs are available on the <a href="/files">Files page</a>.</p>
 
 <div style="clear: both">
-	<h5 class="supportlead">Digital</h5>
+	<h5 class="supportlead">MiniCommand</h5>
 
-<div class="supportcol1" style="height: 104px">
-	<b class="title">MINICOMMAND:</b>
+<div class="supportcol1" style="height: 128px">
+	<b class="title">INFORMATION:</b>
 	<ul>
-		<li><a href="http://ruinwesen.com/minicommand/">Minicommand Support Page</a></li>
-		<li><a href="minicommandfaq" title="Minicommand FAQ">Minicommand FAQ</a></li>
+		<li><a href="http://ruinwesen.com/products">MiniCommand Product Page</a></li>
+		<li><a href="http://ruinwesen.com/midi-ctrl">MIDI-CTRL Framework</a></li>
+		<li><a
+	href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki">MIDI-CTRL
+	Redmine</a></li>
+		<li><a href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki/FAQ" title="Minicommand FAQ">Minicommand FAQ</a></li>
 		<li><a href="http://forum.ruinwesen.com" title="Support forum">Support forum</a></li>
 		<li><a href="mailto:info@ruinwesen.com" title="Email contact">Email contact</a></li>
 	</ul>					
 </div>
-<div class="supportcol2" style="height: 104px">
+<div class="supportcol2" style="height: 128px">
 	<b class="title">VIDEOS:</b>
 	<ul>
 		<li><a href="http://ruinwesen.blip.tv/file/3165126/" title="Device and Wesen Live Patch">Wesen Live Patch</a></li>
@@ -43,49 +49,6 @@ lang="en">
 </div>
 </div>
 
-<div style="clear: both">
-	<h5 class="supportlead">Software</h5>
-
-<div class="supportcol1" style="height: 50px">
-	<b class="title">JAVA:</b>
-	<ul>
-		<li><a href="/support-files/rwmidi-0.1c.zip" title="rwmidi">RWMidi Processing (zip)</a></li>
-		<li><a href="/support-files/rwmidi/documentation/RWMidi.html" title="rwmidi doc">RWMidi Processing Documentation</a></li>
-		<!--    <li><a href="/support-files/MachineDrumNotes-0.1a.zip" title="MD Notes Java">MachineDrum Notes Java</a></li>
-		<li><a href="/support-files/MachineDrumNotes.pdf" title="MD  Notes doc">MachineDrum Notes Documentation</a></li>
-		-->
-	</ul>
-</div>
-<div class="supportcol2" style="height: 50px">
-	<b class="TITLE">&nbsp;</b>
-	<ul>
-		<li><a href="/support-files/game_of_life.txt" title="Game Of Life Sequencer">GameOfLife Sequencer (sourcecode)</a></li>
-		<li><a href="http://vimeo.com/1824904" title="Game Of Life Sequencer">GameOfLife Sequencer (screencast)</a></li>
-
-	</ul>
-</div>
-</div>
-
-<div style="clear: both">
-	<h5 class="supportlead">VSTs</h5>
-
-<div class="supportcol1" style="height: 85px">
-	<b class="title">RUIN:</b>
-	<ul>
-		<li><a href="http://ruinwesen.com/blog?id=396" title="Drummm Blog">Drummm Blog</a></li>
-		<li><a href="http://ruinwesen.com/support-files/Drummm.zip" title="Drummm">Download Drummm!</a></li>
-		<li><a href="http://ruinwesen.com/blog?id=526" title="Synevo Blog">Synevo Blog</a></li>
-		<li><a href="http://ruinwesen.com/support-files/synevo.zip" title="Synevo">Download Synevo!</a></li>
-	</ul>
-</div>
-<div class="supportcol2" style="height: 85px">
-	<b class="title">WESEN:</b>
-	<ul>
-		<li>Nothing yet!</li>
-
-	</ul>					
-</div>
-</div>
 
 <div style="clear: both">
 	<h5 class="supportlead">Music</h5>
@@ -103,7 +66,7 @@ lang="en">
 <div class="supportcol2" style="height: 104px">
 	<b class="title">WESEN:</b>
 	<ul>
-		<li><a href="http://rednetic.net/releases/index.php?rel=13" title="wesen - zwiebel EP">Wesen - Zwiebel EP</a></li>
+		<li><!-- <a href="http://rednetic.net/releases/index.php?rel=13" title="wesen - zwiebel EP">Wesen - Zwiebel EP</a> --> Wesen - Zwiebel EP</li>
 		<li><a href="http://bl0rg.net/~manuel/weimar-after.mp3" title="01.01.2010 liveset">01.01.2010 Liveset</a></li>
 		<li><a href="http://ruinwesen.com/support-files/stickam-liveset.mp3" title="27.09.2008 liveset">27.09.2008 Liveset
 		</a></li>

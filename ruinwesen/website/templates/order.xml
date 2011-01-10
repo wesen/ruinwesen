@@ -17,7 +17,7 @@ lang="en">
 			<div class="contenttext">
 				<h3>Ruin &amp; Wesen Preorder</h3>
 				<p>Due to high demand, we are currently taking preorders for our devices. Please indicate which device you'd like to preorder, as well as your geographic location, and if you'd like to have the devices in MKI or MKII form factor.</p>
-			  <ruinwesen:preorder/>
+			  <ruinwesen:order/>
 			</div>
 
 <ruinwesen:footer/>

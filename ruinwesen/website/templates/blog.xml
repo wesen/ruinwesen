@@ -16,7 +16,7 @@ lang="en">
   <ruinwesen:banner/>
 
 <div class="contenttext">
-			<h3>Blog</h3>
+	<ruinwesen:blog-title/>
 
 			  <ruinwesen:blog-mainpage/>
 			</div>

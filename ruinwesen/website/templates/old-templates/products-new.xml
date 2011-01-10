@@ -30,12 +30,8 @@ lang="en">
 							<b class="title">MORE LINKS:</b>
 
 							<ul>
-								<li><a href="midi-ctrl" title="MIDI-CTRL Framework">MIDI-CTRL Framework</a></li>
-								<li><a
-								href="http://redmine.ruinwesen.com/projects/midi-ctrl"
-								title="MIDI-CTRL Framework Redmine">MIDI-CTRL
-								Framework Redmine</a></li>
-								<li><a href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki/FAQ" title="Minicommand FAQ">Minicommand FAQ</a></li>
+								<li><a href="minicommand" title="Mididuino Environment">Mididuino Environment</a></li>
+								<li><a href="minicommandfaq" title="Minicommand FAQ">Minicommand FAQ</a></li>
 								<li><a href="http://forum.ruinwesen.com" title="Support forum">Support forum</a></li>
 								<li><a href="mailto:info@ruinwesen.com" title="Email contact">Email contact</a></li>
 							</ul>
@@ -44,11 +40,11 @@ lang="en">
 						<div class="supportcol2" style="height: 104px">
 							<b class="title">VIDEOS:</b>
 							<ul>
-<li><a href="http://ruinwesen.blip.tv/file/3165126/" title="Device and Wesen Live Patch">Wesen Live Patch</a></li>
-<li><a href="http://ruinwesen.blip.tv/file/3165224/" title="Patch Manager">Patch Manager</a></li>
-<li><a href="http://ruinwesen.blip.tv/file/3166970/" title="Pattern Euclid">Pattern Euclid</a></li>
-<li><a href="http://ruinwesen.blip.tv/file/3195600/" title="Monomachine Live Patch">Monomachine Patch</a></li>
 <li><a href="http://ruinwesen.blip.tv/file/3196290/" title="MC Live Setup">Live Setup</a></li>
+<li><a href="http://ruinwesen.blip.tv/file/3195600/" title="Monomachine Live Patch">Monomachine Patch</a></li>
+<li><a href="http://ruinwesen.blip.tv/file/3166970/" title="Pattern Euclid">Pattern Euclid</a></li>
+<li><a href="http://ruinwesen.blip.tv/file/3165224/" title="Patch Manager">Patch Manager</a></li>
+<li><a href="http://ruinwesen.blip.tv/file/3165126/" title="Device and Wesen Live Patch">Wesen Live Patch</a></li>
 </ul>
 </div>
 </div>
