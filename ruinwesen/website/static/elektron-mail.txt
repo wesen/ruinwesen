@@ -1,0 +1,9 @@
+Hey elektronies,
+
+I'm starting my company producing analog and digital music instruments, and my first two products are midi controllers that can especially control the elektron machines. One is a standard encoder/knob contorller, and the other one is a joystick to control the SFX60. I'll send a prototype your way this week. The joystick turned out to be way more fun than I thought at first. It can revert to saved kit, revert to saved track, do CTR-AL for all tracks or for specific tracks, and of course send joystick data. An experimental feature I have not entirely worked out yet is a patch mutator using joystick wiggling, very fun as well.
+
+More information at http://ruinwesen.com/ 
+
+I'm planning to build the joystick in a casing that matches the monomachine, would you be OK with that? Also, I've been looking into casing manufacturers, and mostly found industrial casing manufacturers. Would you be willing to let me know where you manufacture your casings so that maybe I can match the look (also for the buttons?). I'm starting work on an editor for the machinedrum/monomachine as well, as I wrote one for myself in the last year which has a lot of very nice features, I dunno if you are working on something similar (the sysex changes in the MDOS update pointed that way)?
+
+Regards, Manuel

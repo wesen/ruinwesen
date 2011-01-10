@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header title="MidiDuino Environment - Program your MiniCommand"/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+			<div class="contenttext">
+<div style="clear:both">
+  </div>
+
+				<div class="product">
+					<div class="producttitle">MIDI-CTRL</div><span class="priceright">Program your MiniCommand</span>
+					
+					<div class="banner2" align="center"><img src="/images/midi-ctrl-logo-banner.png" alt="Banner"/></div>
+					
+<p>The MIDI-CTRL environment allows you to program your own
+					firmwares for the MiniCommand. Use the powerful Ruin &amp;
+					Wesen libraries to send and receive MIDI messages, write
+					your own sequencers, access the internal SD-Card storage,
+					and create easy GUIs for the MiniCommand. Also included is
+					an extensive library for controlling the Elektron
+					MachineDrum, allowing you to control every possible
+					parameter, store and load patterns, songs and kits, and
+					fully leverage the possibilities of this machine. Support
+					for additional grooveboxes and synthesizers will be added in
+					the future.  The MIDI-CTRL environment integrates a modified
+					version of the Arduino editor to allow for simple
+					development of new firmwares. However, neither the
+					Minicommand nor the MIDI-CTRL framework is based on Arduino,
+					just the editor has been used. MIDI-CTRL is entirely opensource, and you can
+					check out the sourcecode from <a
+					 href="http://github.com/wesen/mididuino">github</a>.  </p>
+
+					<p>The old codename for the MIDI-CTRL framework was
+					MidiDuino. However, that name was quite confusing, as it
+					suggested that the MiniCommand and its sourcecode was based
+					on Arduino, which it isn't. We are migrating the name from
+					MidiDuino to MIDI-CTRL, but some documents will still refer
+					to the framework by its old name.</p>
+
+					<p>The Patch Manager is a java program aimed for "normal"
+					users (not developers), allowing them to browse and download new
+					firmwares stored on the Ruin and Wesen website. It is
+					similar to the app store on the iphone or the android, but
+					contains opensource firmwares for the MiniCommand. </p>
+
+					<div style="clear: both">
+  <h5 class="supportlead">DOWNLOADS</h5>
+
+<div class="supportcol1" style="height: 34px">
+  <ul>
+    <li><a
+  href="http://ruinwesen.com/support-files/midi-ctrl/midi-ctrl-0017.zip"
+  title="MIDI-CTRL 017 Windows">MIDI-CTRL 017 for Windows</a></li>
+    <li><a
+  href="http://ruinwesen.com/support-files/midi-ctrl/MidiCtrl-0017.dmg"
+  title="MIDI-CTRL017 MacOSX">MIDI-CTRL 017 for MacOSX</a></li>
+  </ul>
+</div>
+<div class="supportcol2" style="height: 34px">
+  <ul>
+    <li><a
+  href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki"
+  title="MIDI-CTRL documentation">MIDI-CTRL 0017 documentation wiki</a></li>
+    <li><a href="http://ruinwesen.com/minicommandfaq" title="MiniCommand FAQ">MiniCommand FAQ</a></li>
+  </ul>					
+</div>
+
+<div class="supportcol1" style="height: 52px">
+  <ul>
+    <li><a
+  href="http://ruinwesen.com/support-files/patchmanager-win2.zip"
+  title="PatchManager for Windows">PatchManager (Windows)</a></li>
+    <li><a
+  href="http://ruinwesen.com/support-files/patchmanager-macosx3.zip"
+  title="PatchManager for MACOSX">PatchManager (MacOSX)</a></li>
+    <li><a
+  href="http://ruinwesen.com/support-files/patchmanager-linux.zip"
+  title="PatchManager for Linux">PatchManager (Linux)</a></li>
+  </ul>
+</div>
+<div class="supportcol2" style="height: 52px">
+  <ul>
+  </ul>					
+</div>
+
+
+
+  <h5 class="supportlead">DEVELOPMENT RESOURCES</h5>
+
+<div class="supportcol1" style="height: 52px">
+  <ul>
+    <li><a
+  href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki"
+  title="MIDI-CTRL Wiki">MIDI-CTRL wiki</a></li>
+    <li><a
+  href="http://github.com/wesen/mididuino"
+  title="MIDI-CTRL github">github page for MIDI-CTRL</a></li>
+   <li><a
+  href="http://ruinwesen.com/support-files/doxygen/index.html"
+  title="MIDI-CTRL Doxygen">Doxygen Documentation for MIDI-CTRL</a></li>
+  </ul>
+</div>
+<div class="supportcol2" style="height: 52px">
+  <ul>
+    <li><a
+  href="http://forum.ruinwesen.com/"
+  title="Support forums">Support Forums</a></li>
+    <li><a href="http://redmine.ruinwesen.com/projects/midi-ctrl"
+  title="Redmine for MidiDuino">MidiDuino Redmine</a></li>
+  </ul>					
+</div>
+
+		<h5 class="supportlead">DEPRECATED FILES</h5>			
+
+<div class="supportcol1" style="height: 34px">
+  <ul>
+    <li><a
+  href="http://ruinwesen.com/support-files/minicommand/mididuino-013-windows.zip"
+  title="MidiDuino 013 Windows">MIDI-CTRL 013 for Windows</a></li>
+    <li><a
+  href="http://ruinwesen.com/support-files/minicommand/mididuino-0013-mac.zip"
+  title="MidiDuino 013 MacOSX">MIDI-CTRL 013 for MacOSX</a></li>
+  </ul>
+</div>
+<div class="supportcol2" style="height: 34px">
+  <ul>
+    <li><a
+  href="http://ruinwesen.com/support-files/minicommand/minicommand-preliminary.pdf"
+  title="MidiDuino Documentation">Minicommand 0013 Manual</a></li>
+ </ul>					
+</div>
+
+
+</div>
+
+
+					<div style="clear: both">
+</div>
+
+
+
+</div>
+		
+			</div>
+			
+<ruinwesen:footer/>
+</div>	
+
+</div>
+<ruinwesen:google-analytics/>
+
+</body>
+</html>

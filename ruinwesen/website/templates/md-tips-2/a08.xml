@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header/>
+
+<body>
+<div class="container">
+  <ruinwesen:header/>
+  <ruinwesen:navigation/>
+
+<div class="content">
+  <ruinwesen:banner/>
+
+<div class="contenttext">
+  <h3>MachineDrum Tips #2: A08</h3>
+  
+<div>
+  <b class="title">A08 Sounds:</b>
+  <ul>  
+    <li>Loop: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08.mp3"/> </li>
+    <li>Track 01: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-01.mp3"/> </li>
+    <li>Track 02: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-02.mp3"/> </li>
+    <li>Track 03: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-03.mp3"/> </li>
+    <li>Track 04: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-04.mp3"/> </li>
+    <li>Track 05: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-05.mp3"/> </li>
+    <li>Track 06: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-06.mp3"/> </li>
+    <li>Track 07: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-07.mp3"/> </li>
+    <li>Track 08: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-08.mp3"/> </li>
+    <li>Track 09: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-09.mp3"/> </li>
+    <li>Track 10: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-10.mp3"/> </li>
+    <li>Track 11: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-11.mp3"/> </li>
+    <li>Track 12: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-12.mp3"/> </li>
+    <li>Track 13: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-13.mp3"/> </li>
+    <li>Track 14: <ruinwesen:embedmp3 href="http://ruinwesen.com/static/media/md-tips-2/a08/a08-14.mp3"/> </li>
+  </ul>
+</div>
+</div>
+
+<ruinwesen:footer/>
+</div>	
+
+</div>
+
+<ruinwesen:google-analytics/>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:bknr="http://bknr.net/"
+		xmlns:ruinwesen="http://ruinwesen.com/"
+		lang="en">
+	
+	<ruinwesen:html-header title="MiniCommand FAQ"/>
+	
+	<body>
+		<div class="container">
+			<ruinwesen:header/>
+			<ruinwesen:navigation/>
+			
+			<div class="content">
+				<ruinwesen:banner/>
+				<div class="contenttext">
+					<div style="clear:both">
+					</div>
+					
+					
+					<div class="product">
+						<div class="producttitle">MINICOMMAND FAQ</div>
+						<br/><br/>
+						
+						<!-- <div class="banner2" align="center"><img src="/images/mini-command-banner-slim.png" alt="Banner"/></div> -->
+
+						<p>The MiniCommand FAQ has been move over to the <a href="http://redmine.ruinwesen.com/projects/midi-ctrl/wiki/FAQ">redmine wiki</a>.</p>
+					</div>
+
+					
+				</div>
+				
+				<ruinwesen:footer/>
+			</div>	
+
+		</div>
+		<ruinwesen:google-analytics/>
+
+	</body>
+</html>
