@@ -1,0 +1,57 @@
+Hello!
+
+I am very proud to announce the launch of the Ruin & Wesen website at
+http://ruinwesen.com/. I am Wesen, and Ruin is my partner in
+Canada. We are building analog and digital music gear, and our first
+two products are especially direct towards Elektron users. I am
+specializing on the digital side and software programming, while Ruin
+is a master of analog noise makers. Our goal is to make flexible gear
+for musicians, because in electronic music it all boils down more to
+the workflow than to the pure sound shaping. Careful thought has been
+put into the user interfaces of our machines. Both Ruin and Wesen are
+musicians, and value the possibilities that lie in well thought out
+instruments.
+
+As each musician's approach to electronic music is different, we believe
+in making the instruments easily customizable. This means that we will work
+and rework our firmwares, adding additional features, remodelling some,
+sometimes completely changing the purpose of our instruments. We also believe
+that the users should be able to do these modifications themselves, which is
+why we provide extensive documentation, schematics and sourcecode for our
+devices.
+
+But without further a due, please welcome the MidiCommand and the
+MonoJoystick.
+
+The MidiCommand is a all-around MIDI controller that has native
+support for the Elektron MachineDrum. It features 5 endless encoders,
+a small backlit LCD and an additional button. In its first firmware,
+it features 8 patches, each patch being made of 4 pages of 4 controls
+each. Pages and patches can easily be accessed, and each parameter can
+be configured using the inbuilt editor. They can also be programmed
+from a computer. Furthermore, each page features a Macro knob that
+allows you to change up to 4 parameters at once at the twist of a
+single knob. Each patch also features a Macro page where each encoder
+modifies up to 4 parameters. The MidiCommand can access the effect
+machines of the MachineDrum directly, allowing you to tweak effects
+without the need of a CTR-FX machine.
+
+The MonoJoystick is a joystick companion for the Elektron MonoMachine.
+Its interface makes it very easy to integrate into a normal
+MonoMachine setup. It sends the same data as the SFX-6 joystick,
+allowing it to be controlled directly using the ASSIGN menu of the
+MonoMachine. But more than just a joystick replacement, the
+MonoJoystick allows you to send joystick data to multiple tracks at
+once. It allows you to revert the current kit to its saved status, and
+also allows you to revert a single track to its saved status! If you
+had been waiting for CTR-AL on the MonoMachine, the MonoJoystick is
+just for you. Press the SELECT button on the MonoJoystick, and each
+knob twist on the MonoMachine will be sent to each track. You can also
+broadcast knob twist to selected tracks.
+
+Both units can be preordered from our website at http://ruinwesen.com/
+. Also check the website for additional information, product manuals,
+example videos and DIY information! Use our RSS feeds to stay
+up-to-date, there is much more to come in the following weeks.
+
+Cheers, Manuel aka Wesen
