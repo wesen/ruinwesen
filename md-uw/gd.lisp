@@ -542,7 +542,7 @@
   (md-pattern-img pattern))
 
 (defun test-pattern (pattern)
-  (write-image-to-file "/users/manuel/pattern.png" :if-exists :overwrite
+  (write-image-to-file "/Users/manuel/pattern.png" :if-exists :overwrite
 		       :image (md-pattern-img pattern)))
 		     
 (defun md-pattern-track-img (pattern track idx)

@@ -19,6 +19,7 @@
 
 	       (:file "gd" :depends-on ("package" "utils" "md"))
 	       (:file "group" :depends-on ("package" "md" "utils"))
+               (:file "md-utils" :depends-on ("package" "md" "group"))
 	       (:file "export" :depends-on ("package" "md" "utils" "group"))
 
 	       )
@@ -32,6 +33,5 @@
 	       :cl-json
 	       :montezuma
                :closer-mop
-
 	       ))
 	       

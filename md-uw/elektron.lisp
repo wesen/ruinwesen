@@ -154,14 +154,6 @@
 			       (read-until s #xf7))
 			)))))))
 
-(defun import-file (file)
-  (let ((objects (read-elektron-file file)))
-    (loop for obj in objects
-	 when (md-object-empty-p obj)
-	 do (delete-object obj)
-	 else
-	 collect obj)))
-
 (defun split-beat (track)
   (loop for i in (reverse track)
        nconc (split-byte i)))
@@ -215,7 +207,7 @@
 
     (get-bytes s (- #x4d0 #x4cb))
 
-    (let ((kit (make-object 'kit
+    (let ((kit (make-instance 'kit
 			    :position pos
 			    :name name
 			    :machines tracks
@@ -401,14 +393,14 @@
        do (with-slots (plocks) track
 	    (change-slot-values track
 				'plocks (cons
-					 (make-object 'plock :track track
+					 (make-instance 'plock :track track
 						      :param param
 						      :vals lock) plocks))))
     #+nil(format t "locks: ~A~%~A~%" (track-plocks (first tracks))
 		 (track-plocks (second tracks)))
     (read-until s #xf7)
     #+nil(get-bytes s (- #xaca #xac5))
-    (let ((res (make-object 'md-pattern
+    (let ((res (make-instance 'md-pattern
 			    :position pos
 			    :length pattern-length
 			    :double-tempo double-tempo
@@ -430,7 +422,7 @@
   (let ((res (list)))
     (loop for data = (read-sysex-bytes s 10)
 	 for index from 0
-	 for row = (make-object 'md-row
+	 for row = (make-instance 'md-row
 				:index index
 				:pattern (byte-to-row-pattern (elt data 0))
 				:kit (or (gethash (elt data 1) *kit-hash*) (elt data 1))
@@ -451,7 +443,7 @@
 	 (name (make-c-string (get-bytes s 16)))
 	 (rows (read-song-rows s)))
     (get-bytes s 5)
-    (let ((song (make-object 'md-song
+    (let ((song (make-instance 'md-song
 			     :name name
 			     :position pos
 			     :rows rows)))
@@ -489,4 +481,20 @@
     (put-bytes (get-checksum s) s)
     (put-bytes (short-to-sysex (- (get-length s) 7)) s)
     (put-byte #xf7 s)))
-       
+
+
+(defun write-0-string (string s)
+  (write-string string s)
+  (write-char #\Nul s))
+
+(defun write-c6-file (outputfile files &key relative)
+  (with-open-file (s outputfile :direction :output
+		     :if-does-not-exist :create)
+    (write-0-string "C6 Filelist" s)
+    (write-0-string "0" s)
+    (write-0-string "0" s)
+    (dolist (file files)
+      (if (or relative (equal (pathname-directory file) (pathname-directory outputfile)))
+	  (write-0-string (format nil "00*~A.~A" (pathname-name file)
+				  (pathname-type file)) s)
+	  (write-0-string (format nil "00~A" (namestring file)) s)))))

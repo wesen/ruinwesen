@@ -78,7 +78,7 @@
   (if (and hash (gethash obj hash))
       obj
       (let* ((class (class-of obj))
-	     (res (setf (gethash obj hash) (make-object (class-name class))))
+	     (res (setf (gethash obj hash) (make-instance (class-name class))))
 	     (slots (remove-if #'(lambda (x) (member x
 						     '(bknr.indices::destroyed-p bknr.datastore::id)))
 			       (mapcar #'closer-mop:slot-definition-name (closer-mop:class-slots class))))

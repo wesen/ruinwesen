@@ -78,3 +78,4 @@
 	 (md-pattern (write-pattern-msg obj))
 	 (md-song (write-song-msg obj))
 	 (t (error "unknown object type ~A" obj))) s))))
+

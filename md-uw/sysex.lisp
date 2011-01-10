@@ -42,7 +42,7 @@
   (pm:writesysex out 0
 		 (babel:octets-to-string
 		  (coerce arr '(vector (unsigned-byte 8)))
-		  :external-format :iso-8859-1)))
+		  :encoding :iso-8859-1)))
 
 #-nil
 (defun flush (in)
@@ -166,14 +166,15 @@
 
 (defun make-c-string (bytes)
   (setf bytes (subst 0 127 bytes))
-  (babel:octets-to-string (coerce bytes '(vector (unsigned-byte 8)))
-			   :external-format :iso-8859-1 :end (index-of bytes 0)))
+  (babel:octets-to-string (coerce bytes '(vector (unsigned-byte 8))) 
+			   :encoding :iso-8859-1 :end (index-of bytes 0)))
 
 (defun string-to-sysex (string)
   (pad-to (coerce
 	   (babel:string-to-octets (if (> (Length string) 16)
 					(substring string 0 16)
-				       string) :external-format :iso-8859-1)
+				       string)
+                                   :encoding :iso-8859-1)
 	   'list) 16))
 
 (defun make-byte (bits)

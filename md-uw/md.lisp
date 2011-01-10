@@ -136,7 +136,7 @@
 	  edit-time (get-universal-time))))
 
 (deftransaction md-object-add-new-comment (object user title body)
-  (let ((comment (make-object 'md-comment :user user :title title :body body)))
+  (let ((comment (make-instance 'md-comment :user user :title title :body body)))
     (md-object-add-comment object comment)))
 
 (deftransaction md-object-add-comment (object comment)
@@ -387,7 +387,7 @@
   (:metaclass montezuma-persistent-class))
 
 (defun make-empty-machine (index &key kit)
-  (make-object 'machine
+  (make-instance 'machine
 	       :params '(64 64 0 0 0 0 0 0 0 0 64 64 0 127 0 0 0 127 64 0 0 64 0 0)
 	       :index index
 	       :kit kit
@@ -432,7 +432,7 @@
    (state :update :initform nil)))
 
 (defun make-empty-lfo (&key kit index)
-  (make-object 'lfo
+  (make-instance 'lfo
 	       :kit kit
 	       :index index
 	       :destination 0
@@ -461,14 +461,14 @@
 	    (setf sample (namestring (elt *samples* num)))
 	    (warn "could not find smaple for slot ~A~%" num))
       ))
-    (make-object 'machine
+    (make-instance 'machine
 		 :index index
 		 :sample sample
 		 :params params :model model :level level
 		 :trig trig :mute mute)))
 
 (defun make-lfo (index lfo-data)
-  (make-object 'lfo
+  (make-instance 'lfo
 	       :index index
 	       :destination (elt lfo-data 0)
 	       :param (elt lfo-data 1)
@@ -483,7 +483,7 @@
        nconc (mapcar #'(lambda (x) (list i x)) (track-plocks-from-pattern track))))
 
 (defun make-md-pattern-track (pattern index data plock-pattern accents slides swings)
-  (make-object 'md-pattern-track
+  (make-instance 'md-pattern-track
 	       :index index
 	       :pattern pattern
 	       :hits data
@@ -516,7 +516,7 @@
    (plocks :update :initform nil)))
 
 (defun make-empty-pattern-track (index &key pattern)
-  (make-object 'md-pattern-track
+  (make-instance 'md-pattern-track
 	       :index index
 	       :pattern pattern
 	       :hits '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -654,7 +654,7 @@
 
 
 (defun make-end-row (song index kit)
-  (make-object 'md-row :song song :index index
+  (make-instance 'md-row :song song :index index
 	       :pattern :end
 	       :kit kit
 	       ))
