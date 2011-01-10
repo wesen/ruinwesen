@@ -23,6 +23,7 @@
 	       (:file "group" :depends-on ("package" "md" "utils"))
                (:file "md-utils" :depends-on ("package" "md" "group"))
 	       (:file "export" :depends-on ("package" "md" "utils" "group"))
+               (:file "web/md-handler" :depends ("package" "md" "md-utils" "gd"))
 
 	       )
   :depends-on (:cm

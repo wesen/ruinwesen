@@ -524,7 +524,7 @@
 (defun md-pattern-img (pattern)
   (let* ((images (loop for idx from 0 below 16
 		    for track in (md-pattern-tracks pattern)
-		      unless (pattern-track-empty-p track)
+                    unless (pattern-track-empty-p track)
 		    collect (md-pattern-track-img pattern track idx)))
 	 (len (md-pattern-length pattern))
 	 (height (reduce #'+ (mapcar #'image-height images) :initial-value 0))

@@ -16,16 +16,19 @@
   (< (int-near (object-time event) 0.125) 0.01))
 
 (defun read-events (file)
+  "Read all MD relevant events out of a MIDI file."
   (let ((events (subobjects (import-events file))))
     (remove-if-not (and-fgen #'step-filter #'event-filter) events)))
 
 (defun read-events-all (file)
+  "Read all MD relevant events out of a MIDI file."
   (let ((events (subobjects (import-events file))))
     (remove-if-not (and-fgen #'step-filter #'chan-filter) events)))
 
 (defparameter *pattern-midi-length* 4.0)
 
 (defun split-into-patterns (events)
+  "Split the events in EVENTS into multiple groups, each of the length of a midi pattern (in this case 4.0)"
   (let ((res (list)))
     (loop with start-time = 0
 	 with pattern = (list)
@@ -43,18 +46,23 @@
     (nreverse res)))
 
 (defun events-length (events)
+  "Get the length of the EVENTS sequence in steps."
   (1+ (ceiling (* 8 (reduce #'max (mapcar #'object-time events) :initial-value 0)))))
 
 (defun step-events (events step)
+  "Get the events on a specific step."
   (remove-if-not #'(lambda (x) (= (object-time x) (/ step 8))) events))
 
 (defun events-notes (events)
+  "Get all notes in EVENTS."
   (remove-if-not #'(lambda (x) (typep x 'midi)) events))
 
 (defun events-ccs (events)
+  "Get all CC events in EVENTS."
   (remove-if-not #'(lambda (x) (typep x 'midi-control-change)) events))
 
 (defmethod set-event ((pat md-pattern) (note midi) step)
+  "Set the track hit in PAT on STEP according to the midi note MIDI. Conversion is done using KEYNUM-TO-TRACK."
   (let ((tracknum (keynum-to-track (cm::midi-keynum note))))
     (unless (null tracknum)
       (let ((track (elt (md-pattern-tracks pat) tracknum)))

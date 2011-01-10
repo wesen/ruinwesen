@@ -12,6 +12,9 @@
 	:cl-interpol
 	:bknr.datastore
 	:bknr.indices
+        :bknr.web
+        :bknr.images
+        :hunchentoot
         )
   (:shadowing-import-from :cl-interpol :quote-meta-chars)
   (:shadowing-import-from :bknr.utils :copy-file))

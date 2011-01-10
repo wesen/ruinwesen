@@ -694,11 +694,9 @@
     (format stream "~S (~A)" (md-song-name song) (md-song-position song))))
 
 (define-persistent-class group (md-object)
-  ((name :update :initform "" :index-type string-unique-index
-	 :index-reader group-with-name)
-   (objects :update :initform nil))
+  ((objects :update :initform nil))
   (:metaclass montezuma-persistent-class))
 
 (defmethod print-object ((group group) stream)
   (print-unreadable-object (group stream :type t)
-    (format stream "~S (~A objects)" (group-name group) (length (group-objects group)))))
+    (format stream "~S (~A objects)" (store-object-id group) (length (group-objects group)))))
