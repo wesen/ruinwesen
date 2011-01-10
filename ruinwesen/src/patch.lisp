@@ -62,9 +62,11 @@
 (defparameter *json-client-version* "1.0")
 (defparameter *json-client-url* "http://ruinwesen.com/minicommand")
 
+
+
 (defun json-action-reply (action status message &optional additional)
   (with-output-to-string (s)
-    (json:encode-json
+    (cl-json:encode-json
      `(("protocol-id" . ,*json-protocol-id*)
        ("action" . "response")
        ("requested-action" . ,action)
@@ -359,7 +361,7 @@
       (no-cache)
 	(let ((post-data (raw-post-data :request *request* :force-text t)))
 	  (when post-data
-	    (let* ((json (json:decode-json-from-string post-data)))
+	    (let* ((json (cl-json:decode-json-from-string post-data)))
 	      (let ((result (patch-dispatch-json json)))
 		#+nil(format t "result: ~A~%" result)
 		result)))))))

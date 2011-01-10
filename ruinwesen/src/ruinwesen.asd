@@ -24,7 +24,9 @@
 	       :bknr.modules
 	       :parse-number
 	       :cybertiggyr-time
-	       :cl-gd)
+	       :cl-json
+	       :cl-gd
+	       :alexandria)
 
   :components ((:file "packages")
 	       (:file "config" :depends-on ("packages"))

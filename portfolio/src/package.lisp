@@ -20,6 +20,7 @@
         :bknr.indices
         :bknr.images
         :bknr.rss
+	:alexandria
         )
   (:shadowing-import-from :cl-interpol #:quote-meta-chars)
   (:shadowing-import-from :alexandria #:array-index)
