@@ -73,7 +73,7 @@
     (when id
       (setf id (parse-integer id :junk-allowed t)))
     (cond ((null id)
-	   (make-object 'ruinwesen-news
+	   (make-instance 'ruinwesen-news
 			:title title
 			:owners (list (bknr-session-user))
 			:text text
@@ -136,7 +136,7 @@
 		    (request-uploaded-file "image-file"))
 		 (media (request-uploaded-file "sound-file")))
 
-	     (edit-product-media (make-object 'product :name name
+	     (edit-product-media (make-instance 'product :name name
 					:owners (list (bknr-session-user))
 					:description description
 					:keywords keywords
@@ -262,7 +262,7 @@
       (if error
 	  (expand-template handler "contact")
 	  (progn
-	    (make-object 'rw-contact :name name :email email :city city :text text)
+	    (make-instance 'rw-contact :name name :email email :city city :text text)
 	    (cl-smtp:send-email "localhost" email "info@ruinwesen.com"
 				(format nil "Ruinwesen: Message from ~A of ~A" name city)
 				(format nil
@@ -295,7 +295,7 @@
       (if error
 	  (expand-template handler "preorder")
 	  (progn
-	    (make-object 'preorder :name name :email email :country country :form-factor form-factor
+	    (make-instance 'preorder :name name :email email :country country :form-factor form-factor
 			 :device device :text text)
 	    (cl-smtp:send-email "localhost" email "info@ruinwesen.com"
 				(format nil "Ruinwesen: Preorder from ~A of ~A" name country)

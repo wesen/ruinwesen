@@ -139,15 +139,15 @@
 (defun make-patch-from-json (json)
   (let ((data (json-get-value :data json)))
     (when data
-      (let ((patch (make-object 'rw-patch :author (json-username)
-				:comment (json-get-metadata-value :comment json)
-				:title (json-get-metadata-value :title json)
-				:name (json-get-metadata-value :name json)
-				:tags (cons :needs-to-be-approved
-					    (mapcar #'make-keyword-from-string
-						    (json-get-metadata-value :tags json)))
-				:device-id (json-get-metadata-value :device-id json)
-				:environment-id (json-get-metadata-value :environment-id json))))
+      (let ((patch (make-instance 'rw-patch :author (json-username)
+                                  :comment (json-get-metadata-value :comment json)
+                                  :title (json-get-metadata-value :title json)
+                                  :name (json-get-metadata-value :name json)
+                                  :tags (cons :needs-to-be-approved
+                                              (mapcar #'make-keyword-from-string
+                                                      (json-get-metadata-value :tags json)))
+                                  :device-id (json-get-metadata-value :device-id json)
+                                  :environment-id (json-get-metadata-value :environment-id json))))
 	(handler-case
 	    (let ((arr (cl-base64:base64-string-to-usb8-array data)))
 	      (blob-from-array patch arr)
@@ -337,7 +337,7 @@
 
 (defun json-send-bug-report (json)
   (let* ((bug-report-msg (json-get-value :bug-report json))
-	 (bug-report (make-object 'bug-report :author (json-username)
+	 (bug-report (make-instance 'bug-report :author (json-username)
 				  :bug-report bug-report-msg
 				  :created (get-universal-time))))
     (cl-smtp:send-email "localhost" "info@ruinwesen.com" '("manuel@bl0rg.net" "patchmanager@fastmail.fm")
