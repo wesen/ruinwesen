@@ -16,8 +16,8 @@
 	      :index-type hash-index
 	      :index-reader patches-for-device)
    (environment-id :update :initform nil
-	      :index-type hash-index
-	      :index-reader patches-for-environment)
+                   :index-type hash-index
+                   :index-reader patches-for-environment)
    (downloads :update :initform 0)
    (deleted :update :initform nil)
    (name :update :initform "")))
@@ -51,12 +51,12 @@
   (store-objects-with-class 'rw-patch))
 
 #+nil(make-object 'rw-patch
-	     :author (find-user "wesen")
-	     :title "MDWesenLivePatch"
-	     :comment "my live patch"
-	     :tags '(:machinedrum :live :delay :supatrigga :midiclock)
-	     :device-id :minicommand2
-	     :name "MDWesenLivePatch")
+                  :author (find-user "wesen")
+                  :title "MDWesenLivePatch"
+                  :comment "my live patch"
+                  :tags '(:machinedrum :live :delay :supatrigga :midiclock)
+                  :device-id :minicommand2
+                  :name "MDWesenLivePatch")
 
 (defparameter *json-protocol-id* "1.1")
 (defparameter *json-client-version* "1.0")
@@ -102,7 +102,7 @@
 		       (string= (user-login user)
 				_username)))
 	      user-verified-p)
-	       
+          
 
 	  ))))
 
@@ -167,7 +167,7 @@
       ("last-modified-date" . ,(cybertiggyr-time:format-time nil "%Y-%m-%d" last-modified))
       ("device-id" . ,device-id)
       (:name . ,name))))
-  
+
 
 (defun patch-to-patch-source-json (patch)
   (with-slots (deleted) patch
@@ -176,7 +176,7 @@
 			      (store-object-id patch)))
       ,@(when deleted `((:deleted . ,deleted)))
       ("patch-metadata" . ,(patch-metadata-to-json patch)))))
- 
+
 (defun json-upload-patch (json)
   (if (json-check-auth)
       (let ((patch (make-patch-from-json json)))
@@ -250,7 +250,7 @@
 			      (format nil "no credentials to delete object ~A" patch)))
 	  (t
 	   (format t "foobar author ~A~%" author)
-;;	   (delete-object patch)
+           ;;	   (delete-object patch)
 	   (with-transaction ()
 	     (setf (slot-value patch 'deleted) t
 		   (slot-value patch 'bknr.datastore::timestamp) (get-universal-time)))
@@ -259,27 +259,27 @@
 (defun json-approve-patch (json)
   (let* ((patch-id (parse-integer (or (json-get-value :patch-id json) "") :junk-allowed t))
 	 (patch (when patch-id
-						(store-object-with-id patch-id)))
-				 (author (when patch
-									 (rw-patch-author patch)))
-				 (user (json-get-user)))
-		
+                  (store-object-with-id patch-id)))
+         (author (when patch
+                   (rw-patch-author patch)))
+         (user (json-get-user)))
+    
     (format t "patch: ~A, user: ~A, author: ~A~%" patch user author)
-		
+    
     (cond ((null patch-id)
-					 (format t "invalid")
-					 (json-action-reply "approve-patch" "failed" "invalid patch id"))
-					((null patch)
-					 (format t "null~%")
-					 (json-action-reply "approve-patch" "failed" "no patch with this id"))
-					((not (or (and user (admin-p user))
-										(json-check-auth author)))
-					 (format t "auth ~%")
-					 (json-action-reply "approve-patch" "failed"
-															(format nil "no credentials to approve object ~A" patch)))
-					(t
-					 (approve-patch patch)
-					 (json-action-reply "approve-patch" "ok" nil)))))
+           (format t "invalid")
+           (json-action-reply "approve-patch" "failed" "invalid patch id"))
+          ((null patch)
+           (format t "null~%")
+           (json-action-reply "approve-patch" "failed" "no patch with this id"))
+          ((not (or (and user (admin-p user))
+                    (json-check-auth author)))
+           (format t "auth ~%")
+           (json-action-reply "approve-patch" "failed"
+                              (format nil "no credentials to approve object ~A" patch)))
+          (t
+           (approve-patch patch)
+           (json-action-reply "approve-patch" "ok" nil)))))
 
 (defun json-delete-user (json)
   (let* ((user (json-get-user))
@@ -322,13 +322,13 @@
 	 (date-since (if date-since-str
 			 (parse-time date-since-str)
 			 0)))
-  (json-action-reply "get-news" "ok" nil
-		     `(("news-list" . ,(let ((res (loop for news in (news-posts :count nil :since date-since)
-						     collect (news-to-news-json news))))
-					    (if res
-						res
-						(make-array 0))))
-		       ("date-since" . ,date-since-str)))))
+    (json-action-reply "get-news" "ok" nil
+                       `(("news-list" . ,(let ((res (loop for news in (news-posts :count nil :since date-since)
+                                                       collect (news-to-news-json news))))
+                                              (if res
+                                                  res
+                                                  (make-array 0))))
+                         ("date-since" . ,date-since-str)))))
 
 (define-persistent-class bug-report ()
   ((bug-report :read)
@@ -338,8 +338,8 @@
 (defun json-send-bug-report (json)
   (let* ((bug-report-msg (json-get-value :bug-report json))
 	 (bug-report (make-instance 'bug-report :author (json-username)
-				  :bug-report bug-report-msg
-				  :created (get-universal-time))))
+                                    :bug-report bug-report-msg
+                                    :created (get-universal-time))))
     (cl-smtp:send-email "localhost" "info@ruinwesen.com" '("manuel@bl0rg.net" "patchmanager@fastmail.fm")
 			(format nil "RW Bug Report from ~A" (json-username))
 			bug-report-msg)
@@ -352,25 +352,26 @@
   (json-get-value :auth json))
 
 (defclass patch-manager-handler (page-handler)
-	()
+  ()
   )
 
 (defmethod handle ((handler patch-manager-handler))
   (with-query-params ()
     (with-http-response  ()
       (no-cache)
-	(let ((post-data (raw-post-data :request *request* :force-text t)))
-	  (when post-data
-	    (let* ((json (cl-json:decode-json-from-string post-data)))
-	      (let ((result (patch-dispatch-json json)))
-		#+nil(format t "result: ~A~%" result)
-		result)))))))
+      (let ((post-data (raw-post-data :request *request* :force-text t)))
+        (when post-data
+          (format t "post data: ~A~%" post-data)
+          (let* ((json (cl-json:decode-json-from-string post-data)))
+            (let ((result (patch-dispatch-json json)))
+              #-nil(format t "result: ~A~%" result)
+              result)))))))
 
 (defun patch-dispatch-json (json)
   (let ((action (json-get-value :action json))
-				(*json-auth* (json-get-auth json))
-				(protocol-id (json-get-value :protocol-id json)))
-;;    (format *standard-output* "~S~%" json)
+        (*json-auth* (json-get-auth json))
+        (protocol-id (json-get-value :protocol-id json)))
+    (format *standard-output* "~S~%" json)
     (cond ((string= action "store-new-patch")
 	   (json-upload-patch json))
 	  ((string= action "delete-patch")

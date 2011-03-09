@@ -31,6 +31,7 @@
 	:ruinwesen.config
 	:xhtml-generator)
   (:shadowing-import-from :cl-interpol #:quote-meta-chars)
+  (:shadowing-import-from :bknr.indices #:array-index)
   (:export
    #:product #:product-with-name #:product-name #:product-price #:currency #:amount
    #:product-pictures #:product-keywords #:product-soundfiles #:product-description

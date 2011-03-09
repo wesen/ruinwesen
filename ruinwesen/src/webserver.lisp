@@ -24,7 +24,7 @@
 				      :command-packages (("http://ruinwesen.com/" . :ruinwesen.tags)
 							 ("http://bknr.net/" . :bknr.web)))
 
-                   ("/md-image" md::md-image-handler)
+;;                   ("/md-image" md::md-image-handler)
 
 		   ("/rss" rss-handler)
 		   ("/login" login-handler)
