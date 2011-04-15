@@ -29,16 +29,25 @@
 	       :alexandria)
 
   :components ((:file "packages")
+
 	       (:file "config" :depends-on ("packages"))
-	       (:file "money" :depends-on ("config"))
+
 	       (:file "patch" :depends-on ("config"))
-	       (:file "products" :depends-on ("config" "money"))
+	       (:file "products" :depends-on ("config"))
 	       (:file "news" :depends-on ("config"))
 	       (:file "twitter" :depends-on ("config"))
-	       (:file "atom" :depends-on ("config"))
 	       (:file "blog" :depends-on ("config"))
-	       (:file "handlers" :depends-on ("config" "products" "news"))
+
+               ;; atom handlers for editing the blog
+	       (:file "atom" :depends-on ("config"))
+               
+               (:file "handlers" :depends-on ("config" "products" "news"))
+
 	       (:file "tags" :depends-on ("products" "handlers"))
 	       (:file "login" :depends-on ("products" "handlers"))
-	       (:file "webserver" :depends-on ("config" "handlers" "tags" "login"))
-	       (:file "init" :depends-on ("webserver"))))
+
+               (:file "backbone")
+
+               (:file "webserver" :depends-on ("config" "handlers" "tags" "login" "backbone"))
+
+               (:file "init" :depends-on ("webserver"))))
