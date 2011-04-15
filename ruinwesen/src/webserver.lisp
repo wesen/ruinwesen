@@ -13,7 +13,12 @@
 		 :name "Ruinwesen"
 		 :handler-definitions
 		 `(
+                   ;; rss feed handlers
+		   ("/rss" rss-handler)
+                   ;; editing endpoint for blogging
 		   ("/atom" atom-handler)
+
+                   ;; form handlers for contact and preorder
 		   ("/submit-contact" contact-handler
 				      :destination ,(namestring (merge-pathnames "templates/" *website-directory*))
 				      :command-packages (("http://ruinwesen.com/" . :ruinwesen.tags)
@@ -24,34 +29,44 @@
 				      :command-packages (("http://ruinwesen.com/" . :ruinwesen.tags)
 							 ("http://bknr.net/" . :bknr.web)))
 
-;;                   ("/md-image" md::md-image-handler)
-
-		   ("/rss" rss-handler)
-		   ("/login" login-handler)
-		   ("/admin" admin-handler)
+                   ;; static handlers
 		   ("/static" directory-handler
 			      :destination ,(merge-pathnames #p"static/" *website-directory*))
 		   ("/support-files" directory-handler
 			      :destination ,(merge-pathnames #p"support/" *website-directory*))
 		   ("/images" directory-handler
 			      :destination ,(merge-pathnames #p"static/images/" *website-directory*))
+		   ("/favicon.ico" file-handler
+				   :destination ,(merge-pathnames #p"static/favicon.ico" *website-directory*)
+				   :content-type "application/x-icon")
+                   
+                   ;; misc bknr handlers
+		   ("/login" login-handler)
+		   ("/admin" admin-handler)
 		   user
+
+                   ;; patch manager backend
 		   ("/patch/" patch-serve-handler)
 		   ("/get-patch" patch-serve-handler)
 		   ("/patch-manager" patch-manager-handler)
+                   
 		   ("/" template-handler
 			:default-template "index"
 			:destination ,(namestring (merge-pathnames "templates/" *website-directory*))
 			:command-packages (("http://ruinwesen.com/" . :ruinwesen.tags)
 					   ("http://bknr.net/" . :bknr.web)))
-		   #+nil("/js/" parenscript-file-handler
-			   :destination ,(namestring (merge-pathnames "parenscript/"
-								      *website-directory*)))
-		   #+nil user
-		   #+nil images
-		   ("/favicon.ico" file-handler
-				   :destination ,(merge-pathnames #p"static/favicon.ico" *website-directory*)
-				   :content-type "application/x-icon"))
+
+
+                   ;; development backbone handler
+                   ("/backbone-preorder" backbone-handler :object-class 'preorder)
+
+                   ;; development md handler
+                   ;; ("/md-image" md::md-image-handler)
+
+                   )
+
+                   
+                                      
 		 :authorizer (make-instance 'bknr-authorizer)
 		 :style-sheet-urls '("/static/styles.css")
 		 ;; :javascript-urls '("/js/ruinwesen")
