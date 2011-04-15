@@ -36,11 +36,9 @@
   (publish-ruinwesen)
 
   (setf *acceptor*
-	(make-instance 'hunchentoot:acceptor
+	(make-instance 'bknr.web:bknr-acceptor
 		       :port *webserver-port*
-		       :taskmaster (make-instance 'hunchentoot:single-threaded-taskmaster)
-		       :persistent-connections-p nil
-		       :request-dispatcher 'bknr.web:bknr-dispatch))
+		       :persistent-connections-p nil))
 
   (setf *ht-thread*
 	(bt:make-thread (curry #'hunchentoot:start *acceptor*)
