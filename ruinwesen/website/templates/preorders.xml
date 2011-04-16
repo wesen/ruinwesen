@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+xmlns="http://www.w3.org/1999/xhtml"
+xmlns:bknr="http://bknr.net/"
+xmlns:ruinwesen="http://ruinwesen.com/"
+lang="en">
+
+<ruinwesen:html-header/>
+
+<body>
+<div id="notice">
+
+</div>
+<div id="app">
+</div>
+</body>
+
+<script type="text/javascript" src="/static/js/ruinwesen.js">
+</script>
+
+<script type="text/javascript">
+$(function() {
+App.init();
+});
+</script>
+
+<script type="text/html" id="order_tpl">
+<ul id="preorders">
+  <li> <a href="#newOrder">New Order!</a></li>
+  {{#orders}}
+  <li><a href="#preorders/{{id}}">{{name}} - {{email}}</a> - <a href="#delete-preorder/{{id}}">delete</a></li>
+  {{/orders}}
+</ul>
+</script>
+
+<script type="text/html" id="order_edit_tpl">
+<form id="order_edit" action="#">
+<ul>
+  <li>Name: <input name="name" type="text" size="50" value="{{name}}"/></li>
+  <li>Email: <input name="email" type="text" size="50" value="{{email}}"/></li>
+  <li><input type="submit" name="foo" value="Save!"/></li>
+</ul>
+
+</form>
+</script>
+
+</html>
