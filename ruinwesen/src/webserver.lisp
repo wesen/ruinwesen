@@ -58,7 +58,9 @@
 
 
                    ;; development backbone handler
-                   ("/backbone-preorder" backbone-handler :object-class 'preorder)
+                   ("/backbone/orders" backbone-handler
+                                       :object-class preorder
+                                       :slot-whitelist (name email country form-factor device text))
 
                    ;; development md handler
                    ;; ("/md-image" md::md-image-handler)
