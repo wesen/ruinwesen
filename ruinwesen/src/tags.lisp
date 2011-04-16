@@ -78,11 +78,18 @@
          ((:link :media "only screen and (max-device-width: 480px)" :rel "stylesheet" :type "text/css" :href "/static/css/style-small.css"))
 
          ((:link :rel "stylesheet" :type "text/css" :href "/static/css/lightbox.css"))
-         ((:script :type "text/javascript" :src "/static/js/prototype.js") " ")
-         ((:script :type "text/javascript" :src "/static/js/scriptaculous.js?load=effects,builder") " ")
+         (dolist (js '(;;"prototype.js"
+                       ;;"scriptaculous.js?load=effects,builder"
+                       "jquery-1.4.1.min.js"
+                       "jquery.dotimeout.js"
+                       "json2.js"
+                       "mustache.js"
+                       "ICanHaz.min.js"
+                       "underscore.js"
+                       "backbone.js"
+                       ))
+           (html ((:script :type "text/javascript" :src (format nil "/static/js/~A" js)) " ")))
          
-         ((:script :type "text/javascript" :src "/static/js/prototype.js") " ")
-
          ((:link :rel "icon" :type "image/png" :href "/static/images/rw_icon.png"))
          ((:link :rel "alternate" :type "application/rss+xml"
                  :title "Ruin & Wesen Blog" :href "http://ruinwesen.com/rss/ruinwesen-blog"))
