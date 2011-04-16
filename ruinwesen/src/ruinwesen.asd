@@ -46,8 +46,6 @@
 	       (:file "tags" :depends-on ("products" "handlers"))
 	       (:file "login" :depends-on ("products" "handlers"))
 
-               (:file "backbone")
-
-               (:file "webserver" :depends-on ("config" "handlers" "tags" "login" "backbone"))
+               (:file "webserver" :depends-on ("config" "handlers" "tags" "login"))
 
                (:file "init" :depends-on ("webserver"))))
